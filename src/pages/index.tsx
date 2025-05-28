@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Geist, Geist_Mono } from "next/font/google";
 import styles from "@/styles/Home.module.css";
+import InfoPageLayout from "../components/InfoPageLayout";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,48 +26,40 @@ export default function Home() {
       <div
         className={`${styles.page} ${geistSans.variable} ${geistMono.variable}`}
       >
-        <main className={styles.main}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js logo"
-            width={180}
-            height={38}
-            priority
-          />
-          <ol>
-            <li>
-              Get started by editing <code>src/pages/index.tsx</code>.
+        <InfoPageLayout>
+          <h1 style={{ fontSize: 40, fontWeight: 700, marginBottom: 24 }}>
+            TRANSPORTE ESCOLAR
+          </h1>
+          <p style={{ fontSize: 18, color: "#333", marginBottom: 24 }}>
+            Con más de 22 años de experiencia, dobleVIA se especializa en el
+            traslado seguro y puntual de estudiantes. Nuestro servicio de
+            transporte escolar ofrece tranquilidad a instituciones educativas y
+            familias al contar con:
+          </p>
+          <ul
+            style={{
+              fontSize: 17,
+              color: "#222",
+              marginBottom: 24,
+              paddingLeft: 24,
+            }}
+          >
+            <li style={{ marginBottom: 12 }}>
+              <b>Monitoreo GPS en Tiempo Real:</b> Cada vehículo está equipado
+              con rastreo GPS para que las familias puedan verificar la
+              ubicación y ruta en tiempo real.
             </li>
-            <li>Save and see your changes instantly.</li>
-          </ol>
-
-          <div className={styles.ctas}>
-            <a
-              className={styles.primary}
-              href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Image
-                className={styles.logo}
-                src="/vercel.svg"
-                alt="Vercel logomark"
-                width={20}
-                height={20}
-              />
-              Deploy now
-            </a>
-            <a
-              href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-              className={styles.secondary}
-            >
-              Read our docs
-            </a>
-          </div>
-        </main>
+            <li style={{ marginBottom: 12 }}>
+              <b>Personal Capacitado:</b> Conductores y asistentes altamente
+              capacitados en servicio al cliente, garantizando un entorno seguro
+              y amigable para los estudiantes.
+            </li>
+            <li>
+              <b>Mantenimiento Preventivo:</b> Riguroso plan de para asegurar la
+              óptima condición de los vehículos en cada traslado.
+            </li>
+          </ul>
+        </InfoPageLayout>
         <footer className={styles.footer}>
           <a
             href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
