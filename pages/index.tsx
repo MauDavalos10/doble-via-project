@@ -42,8 +42,7 @@ export default function Home() {
       ? [
           { label: "Escolar", path: "/school" },
           { label: "Institucional", path: "/institutional" },
-          { label: "Traslado", path: "/transfer" },
-          { label: "Carrito", path: "/trolley" },
+          { label: "Trolley", path: "/trolley" },
           { label: "Turismo", path: "/tourism" },
           { label: "Acerca de", path: "/about" },
           { label: "Nuestros Clientes", path: "/clients" },
@@ -52,7 +51,6 @@ export default function Home() {
       : [
           { label: t("school"), path: "/school" },
           { label: t("institutional"), path: "/institutional" },
-          { label: t("transfer"), path: "/transfer" },
           { label: t("trolley"), path: "/trolley" },
           { label: t("tourism"), path: "/tourism" },
           { label: t("about"), path: "/about" },

@@ -16,7 +16,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
       {/* Left: GIF */}
       <div
         style={{
-          flex: "0 0 30%",
+          flex: "0 0 40%",
           background: "#222",
           display: "flex",
           alignItems: "center",
