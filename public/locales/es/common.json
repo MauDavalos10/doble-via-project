@@ -1,0 +1,17 @@
+{
+  "welcome": "Bienvenido a nuestra página",
+  "about": "Acerca de",
+  "contact": "Contacto",
+  "language": "Idioma",
+  "switchToEnglish": "Cambiar a Inglés",
+  "switchToSpanish": "Cambiar a Español",
+  "description": "Esta es una landing page simple con Material UI y capacidades de cambio de idioma.",
+  "menu": "Menú",
+  "school": "Escolar",
+  "institutional": "Institucional",
+  "transfer": "Traslado",
+  "trolley": "Carrito",
+  "tourism": "Turismo",
+  "clients": "Nuestros Clientes",
+  "reviews": "Reseñas Escritas"
+}
