@@ -19,13 +19,15 @@ import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export default function Home() {
   const { t } = useTranslation("common");
   const router = useRouter();
   const { locale } = router;
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const heroRef = useRef(null);
 
   console.log("locale:", locale);
   console.log("school:", t("school"));
@@ -66,22 +68,33 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const handleScroll = () => {
+      setScrollPosition(window.scrollY);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
     setDrawerOpen(false);
   }, [locale]);
 
   return (
     <>
-      <Head>
-        <title>{t("welcome")}</title>
-        <meta
-          name="description"
-          content="A simple landing page with language switching"
-        />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <AppBar position="static">
+      <AppBar
+        position="fixed"
+        elevation={0}
+        sx={{
+          backgroundColor: `rgba(24, 24, 24, ${Math.min(
+            scrollPosition / 200,
+            1
+          )})`,
+          boxShadow: "none",
+          transition: "background-color 0.4s cubic-bezier(.4,0,.2,1)",
+          backdropFilter: scrollPosition > 10 ? "blur(8px)" : "none",
+        }}
+      >
         <Toolbar>
           <IconButton
             color="inherit"
@@ -133,15 +146,110 @@ export default function Home() {
         </List>
       </Drawer>
 
-      <Container maxWidth="lg">
-        <Box sx={{ my: 4 }}>
-          <Typography variant="h4" component="h1" gutterBottom>
-            {t("welcome")}
-          </Typography>
-          <Typography variant="body1" paragraph>
-            {t("description")}
-          </Typography>
+      <Box
+        ref={heroRef}
+        sx={{
+          width: "100vw",
+          height: "100vh",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <img
+          src="/images/car.gif"
+          alt="Hero GIF"
+          style={{
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            position: "absolute",
+            top: 0,
+            left: 0,
+            zIndex: 0,
+          }}
+        />
+        <Box
+          sx={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            zIndex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            color: "white",
+            pointerEvents: "none",
+          }}
+        >
+          {/* Aquí puedes poner texto/logo si lo deseas */}
         </Box>
+      </Box>
+
+      <Container maxWidth="lg" sx={{ mt: { xs: 6, md: 8 } }}>
+        {/* Servicios en dos columnas alternadas */}
+        {[
+          {
+            img: "/images/img1.jpeg",
+            titleKey: "schoolTitle",
+            descKey: "schoolDescription",
+          },
+          {
+            img: "/images/img2.jpg",
+            titleKey: "institutionalTitle",
+            descKey: "institutionalDescription",
+          },
+          {
+            img: "/images/img3.jpeg",
+            titleKey: "airportTitle",
+            descKey: "airportDescription",
+          },
+          {
+            img: "/images/img4.jpeg",
+            titleKey: "trolleyTitle",
+            descKey: "trolleyDescription",
+          },
+          {
+            img: "/images/img5.jpeg",
+            titleKey: "tourismTitle",
+            descKey: "tourismDescription",
+          },
+        ].map((item, idx) => (
+          <Box
+            key={item.titleKey}
+            sx={{
+              display: "flex",
+              flexDirection: {
+                xs: "column",
+                md: idx % 2 === 0 ? "row" : "row-reverse",
+              },
+              alignItems: "center",
+              mb: 6,
+              gap: 4,
+            }}
+          >
+            <Box sx={{ flex: 1, minWidth: 260 }}>
+              <img
+                src={item.img}
+                alt={t(item.titleKey)}
+                style={{
+                  width: "100%",
+                  borderRadius: 12,
+                  boxShadow: "0 2px 16px rgba(0,0,0,0.08)",
+                }}
+              />
+            </Box>
+            <Box sx={{ flex: 2, minWidth: 260 }}>
+              <Typography variant="h5" sx={{ fontWeight: 700, mb: 2 }}>
+                {t(item.titleKey)}
+              </Typography>
+              <Typography variant="body1" sx={{ fontSize: 18 }}>
+                {t(item.descKey)}
+              </Typography>
+            </Box>
+          </Box>
+        ))}
       </Container>
     </>
   );
