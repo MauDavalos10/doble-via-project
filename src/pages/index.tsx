@@ -1,17 +1,6 @@
 import Head from "next/head";
-import { Geist, Geist_Mono } from "next/font/google";
 import { Typography, Box } from "@mui/material";
 import InfoPageLayout from "../components/InfoPageLayout";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export default function Home() {
   return (
@@ -26,11 +15,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Box
-        className={`${geistSans.variable} ${geistMono.variable}`}
         sx={{
           minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
+          fontFamily: "'Poppins', sans-serif",
         }}
       >
         <InfoPageLayout>
@@ -41,6 +30,8 @@ export default function Home() {
               fontWeight: 700,
               marginBottom: 3,
               textAlign: { xs: "center", md: "left" },
+              color: "var(--dark-gray)",
+              fontFamily: "'Poppins', sans-serif",
             }}
           >
             TRANSPORTE ESCOLAR
@@ -49,9 +40,10 @@ export default function Home() {
             variant="body1"
             sx={{
               fontSize: { xs: 16, sm: 17, md: 18 },
-              color: "#333",
+              color: "var(--dark-gray)",
               marginBottom: 3,
               textAlign: { xs: "center", md: "left" },
+              fontFamily: "'Poppins', sans-serif",
             }}
           >
             Con más de 22 años de experiencia, dobleVIA se especializa en el
@@ -63,9 +55,10 @@ export default function Home() {
             component="ul"
             sx={{
               fontSize: { xs: 15, sm: 16, md: 17 },
-              color: "#222",
+              color: "var(--dark-gray)",
               marginBottom: 3,
               paddingLeft: { xs: 2, md: 3 },
+              fontFamily: "'Poppins', sans-serif",
               "& li": {
                 marginBottom: 1.5,
                 textAlign: { xs: "center", md: "left" },
