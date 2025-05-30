@@ -1,9 +1,8 @@
-import React from "react";
-import { Box, Typography, Divider, Link as MuiLink } from "@mui/material";
+import { Box, Typography, Link as MuiLink } from "@mui/material";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import TikTokIcon from "@mui/icons-material/MusicNote"; // TikTok no está en MUI, usamos MusicNote como placeholder
+import TikTokIcon from "@mui/icons-material/MusicNote";
 import GoogleIcon from "@mui/icons-material/Google";
 import XIcon from "@mui/icons-material/X";
 import YouTubeIcon from "@mui/icons-material/YouTube";
@@ -49,91 +48,216 @@ const socialLinks = [
 
 export default function Footer() {
   const { t } = useTranslation("common");
+
   return (
     <Box
       component="footer"
-      sx={{ bgcolor: "#181818", color: "#aaa", pt: 8, pb: 2, mt: 8 }}
+      sx={{
+        background: "linear-gradient(180deg, #0a0a0a 0%, #000000 100%)",
+        color: "#a0a0a0",
+        pt: { xs: 6, md: 8 },
+        pb: 3,
+        mt: { xs: 6, md: 8 },
+        position: "relative",
+        "&::before": {
+          content: '""',
+          position: "absolute",
+          top: 0,
+          left: 0,
+          right: 0,
+          height: "1px",
+          background:
+            "linear-gradient(90deg, transparent 0%, var(--primary-red) 50%, transparent 100%)",
+          opacity: 0.4,
+        },
+      }}
     >
+      {/* Social Links Grid */}
       <Box
         sx={{
-          display: "grid",
-          gridTemplateColumns: { xs: "1fr 1fr", md: "repeat(4, 1fr)" },
-          gap: 6,
-          justifyItems: "center",
-          alignItems: "center",
-          mb: 8,
+          maxWidth: "1200px",
+          margin: "0 auto",
+          px: { xs: 3, md: 4 },
         }}
       >
-        {socialLinks.slice(0, 4).map((item) => (
-          <MuiLink
-            key={item.label}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="none"
+        <Box
+          sx={{
+            display: "grid",
+            gridTemplateColumns: {
+              xs: "repeat(2, 1fr)",
+              sm: "repeat(3, 1fr)",
+              md: "repeat(4, 1fr)",
+              lg: "repeat(7, 1fr)",
+            },
+            gap: { xs: 3, md: 4 },
+            justifyItems: "center",
+            alignItems: "center",
+            mb: { xs: 6, md: 8 },
+          }}
+        >
+          {socialLinks.map((item) => (
+            <MuiLink
+              key={item.label}
+              href={item.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              underline="none"
+              sx={{
+                color: "#a0a0a0",
+                display: "flex",
+                flexDirection: { xs: "column", lg: "row" },
+                alignItems: "center",
+                gap: { xs: 0.5, lg: 1 },
+                fontSize: { xs: "0.9rem", md: "1rem" },
+                fontWeight: 500,
+                fontFamily: "'Poppins', sans-serif",
+                padding: { xs: "0.75rem", md: "1rem" },
+                borderRadius: "12px",
+                transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                position: "relative",
+                "&:hover": {
+                  color: "#ffffff",
+                  transform: "translateY(-2px)",
+                  "& .MuiSvgIcon-root": {
+                    color: "var(--primary-red)",
+                    transform: "scale(1.1)",
+                  },
+                },
+                "& .MuiSvgIcon-root": {
+                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                  fontSize: { xs: "1.5rem", md: "1.75rem" },
+                },
+              }}
+            >
+              {item.icon}
+              <Typography
+                variant="caption"
+                sx={{
+                  fontSize: { xs: "0.75rem", lg: "0.9rem" },
+                  fontWeight: 500,
+                  fontFamily: "'Poppins', sans-serif",
+                  textAlign: "center",
+                }}
+              >
+                {item.label}
+              </Typography>
+            </MuiLink>
+          ))}
+        </Box>
+
+        {/* Elegant Divider */}
+        <Box
+          sx={{
+            height: "1px",
+            background:
+              "linear-gradient(90deg, transparent 0%, #404040 20%, #404040 80%, transparent 100%)",
+            opacity: 0.2,
+            mb: { xs: 4, md: 6 },
+          }}
+        />
+
+        {/* Content Section */}
+        <Box sx={{ textAlign: "center", px: { xs: 1, md: 2 } }}>
+          <Typography
+            variant="body1"
             sx={{
-              color: "#aaa",
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              fontSize: 20,
+              mb: { xs: 3, md: 4 },
+              fontSize: { xs: "1rem", md: "1.1rem" },
+              lineHeight: 1.7,
+              color: "#a0a0a0",
+              fontFamily: "'Poppins', sans-serif",
               fontWeight: 400,
-              "&:hover": { color: "#fff" },
+              maxWidth: "800px",
+              margin: "0 auto",
+              opacity: 0.8,
             }}
           >
-            {item.icon}
-            {item.label}
-          </MuiLink>
-        ))}
-        {socialLinks.slice(4).map((item) => (
-          <MuiLink
-            key={item.label}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
-            underline="none"
+            {t("footerDescription", {
+              defaultValue:
+                "Transportamos vidas. En dobleVIA, nos especializamos en brindar un servicio de transporte confiable, adaptado a tus necesidades y con un compromiso inquebrantable hacia la seguridad y comodidad de cada pasajero.",
+            })}
+          </Typography>
+
+          {/* Contact Information */}
+          <Box
             sx={{
-              color: "#aaa",
               display: "flex",
-              alignItems: "center",
-              gap: 1,
-              fontSize: 20,
-              fontWeight: 400,
-              "&:hover": { color: "#fff" },
+              flexDirection: "column",
+              gap: 1.5,
+              mb: 3,
+              "& > *": {
+                fontSize: { xs: "0.9rem", md: "1rem" },
+                color: "#a0a0a0",
+                fontFamily: "'Poppins', sans-serif",
+                fontWeight: 400,
+                opacity: 0.7,
+              },
             }}
           >
-            {item.icon}
-            {item.label}
-          </MuiLink>
-        ))}
-      </Box>
-      <Divider sx={{ bgcolor: "#333", mb: 4 }} />
-      <Box sx={{ textAlign: "center", px: 2 }}>
-        <Typography variant="body1" sx={{ mb: 2, fontSize: 20, color: "#aaa" }}>
-          {t("footerDescription", {
-            defaultValue:
-              "Transportamos vidas. En dobleVIA, nos especializamos en brindar un servicio de transporte confiable, adaptado a tus necesidades y con un compromiso inquebrantable hacia la seguridad y comodidad de cada pasajero.",
-          })}
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 1, color: "#aaa" }}>
-          WhatsApp: +593 98 706 3904 | Teléfono celular: +593 98 706 3904 |
-          Teléfono convencional: +593 2 238 0008
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 1, color: "#aaa" }}>
-          Correo: ventas@doblevia.org
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 1, color: "#aaa" }}>
-          Dirección: Av. María Teresa Velásquez y E35. Sector Pifo
-        </Typography>
-        <Typography variant="body2" sx={{ mb: 2, color: "#aaa" }}>
-          Quito - Ecuador - Suramérica
-        </Typography>
-        <Typography variant="caption" sx={{ color: "#666" }}>
-          © 2025 dobleVIA.{" "}
-          {t("footerRights", {
-            defaultValue: "Todos los derechos reservados.",
-          })}
-        </Typography>
+            <Typography variant="body2">
+              <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
+                WhatsApp:
+              </Box>{" "}
+              +593 98 706 3904 |{" "}
+              <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
+                Teléfono celular:
+              </Box>{" "}
+              +593 98 706 3904 |{" "}
+              <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
+                Teléfono convencional:
+              </Box>{" "}
+              +593 2 238 0008
+            </Typography>
+            <Typography variant="body2">
+              <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
+                Correo:
+              </Box>{" "}
+              ventas@doblevia.org
+            </Typography>
+            <Typography variant="body2">
+              <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
+                Dirección:
+              </Box>{" "}
+              Av. María Teresa Velásquez y E35. Sector Pifo
+            </Typography>
+            <Typography variant="body2">
+              Quito - Ecuador - Suramérica
+            </Typography>
+          </Box>
+
+          {/* Copyright */}
+          <Box
+            sx={{
+              pt: 3,
+              borderTop: "1px solid rgba(255, 255, 255, 0.05)",
+            }}
+          >
+            <Typography
+              variant="caption"
+              sx={{
+                color: "#a0a0a0",
+                fontSize: "0.9rem",
+                fontFamily: "'Poppins', sans-serif",
+                opacity: 0.6,
+              }}
+            >
+              © 2025{" "}
+              <Box
+                component="span"
+                sx={{
+                  fontWeight: 600,
+                  color: "var(--primary-red)",
+                }}
+              >
+                dobleVIA
+              </Box>
+              .{" "}
+              {t("footerRights", {
+                defaultValue: "Todos los derechos reservados.",
+              })}
+            </Typography>
+          </Box>
+        </Box>
       </Box>
     </Box>
   );
