@@ -1,7 +1,6 @@
 import { GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import Head from "next/head";
 import { useRouter } from "next/router";
 import {
   AppBar,
@@ -21,6 +20,7 @@ import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
 import { useState, useEffect, useRef } from "react";
 import VideoBackground from "../src/components/VideoBackground";
+import Footer from "../src/components/Footer";
 
 export default function Home() {
   const { t } = useTranslation("common");
@@ -243,6 +243,7 @@ export default function Home() {
           </Box>
         ))}
       </Container>
+      <Footer />
     </>
   );
 }
