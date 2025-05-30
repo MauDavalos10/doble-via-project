@@ -4,7 +4,6 @@ import Head from "next/head";
 import InfoPageLayout from "../src/components/InfoPageLayout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";
-import { GetServerSideProps } from "next";
 import { NextSeo } from "next-seo";
 
 const School = () => {

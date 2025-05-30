@@ -181,7 +181,7 @@ export default function Home() {
               pt: 4,
             }}
           >
-            {menuOptions.map((option, index) => (
+            {menuOptions.map((option) => (
               <ListItem key={option.path} disablePadding>
                 <ListItemButton
                   onClick={() => {
