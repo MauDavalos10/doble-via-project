@@ -3,11 +3,25 @@ import Head from "next/head";
 import InfoPageLayout from "../src/components/InfoPageLayout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";
+import { GetServerSideProps } from "next";
+import { NextSeo } from "next-seo";
 
 export default function Institutional() {
   const { t } = useTranslation("common");
   return (
     <>
+      <NextSeo
+        title="Transporte Institucional"
+        description="Servicio de transporte institucional para empresas y organizaciones. Soluciones de transporte corporativo eficientes y profesionales."
+        canonical="https://doblevia.org/institutional"
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content:
+              "transporte institucional, transporte corporativo, transporte empresarial, servicio de transporte para empresas",
+          },
+        ]}
+      />
       <Head>
         <title>{t("institutionalTitle")}</title>
       </Head>

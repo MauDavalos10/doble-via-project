@@ -2,6 +2,7 @@ import { GetServerSideProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
+import { NextSeo } from "next-seo";
 import {
   AppBar,
   Toolbar,
@@ -90,6 +91,18 @@ export default function Home() {
 
   return (
     <ThemeProvider theme={theme}>
+      <NextSeo
+        title="Inicio"
+        description="Doble Vía Transport - Tu socio confiable en servicios de transporte escolar, institucional y turístico. Ofrecemos soluciones de transporte seguras y de alta calidad."
+        canonical="https://doblevia.org/"
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content:
+              "transporte escolar, transporte institucional, transporte turístico, servicios de transporte, transporte seguro, transporte confiable",
+          },
+        ]}
+      />
       <>
         <AppBar
           position="fixed"

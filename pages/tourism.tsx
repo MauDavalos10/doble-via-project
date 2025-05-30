@@ -3,11 +3,25 @@ import Head from "next/head";
 import InfoPageLayout from "../src/components/InfoPageLayout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticPropsContext } from "next";
+import { GetServerSideProps } from "next";
+import { NextSeo } from "next-seo";
 
 export default function Tourism() {
   const { t } = useTranslation("common");
   return (
     <>
+      <NextSeo
+        title="Transporte Turístico"
+        description="Servicio de transporte turístico de alta calidad. Viajes cómodos y seguros para grupos y turistas individuales."
+        canonical="https://doblevia.org/tourism"
+        additionalMetaTags={[
+          {
+            name: "keywords",
+            content:
+              "transporte turístico, servicio de turismo, transporte para turistas, viajes turísticos, transporte de grupos",
+          },
+        ]}
+      />
       <Head>
         <title>{t("tourismTitle")}</title>
       </Head>
