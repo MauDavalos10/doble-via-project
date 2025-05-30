@@ -157,7 +157,7 @@ export default function Home() {
         }}
       >
         <VideoBackground
-          src="/videos/doble-via-compressed.mp4"
+          src="/videos/doble-via.mp4"
           fallbackImage="/images/car.gif"
         />
         <Box

@@ -36,7 +36,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
         }}
       >
         <VideoBackground
-          src="/videos/doble-via-compressed.mp4"
+          src="/videos/doble-via.mp4"
           fallbackImage="/images/car.gif"
           fullHeight
         />
