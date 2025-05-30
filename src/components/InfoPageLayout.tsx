@@ -1,4 +1,5 @@
 import React from "react";
+import VideoBackground from "./VideoBackground";
 
 interface InfoPageLayoutProps {
   children: React.ReactNode;
@@ -21,12 +22,14 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
+          position: "relative",
+          overflow: "hidden",
         }}
       >
-        <img
-          src="/images/car.gif"
-          alt="Transporte escolar"
-          style={{ width: "100%", height: "auto", objectFit: "cover" }}
+        <VideoBackground
+          src="/videos/doble-via.mp4"
+          fallbackImage="/images/car.gif"
+          fullHeight
         />
       </div>
       {/* Right: Content */}

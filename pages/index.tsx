@@ -20,6 +20,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemText from "@mui/material/ListItemText";
 import IconButton from "@mui/material/IconButton";
 import { useState, useEffect, useRef } from "react";
+import VideoBackground from "../src/components/VideoBackground";
 
 export default function Home() {
   const { t } = useTranslation("common");
@@ -155,18 +156,9 @@ export default function Home() {
           overflow: "hidden",
         }}
       >
-        <img
-          src="/images/car.gif"
-          alt="Hero GIF"
-          style={{
-            width: "100%",
-            height: "100%",
-            objectFit: "cover",
-            position: "absolute",
-            top: 0,
-            left: 0,
-            zIndex: 0,
-          }}
+        <VideoBackground
+          src="/videos/doble-via.mp4"
+          fallbackImage="/images/car.gif"
         />
         <Box
           sx={{
