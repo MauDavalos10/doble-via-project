@@ -1,13 +1,13 @@
 import { useState } from "react";
 
 interface VideoBackgroundProps {
-  src: string;
+  youtubeId: string;
   fallbackImage: string;
   fullHeight?: boolean;
 }
 
 export default function VideoBackground({
-  src,
+  youtubeId,
   fallbackImage,
   fullHeight = false,
 }: VideoBackgroundProps) {
@@ -28,15 +28,16 @@ export default function VideoBackground({
         overflow: "hidden" as const,
       };
 
-  const videoStyle = {
+  const iframeStyle = {
     position: "absolute" as const,
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    objectFit: "cover" as const,
-    transition: "opacity 0.5s",
-    opacity: isLoaded ? 1 : 0,
+    top: "50%",
+    left: "50%",
+    width: "100vw",
+    height: "56.25vw", // 16:9 aspect ratio
+    minHeight: "100vh",
+    minWidth: "177.77vh", // 16:9 aspect ratio
+    transform: "translate(-50%, -50%)",
+    pointerEvents: "none" as const,
     zIndex: 1,
   };
 
@@ -56,16 +57,14 @@ export default function VideoBackground({
           }}
         />
       )}
-      <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        onLoadedData={() => setIsLoaded(true)}
-        style={videoStyle}
-      >
-        <source src={src} type="video/mp4" />
-      </video>
+      <iframe
+        src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080`}
+        style={iframeStyle}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowFullScreen
+        onLoad={() => setIsLoaded(true)}
+      />
     </div>
   );
 }
