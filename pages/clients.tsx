@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Box, IconButton, Paper } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetServerSideProps } from "next";
 
 export default function Clients() {
   const [currentPage, setCurrentPage] = useState(0);
@@ -169,3 +171,11 @@ export default function Clients() {
     </InfoPageLayout>
   );
 }
+
+export const getServerSideProps: GetServerSideProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? "es", ["common"])),
+    },
+  };
+};
