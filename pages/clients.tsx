@@ -1,13 +1,11 @@
-import { useTranslation } from "next-i18next";
 import Image from "next/image";
 import InfoPageLayout from "../src/components/InfoPageLayout";
 import { useState } from "react";
-import { Box, IconButton, Paper, Typography } from "@mui/material";
+import { Box, IconButton, Paper } from "@mui/material";
 import ArrowBackIosNewIcon from "@mui/icons-material/ArrowBackIosNew";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
 
 export default function Clients() {
-  const { t } = useTranslation("common");
   const [currentPage, setCurrentPage] = useState(0);
 
   const clientLogos = [
