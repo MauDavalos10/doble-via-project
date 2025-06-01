@@ -41,21 +41,31 @@ export default function VideoBackground({
     zIndex: 1,
   };
 
+  const fallbackStyle = {
+    position: "absolute" as const,
+    inset: 0,
+    background: "#ffffff",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: "100%",
+    zIndex: 0,
+  };
+
+  const imageStyle = {
+    maxWidth: "40%",
+    maxHeight: "40%",
+    objectFit: "contain" as const,
+    animation: "pulse 2s ease-in-out infinite",
+  };
+
   return (
     <div style={containerStyle}>
       {!isLoaded && (
-        <div
-          style={{
-            position: "absolute",
-            inset: 0,
-            backgroundImage: `url(${fallbackImage})`,
-            backgroundSize: "cover",
-            backgroundPosition: "center",
-            width: "100%",
-            height: "100%",
-            zIndex: 0,
-          }}
-        />
+        <div style={fallbackStyle}>
+          <img src={fallbackImage} alt="Loading" style={imageStyle} />
+        </div>
       )}
       <iframe
         src={`https://www.youtube.com/embed/${youtubeId}?autoplay=1&mute=1&loop=1&playlist=${youtubeId}&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&enablejsapi=1&vq=hd1080`}
@@ -65,6 +75,22 @@ export default function VideoBackground({
         allowFullScreen
         onLoad={() => setIsLoaded(true)}
       />
+      <style jsx>{`
+        @keyframes pulse {
+          0% {
+            opacity: 0.4;
+            transform: scale(0.95);
+          }
+          50% {
+            opacity: 1;
+            transform: scale(1);
+          }
+          100% {
+            opacity: 0.4;
+            transform: scale(0.95);
+          }
+        }
+      `}</style>
     </div>
   );
 }

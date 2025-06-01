@@ -237,7 +237,7 @@ export default function Home() {
         >
           <VideoBackground
             youtubeId="rCH0d_KBoqM"
-            fallbackImage="/images/car.gif"
+            fallbackImage="/images/logo-rojo.png"
           />
           <Box
             sx={{
