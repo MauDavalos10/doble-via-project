@@ -34,8 +34,10 @@ const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
   const { t } = useTranslation("common");
   const router = useRouter();
-  const { locale } = router;
+  const { locale, pathname } = router;
   const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const shouldShowWhatsApp = pathname !== "/clients";
 
   const menuOptions =
     locale === "es"
@@ -239,78 +241,82 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
           >
             {children}
 
-            <Box
-              sx={{
-                margin: "3rem 0 2rem 0",
-                height: "1px",
-                background:
-                  "linear-gradient(90deg, transparent 0%, var(--medium-gray) 50%, transparent 100%)",
-                opacity: 0.3,
-              }}
-            />
-
-            <Typography
-              variant="body1"
-              align="center"
-              sx={{
-                marginBottom: "2rem",
-                color: "var(--dark-gray)",
-                fontFamily: "'Poppins', sans-serif",
-                fontSize: { xs: "1rem", md: "1.1rem" },
-                lineHeight: 1.6,
-                fontWeight: 400,
-                opacity: 0.85,
-              }}
-            >
-              Si necesita atención inmediata, contáctenos directamente a través
-              de WhatsApp.
-            </Typography>
-
-            <Box sx={{ display: "flex", justifyContent: "center" }}>
-              <Button
-                href={whatsappUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                variant="contained"
-                startIcon={<WhatsAppIcon sx={{ fontSize: "1.2rem" }} />}
-                sx={{
-                  background:
-                    "linear-gradient(135deg, #c00b19 0%, #a00915 100%)",
-                  transform: "translateY(-2px)",
-                  boxShadow: "0 12px 32px rgba(228, 13, 31, 0.3)",
-                  "&:active": {
-                    transform: "translateY(0px)",
-                  },
-                  padding: "0.75rem 2rem",
-                  fontSize: { xs: "1rem", md: "1.1rem" },
-                  fontWeight: 600,
-                  fontFamily: "'Poppins', sans-serif",
-                  borderRadius: "50px",
-                  textTransform: "none",
-                  letterSpacing: "0.5px",
-                  transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                  border: "none",
-                  minWidth: "200px",
-                  "&:before": {
-                    content: '""',
-                    position: "absolute",
-                    top: 0,
-                    left: 0,
-                    right: 0,
-                    bottom: 0,
-                    borderRadius: "50px",
+            {shouldShowWhatsApp && (
+              <>
+                <Box
+                  sx={{
+                    margin: "3rem 0 2rem 0",
+                    height: "1px",
                     background:
-                      "linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%)",
-                    zIndex: 1,
-                  },
-                  "& .MuiButton-startIcon": {
-                    marginRight: "8px",
-                  },
-                }}
-              >
-                + 593 98 706 3904
-              </Button>
-            </Box>
+                      "linear-gradient(90deg, transparent 0%, var(--medium-gray) 50%, transparent 100%)",
+                    opacity: 0.3,
+                  }}
+                />
+
+                <Typography
+                  variant="body1"
+                  align="center"
+                  sx={{
+                    marginBottom: "2rem",
+                    color: "var(--dark-gray)",
+                    fontFamily: "'Poppins', sans-serif",
+                    fontSize: { xs: "1rem", md: "1.1rem" },
+                    lineHeight: 1.6,
+                    fontWeight: 400,
+                    opacity: 0.85,
+                  }}
+                >
+                  Si necesita atención inmediata, contáctenos directamente a
+                  través de WhatsApp.
+                </Typography>
+
+                <Box sx={{ display: "flex", justifyContent: "center" }}>
+                  <Button
+                    href={whatsappUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    variant="contained"
+                    startIcon={<WhatsAppIcon sx={{ fontSize: "1.2rem" }} />}
+                    sx={{
+                      background:
+                        "linear-gradient(135deg, #c00b19 0%, #a00915 100%)",
+                      transform: "translateY(-2px)",
+                      boxShadow: "0 12px 32px rgba(228, 13, 31, 0.3)",
+                      "&:active": {
+                        transform: "translateY(0px)",
+                      },
+                      padding: "0.75rem 2rem",
+                      fontSize: { xs: "1rem", md: "1.1rem" },
+                      fontWeight: 600,
+                      fontFamily: "'Poppins', sans-serif",
+                      borderRadius: "50px",
+                      textTransform: "none",
+                      letterSpacing: "0.5px",
+                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                      border: "none",
+                      minWidth: "200px",
+                      "&:before": {
+                        content: '""',
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        borderRadius: "50px",
+                        background:
+                          "linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%)",
+                        zIndex: 1,
+                      },
+                      "& .MuiButton-startIcon": {
+                        marginRight: "8px",
+                      },
+                    }}
+                  >
+                    + 593 98 706 3904
+                  </Button>
+                </Box>
+              </>
+            )}
           </Container>
         </Box>
       </Box>
