@@ -17,4 +17,9 @@ module.exports = {
   react: {
     useSuspense: false,
   },
+  backend: {
+    loadPath: "/locales/{{lng}}/{{ns}}.json",
+  },
+  ns: ["common"],
+  defaultNS: "common",
 };

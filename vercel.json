@@ -1,0 +1,19 @@
+{
+  "rewrites": [
+    {
+      "source": "/locales/(.*)",
+      "destination": "/public/locales/$1"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/locales/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=86400"
+        }
+      ]
+    }
+  ]
+}
