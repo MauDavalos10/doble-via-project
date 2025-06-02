@@ -1,25 +1,13 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
-export function middleware(request: NextRequest) {
-  // Check if there is any supported locale in the pathname
-  const pathname = request.nextUrl.pathname;
-  const pathnameIsMissingLocale = ["es", "en"].every(
-    (locale) => !pathname.startsWith(`/${locale}/`) && pathname !== `/${locale}`
-  );
+export function middleware() {
+  const response = NextResponse.next();
 
-  // If no locale is present, redirect to Spanish
-  if (pathnameIsMissingLocale && pathname !== "/") {
-    return NextResponse.redirect(new URL(`/es${pathname}`, request.url));
-  }
+  // Always set Spanish as the content language for SEO
+  response.headers.set("content-language", "es");
+  response.headers.set("accept-language", "es");
 
-  // For the root path, serve Spanish content
-  if (pathname === "/") {
-    const response = NextResponse.next();
-    response.headers.set("content-language", "es");
-    return response;
-  }
-
-  return NextResponse.next();
+  return response;
 }
 
 export const config = {
