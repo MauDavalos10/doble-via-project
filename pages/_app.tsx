@@ -4,6 +4,7 @@ import CssBaseline from "@mui/material/CssBaseline";
 import { appWithTranslation } from "next-i18next";
 import { useEffect, useState } from "react";
 import { DefaultSeo } from "next-seo";
+import Head from "next/head";
 
 const theme = createTheme({
   palette: {
@@ -55,11 +56,34 @@ function MyApp({ Component, pageProps }: AppProps) {
   }
 
   return (
-    <ThemeProvider theme={theme}>
-      <DefaultSeo {...DEFAULT_SEO} />
-      <CssBaseline />
-      <Component {...pageProps} />
-    </ThemeProvider>
+    <>
+      <Head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="anonymous"
+        />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+          rel="stylesheet"
+        />
+        <meta charSet="utf-8" />
+        <meta httpEquiv="content-language" content="es" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+          name="description"
+          content="Doble Vía Transport - Servicios de transporte escolar, institucional y turístico"
+        />
+        <link rel="icon" href="/favicon.ico" />
+        <title>Doble Vía Transport</title>
+      </Head>
+      <ThemeProvider theme={theme}>
+        <DefaultSeo {...DEFAULT_SEO} />
+        <CssBaseline />
+        <Component {...pageProps} />
+      </ThemeProvider>
+    </>
   );
 }
 
