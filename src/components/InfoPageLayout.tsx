@@ -13,6 +13,8 @@ import {
   ListItem,
   ListItemButton,
   ListItemText,
+  useMediaQuery,
+  useTheme,
 } from "@mui/material";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import MenuIcon from "@mui/icons-material/Menu";
@@ -36,6 +38,8 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
   const router = useRouter();
   const { locale, pathname } = router;
   const [drawerOpen, setDrawerOpen] = useState(false);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const shouldShowWhatsApp = pathname !== "/clients";
 
@@ -192,33 +196,35 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
           display: "flex",
           flex: 1,
           flexDirection: { xs: "column", md: "row" },
-          pt: { xs: 6, md: 7 }, // Reduced padding top to account for the smaller AppBar
+          pt: { xs: 6, md: 7 },
         }}
       >
-        {/* Left: Video */}
-        <Box
-          sx={{
-            flex: { xs: "1", md: "0 0 45%" },
-            background: "#000",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            position: "relative",
-            overflow: "hidden",
-            minHeight: { xs: "40vh", md: "100vh" },
-          }}
-        >
-          <VideoBackground
-            youtubeId="rCH0d_KBoqM"
-            fallbackImage="/images/logo-rojo.png"
-            fullHeight
-          />
-        </Box>
+        {/* Left: Video - Solo en desktop */}
+        {!isMobile && (
+          <Box
+            sx={{
+              flex: "0 0 45%",
+              background: "#000",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "relative",
+              overflow: "hidden",
+              minHeight: "100vh",
+            }}
+          >
+            <VideoBackground
+              youtubeId="rCH0d_KBoqM"
+              fallbackImage="/images/logo-rojo.png"
+              fullHeight
+            />
+          </Box>
+        )}
 
-        {/* Right: Content */}
+        {/* Right: Content - 100% en móvil, 55% en desktop */}
         <Box
           sx={{
-            flex: "1",
+            flex: isMobile ? "1" : "1",
             padding: { xs: "3rem 1.5rem", md: "4rem 3rem" },
             display: "flex",
             flexDirection: "column",
@@ -226,6 +232,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
             alignItems: "center",
             backgroundColor: "transparent",
             position: "relative",
+            minHeight: { xs: "100vh", md: "auto" },
           }}
         >
           <Container

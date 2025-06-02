@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Image from "next/image";
 
 interface VideoBackgroundProps {
   youtubeId: string;
@@ -44,7 +45,7 @@ export default function VideoBackground({
   const fallbackStyle = {
     position: "absolute" as const,
     inset: 0,
-    background: "#ffffff",
+    background: "#000000",
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
@@ -54,17 +55,23 @@ export default function VideoBackground({
   };
 
   const imageStyle = {
-    maxWidth: "40%",
-    maxHeight: "40%",
+    maxWidth: "60%",
+    maxHeight: "60%",
     objectFit: "contain" as const,
-    animation: "pulse 2s ease-in-out infinite",
   };
 
   return (
     <div style={containerStyle}>
       {!isLoaded && (
         <div style={fallbackStyle}>
-          <img src={fallbackImage} alt="Loading" style={imageStyle} />
+          <Image
+            src={fallbackImage}
+            alt="Loading"
+            width={400}
+            height={400}
+            style={imageStyle}
+            priority
+          />
         </div>
       )}
       <iframe
@@ -75,22 +82,6 @@ export default function VideoBackground({
         allowFullScreen
         onLoad={() => setIsLoaded(true)}
       />
-      <style jsx>{`
-        @keyframes pulse {
-          0% {
-            opacity: 0.4;
-            transform: scale(0.95);
-          }
-          50% {
-            opacity: 1;
-            transform: scale(1);
-          }
-          100% {
-            opacity: 0.4;
-            transform: scale(0.95);
-          }
-        }
-      `}</style>
     </div>
   );
 }
