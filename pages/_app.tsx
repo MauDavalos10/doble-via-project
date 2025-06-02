@@ -2,7 +2,6 @@ import type { AppProps } from "next/app";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import { appWithTranslation } from "next-i18next";
-import nextI18NextConfig from "../next-i18next.config.js";
 import { useEffect, useState } from "react";
 import { DefaultSeo } from "next-seo";
 
@@ -64,4 +63,4 @@ function MyApp({ Component, pageProps }: AppProps) {
   );
 }
 
-export default appWithTranslation(MyApp, nextI18NextConfig);
+export default appWithTranslation(MyApp);
