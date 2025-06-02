@@ -1,4 +1,4 @@
-import { GetServerSideProps } from "next";
+import { GetStaticProps } from "next";
 import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
@@ -385,17 +385,7 @@ export default function Home() {
   );
 }
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const { locale, req } = context;
-  // Solo redirigir si la ruta es exactamente '/' (sin idioma)
-  if (req.url === "/" && locale !== "es") {
-    return {
-      redirect: {
-        destination: "/es",
-        permanent: false,
-      },
-    };
-  }
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
   return {
     props: {
       ...(await serverSideTranslations(locale ?? "es", ["common"])),

@@ -1,6 +1,8 @@
 import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import InfoPageLayout from "../src/components/InfoPageLayout";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { GetStaticProps } from "next";
 
 export default function About() {
   const { t } = useTranslation("common");
@@ -45,3 +47,11 @@ export default function About() {
     </>
   );
 }
+
+export const getStaticProps: GetStaticProps = async ({ locale }) => {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale ?? "es", ["common"])),
+    },
+  };
+};
