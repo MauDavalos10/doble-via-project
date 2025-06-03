@@ -13,6 +13,7 @@ import {
 } from "@mui/material";
 import LanguageIcon from "@mui/icons-material/Language";
 import MenuIcon from "@mui/icons-material/Menu";
+import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
 import ListItem from "@mui/material/ListItem";
@@ -23,6 +24,7 @@ import { useState, useEffect, useRef } from "react";
 import VideoBackground from "../src/components/VideoBackground";
 import Footer from "../src/components/Footer";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
+import ServiceModal from "../src/components/ServiceModal";
 
 const theme = createTheme({
   typography: {
@@ -37,6 +39,8 @@ export default function Home() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
   const heroRef = useRef(null);
+  const [selectedService, setSelectedService] = useState<string | null>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   console.log("locale:", locale);
   console.log("school:", t("school"));
@@ -89,6 +93,30 @@ export default function Home() {
     setDrawerOpen(false);
   }, [locale]);
 
+  const handleServiceClick = (serviceKey: string) => {
+    setSelectedService(serviceKey);
+    setModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setModalOpen(false);
+    setSelectedService(null);
+  };
+
+  const whatsappNumber = "593987063904";
+  const whatsappMessage = encodeURIComponent(
+    "Hola, necesito información sobre sus servicios."
+  );
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+  const serviceKeys = [
+    "schoolTransport",
+    "institutionalTransport",
+    "airportTransport",
+    "trolleyTransport",
+    "touristTransport",
+  ];
+
   return (
     <ThemeProvider theme={theme}>
       <NextSeo
@@ -138,7 +166,7 @@ export default function Home() {
                 fontSize: { xs: "1.1rem", md: "1.3rem" },
               }}
             >
-              {t("menu")}
+              Doble Vía
             </Typography>
             <Button
               color="inherit"
@@ -323,7 +351,6 @@ export default function Home() {
                     minWidth: { xs: "100%", md: 400 },
                     position: "relative",
                     overflow: "hidden",
-                    borderRadius: "24px",
                     boxShadow: "0 20px 60px rgba(0,0,0,0.1)",
                     height: "400px",
                     display: "flex",
@@ -338,7 +365,6 @@ export default function Home() {
                       width: "100%",
                       height: "100%",
                       objectFit: "cover",
-                      borderRadius: "24px",
                     }}
                   />
                 </Box>
@@ -374,11 +400,71 @@ export default function Home() {
                   >
                     {t(item.descKey)}
                   </Typography>
+
+                  <Box
+                    sx={{
+                      display: "flex",
+                      gap: 2,
+                      mt: 4,
+                      flexDirection: { xs: "column", sm: "row" },
+                    }}
+                  >
+                    <Button
+                      variant="outlined"
+                      onClick={() => handleServiceClick(serviceKeys[idx])}
+                      sx={{
+                        borderColor: "#d32f2f",
+                        color: "#d32f2f",
+                        borderRadius: "25px",
+                        px: 3,
+                        py: 1.5,
+                        fontWeight: 500,
+                        textTransform: "none",
+                        fontSize: "1rem",
+                        "&:hover": {
+                          borderColor: "#b71c1c",
+                          backgroundColor: "rgba(211, 47, 47, 0.04)",
+                        },
+                      }}
+                    >
+                      Leer más
+                    </Button>
+
+                    <Button
+                      variant="contained"
+                      startIcon={<WhatsAppIcon />}
+                      onClick={() => window.open(whatsappUrl, "_blank")}
+                      sx={{
+                        backgroundColor: "#25d366",
+                        borderRadius: "25px",
+                        px: 3,
+                        py: 1.5,
+                        fontWeight: 500,
+                        textTransform: "none",
+                        fontSize: "1rem",
+                        "&:hover": {
+                          backgroundColor: "#128c7e",
+                        },
+                      }}
+                    >
+                      WhatsApp
+                    </Button>
+                  </Box>
                 </Box>
               </Box>
             ))}
           </Container>
         </Box>
+
+        <ServiceModal
+          open={modalOpen}
+          onClose={handleModalClose}
+          title={selectedService ? t(`services.${selectedService}.title`) : ""}
+          content={
+            selectedService ? t(`services.${selectedService}.modal`) : ""
+          }
+        />
+
         <Footer />
       </>
     </ThemeProvider>

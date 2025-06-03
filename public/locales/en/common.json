@@ -2,11 +2,19 @@
   "welcome": "Welcome to our page",
   "about": "About Us",
   "contact": "Contact",
-  "language": "Language",
+  "language": {
+    "es": "Español",
+    "en": "English"
+  },
   "switchToEnglish": "Switch to English",
   "switchToSpanish": "Switch to Spanish",
   "description": "This is a simple landing page with Material UI and language switching capabilities.",
-  "menu": "Menu",
+  "menu": {
+    "inicio": "Home",
+    "institucional": "Institutional",
+    "clientes": "Clients",
+    "contacto": "Contact"
+  },
   "school": "School",
   "institutional": "Institutional",
   "trolley": "Trolley",
@@ -36,5 +44,38 @@
   "airportTitle": "Airport Transportation",
   "airportDescription": "We ensure that every transfer to and from the airport is safe, comfortable, and professional. Our transfer services are designed to meet the demands of the most discerning travelers, with personalized attention, flight monitoring, and high-end vehicles, ensuring every journey starts and ends perfectly.",
   "footerDescription": "We transport lives. At dobleVIA, we specialize in providing reliable transportation services, tailored to your needs and with an unwavering commitment to the safety and comfort of every passenger.",
-  "footerRights": "All rights reserved."
+  "footerRights": "All rights reserved.",
+  "services": {
+    "schoolTransport": {
+      "title": "School Transportation",
+      "description": "We transport your child with the safety they deserve thanks to our GPS, trained personnel, preventive maintenance and customer service.",
+      "modal": "We guarantee the safety of your children during the journey to and from the educational institution. Our service includes:\n\n• Personnel trained in defensive driving and first aid\n• Vehicles with GPS system for real-time monitoring\n• Constant preventive maintenance of our entire fleet\n• Customer service available to resolve any concerns\n• Strict compliance with established schedules\n• Vehicles equipped with safety belts\n• Optimized routes for greater efficiency\n\nYour peace of mind is our priority."
+    },
+    "institutionalTransport": {
+      "title": "Institutional Transportation",
+      "description": "We design personnel routes for public and private companies and institutions. We comply with the highest standards of trust and punctuality.",
+      "modal": "We offer corporate transportation solutions designed specifically for public and private companies and institutions. Our service includes:\n\n• Personalized route design according to your company's needs\n• Modern and comfortable fleet for personnel transportation\n• Professional drivers with extensive experience\n• Strict compliance with schedules and punctuality\n• Real-time GPS monitoring system\n• Preventive and corrective vehicle maintenance\n• Specialized customer service\n• Flexibility in schedules and routes according to requirements\n• Compliance with all transportation regulations\n\nWe optimize the mobility of your work team."
+    },
+    "trolleyTransport": {
+      "title": "Trolley Transportation",
+      "description": "We provide trolley-type transportation service for special events, weddings and celebrations, creating unique and unforgettable experiences.",
+      "modal": "We create unique experiences with our trolley-type transportation service, ideal for special events and memorable celebrations. Our service includes:\n\n• Trolley-type vehicles with elegant and distinctive design\n• Perfect for weddings, quinceañeras and corporate events\n• Capacity for large groups with guaranteed comfort\n• Personalized decoration according to your event theme\n• Drivers specialized in social events\n• Personalized city tours\n• Integrated sound system for ambient music\n• Photography service during the tour (optional)\n• Coordination with wedding planners and event organizers\n\nTurn your celebration into an unforgettable experience."
+    },
+    "touristTransport": {
+      "title": "Tourist Transportation",
+      "description": "Discover Ecuador with our tourist transportation service. We offer personalized tours with expert guides for an unforgettable experience.",
+      "modal": "Discover the beauty of Ecuador with our specialized tourist transportation service. We offer you:\n\n• Personalized tours to national and international destinations\n• Expert tourist guides with extensive local knowledge\n• Comfortable and safe vehicles for long journeys\n• Flexible itineraries adapted to your preferences\n• Complete packages that include lodging and meals\n• Transportation to archaeological, natural and cultural sites\n• Door-to-door service from your location\n• Multilingual service for international tourists\n• Travel insurance included in all our tours\n• Coordination with local hotels and restaurants\n\nExperience Ecuador authentically and safely."
+    },
+    "airportTransport": {
+      "title": "Airport Transportation",
+      "description": "Safe and punctual transfers to and from the airport. 24/7 service available with flight monitoring and competitive rates.",
+      "modal": "We guarantee safe and punctual transfers to and from the airport with our specialized service available 24 hours a day. Includes:\n\n• Service available 24 hours a day, 7 days a week\n• Real-time flight monitoring to adjust schedules\n• Comfortable and air-conditioned executive vehicles\n• Professional drivers with knowledge of optimal routes\n• Competitive and transparent rates with no surprises\n• Door-to-door service with guaranteed punctuality\n• Baggage assistance included\n• Prior service confirmation via WhatsApp\n• Courtesy waiting time in case of delays\n• Corporate billing available\n\nYour trip begins and ends with complete peace of mind."
+    }
+  },
+  "readMore": "Read more",
+  "whatsappContact": "Contact via WhatsApp",
+  "whatsappText": "If you need immediate assistance, contact us directly through WhatsApp.",
+  "footer": {
+    "description": "At Doble Vía, we are committed to providing safe, reliable and quality transportation services. Your safety and comfort are our priority."
+  }
 }

@@ -2,11 +2,19 @@
   "welcome": "Bienvenido a nuestra página",
   "about": "Acerca de",
   "contact": "Contacto",
-  "language": "Idioma",
+  "language": {
+    "es": "Español",
+    "en": "English"
+  },
   "switchToEnglish": "Cambiar a Inglés",
   "switchToSpanish": "Cambiar a Español",
   "description": "Esta es una landing page simple con Material UI y capacidades de cambio de idioma.",
-  "menu": "Menú",
+  "menu": {
+    "inicio": "Inicio",
+    "institucional": "Institucional",
+    "clientes": "Clientes",
+    "contacto": "Contacto"
+  },
   "school": "Escolar",
   "institutional": "Institucional",
   "trolley": "Trolley",
@@ -36,5 +44,38 @@
   "airportTitle": "Transporte Aeropuerto",
   "airportDescription": "Nos encargamos de que cada traslado hacia y desde el aeropuerto sea seguro, cómodo y profesional. Nuestros servicios de transfer están orientados a satisfacer las exigencias de los viajeros más rigurosos, con atención personalizada, monitoreo de vuelos y vehículos de alta gama, asegurando que cada viaje inicie y concluya de manera perfecta.",
   "footerDescription": "Transportamos vidas. En dobleVIA, nos especializamos en brindar un servicio de transporte confiable, adaptado a tus necesidades y con un compromiso inquebrantable hacia la seguridad y comodidad de cada pasajero.",
-  "footerRights": "Todos los derechos reservados."
+  "footerRights": "Todos los derechos reservados.",
+  "services": {
+    "schoolTransport": {
+      "title": "Transporte Escolar",
+      "description": "Transportamos a tu hijo con la seguridad que merece gracias a nuestro GPS, personal capacitado, mantenimiento preventivo y servicio al cliente.",
+      "modal": "Garantizamos la seguridad de tus hijos durante el trayecto hacia y desde la institución educativa. Nuestro servicio incluye:\n\n• Personal capacitado en manejo defensivo y primeros auxilios\n• Vehículos con sistema GPS para monitoreo en tiempo real\n• Mantenimiento preventivo constante de toda nuestra flota\n• Atención al cliente disponible para resolver cualquier inquietud\n• Cumplimiento estricto de horarios establecidos\n• Vehículos equipados con cinturones de seguridad\n• Rutas optimizadas para mayor eficiencia\n\nTu tranquilidad es nuestra prioridad."
+    },
+    "institutionalTransport": {
+      "title": "Transporte Institucional",
+      "description": "Diseñamos rutas de personal para empresas e instituciones públicas y privadas. Cumplimos con los más altos estándares de confianza y puntualidad.",
+      "modal": "Ofrecemos soluciones de transporte corporativo diseñadas específicamente para empresas e instituciones públicas y privadas. Nuestro servicio incluye:\n\n• Diseño de rutas personalizadas según las necesidades de tu empresa\n• Flota moderna y cómoda para el transporte de personal\n• Conductores profesionales con amplia experiencia\n• Cumplimiento estricto de horarios y puntualidad\n• Sistema de monitoreo GPS en tiempo real\n• Mantenimiento preventivo y correctivo de vehículos\n• Atención al cliente especializada\n• Flexibilidad en horarios y rutas según requerimientos\n• Cumplimiento de todas las normativas de transporte\n\nOptimizamos la movilidad de tu equipo de trabajo."
+    },
+    "trolleyTransport": {
+      "title": "Transporte Trolley",
+      "description": "Brindamos servicio de transporte tipo trolley para eventos especiales, matrimonios y celebraciones, creando experiencias únicas e inolvidables.",
+      "modal": "Creamos experiencias únicas con nuestro servicio de transporte tipo trolley, ideal para eventos especiales y celebraciones memorables. Nuestro servicio incluye:\n\n• Vehículos tipo trolley con diseño elegante y distintivo\n• Perfecto para matrimonios, quinceañeras y eventos corporativos\n• Capacidad para grupos grandes con comodidad garantizada\n• Decoración personalizada según el tema de tu evento\n• Conductores especializados en eventos sociales\n• Recorridos personalizados por la ciudad\n• Sistema de sonido integrado para música ambiental\n• Servicio de fotografía durante el recorrido (opcional)\n• Coordinación con wedding planners y organizadores de eventos\n\nConvierte tu celebración en una experiencia inolvidable."
+    },
+    "touristTransport": {
+      "title": "Transporte Turístico",
+      "description": "Descubre Ecuador con nuestro servicio de transporte turístico. Ofrecemos tours personalizados con guías expertos para una experiencia inolvidable.",
+      "modal": "Descubre la belleza de Ecuador con nuestro servicio especializado de transporte turístico. Te ofrecemos:\n\n• Tours personalizados a destinos nacionales e internacionales\n• Guías turísticos expertos con amplio conocimiento local\n• Vehículos cómodos y seguros para trayectos largos\n• Itinerarios flexibles adaptados a tus preferencias\n• Paquetes completos que incluyen hospedaje y alimentación\n• Transporte a sitios arqueológicos, naturales y culturales\n• Servicio puerta a puerta desde tu ubicación\n• Atención multilingüe para turistas internacionales\n• Seguro de viaje incluido en todos nuestros tours\n• Coordinación con hoteles y restaurantes locales\n\nVive Ecuador de manera auténtica y segura."
+    },
+    "airportTransport": {
+      "title": "Transporte Aeropuerto",
+      "description": "Traslados seguros y puntuales desde y hacia el aeropuerto. Servicio disponible 24/7 con monitoreo de vuelos y tarifas competitivas.",
+      "modal": "Garantizamos traslados seguros y puntuales desde y hacia el aeropuerto con nuestro servicio especializado disponible las 24 horas. Incluye:\n\n• Servicio disponible 24 horas, los 7 días de la semana\n• Monitoreo de vuelos en tiempo real para ajustar horarios\n• Vehículos ejecutivos cómodos y climatizados\n• Conductores profesionales con conocimiento de rutas óptimas\n• Tarifas competitivas y transparentes sin sorpresas\n• Servicio puerta a puerta con puntualidad garantizada\n• Asistencia con equipaje incluida\n• Confirmación previa del servicio vía WhatsApp\n• Tiempo de espera cortesía en caso de retrasos\n• Facturación empresarial disponible\n\nTu viaje comienza y termina con total tranquilidad."
+    }
+  },
+  "readMore": "Leer más",
+  "whatsappContact": "Contactar por WhatsApp",
+  "whatsappText": "Si necesita atención inmediata, contáctenos directamente a través de WhatsApp.",
+  "footer": {
+    "description": "En Doble Vía, nos comprometemos a brindar servicios de transporte seguros, confiables y de calidad. Tu seguridad y comodidad son nuestra prioridad."
+  }
 }
