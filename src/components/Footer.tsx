@@ -4,7 +4,6 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import TikTokIcon from "@mui/icons-material/MusicNote";
 import GoogleIcon from "@mui/icons-material/Google";
-import XIcon from "@mui/icons-material/X";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import { useTranslation } from "next-i18next";
 
@@ -22,7 +21,7 @@ const socialLinks = [
   {
     icon: <LinkedInIcon fontSize="large" />,
     label: "LinkedIn",
-    url: "https://www.linkedin.com/company/doblevia-transportes-s-a/",
+    url: "https://www.linkedin.com/company/dobleviatransporte/posts/?feedView=all",
   },
   {
     icon: <TikTokIcon fontSize="large" />,
@@ -35,14 +34,9 @@ const socialLinks = [
     url: "https://www.google.com/maps/place/dobleVIA+Transporte/@-0.2197236,-78.3359575,19z/data=!3m1!4b1!4m6!3m5!1s0x91d5950a0af14dfb:0xcc8f9c35fa3b3fdb!8m2!3d-0.2197236!4d-78.3353124!16s%2Fg%2F11sf9yv7rz?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D",
   },
   {
-    icon: <XIcon fontSize="large" />,
-    label: "X",
-    url: "https://x.com/dobleVIA_TRANSP",
-  },
-  {
     icon: <YouTubeIcon fontSize="large" />,
     label: "YouTube",
-    url: "https://www.youtube.com/",
+    url: "https://www.youtube.com/@dobleviatransporte",
   },
 ];
 
@@ -198,27 +192,89 @@ export default function Footer() {
               <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
                 WhatsApp:
               </Box>{" "}
-              +593 98 706 3904 |{" "}
+              <MuiLink
+                href="https://wa.me/593987063904"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: "#25d366",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                  "&:hover": {
+                    textDecoration: "underline",
+                    color: "#128c7e",
+                  },
+                }}
+              >
+                +593 98 706 3904
+              </MuiLink>{" "}
+              |{" "}
               <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
                 Teléfono celular:
               </Box>{" "}
-              +593 98 706 3904 |{" "}
+              <MuiLink
+                href="https://wa.me/593987063904"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: "#25d366",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                  "&:hover": {
+                    textDecoration: "underline",
+                    color: "#128c7e",
+                  },
+                }}
+              >
+                +593 98 706 3904
+              </MuiLink>{" "}
+              |{" "}
               <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
                 Teléfono convencional:
               </Box>{" "}
-              +593 2 238 0008
+              <Box component="span" sx={{ color: "#a0a0a0" }}>
+                +593 2 238 0008
+              </Box>
             </Typography>
             <Typography variant="body2">
               <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
                 Correo:
               </Box>{" "}
-              ventas@doblevia.org
+              <MuiLink
+                href="mailto:ventas@doblevia.org?subject=Consulta sobre servicios de transporte&body=Hola, me gustaría obtener más información sobre sus servicios de transporte."
+                sx={{
+                  color: "#4285f4",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                  "&:hover": {
+                    textDecoration: "underline",
+                    color: "#1a73e8",
+                  },
+                }}
+              >
+                ventas@doblevia.org
+              </MuiLink>
             </Typography>
             <Typography variant="body2">
               <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
                 Dirección:
               </Box>{" "}
-              Av. María Teresa Velásquez y E35. Sector Pifo
+              <MuiLink
+                href="https://maps.app.goo.gl/xoEY8hnsEsLcfkrQA"
+                target="_blank"
+                rel="noopener noreferrer"
+                sx={{
+                  color: "#34a853",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                  "&:hover": {
+                    textDecoration: "underline",
+                    color: "#137333",
+                  },
+                }}
+              >
+                Av. María Teresa Velásquez y E35. Sector Pifo
+              </MuiLink>
             </Typography>
             <Typography variant="body2">
               Quito - Ecuador - Suramérica
