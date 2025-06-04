@@ -123,7 +123,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
               fontWeight: 300,
               letterSpacing: "0.5px",
               padding: "4px 12px",
-              borderRadius: "20px",
+              borderRadius: "3px",
               transition: "all 0.3s ease",
               "&:hover": {
                 backgroundColor: "rgba(255,255,255,0.1)",
@@ -169,7 +169,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
                   px: 3,
                   mx: 2,
                   mb: 1,
-                  borderRadius: "12px",
+                  borderRadius: "3px",
                   transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                   "&:hover": {
                     backgroundColor: "rgba(255,255,255,0.08)",
@@ -240,7 +240,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
             sx={{
               background: "rgba(255, 255, 255, 0.95)",
               backdropFilter: "blur(10px)",
-              borderRadius: "24px",
+              borderRadius: "3px",
               padding: { xs: "2.5rem 2rem", md: "3.5rem 3rem" },
               boxShadow: "0 20px 60px rgba(0, 0, 0, 0.08)",
               border: "1px solid rgba(255, 255, 255, 0.2)",
@@ -296,7 +296,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
                       fontSize: { xs: "1rem", md: "1.1rem" },
                       fontWeight: 600,
                       fontFamily: "'Poppins', sans-serif",
-                      borderRadius: "50px",
+                      borderRadius: "3px",
                       textTransform: "none",
                       letterSpacing: "0.5px",
                       transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -309,7 +309,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
                         left: 0,
                         right: 0,
                         bottom: 0,
-                        borderRadius: "50px",
+                        borderRadius: "3px",
                         background:
                           "linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%)",
                         zIndex: 1,

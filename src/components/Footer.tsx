@@ -81,7 +81,7 @@ export default function Footer() {
               xs: "repeat(2, 1fr)",
               sm: "repeat(3, 1fr)",
               md: "repeat(4, 1fr)",
-              lg: "repeat(7, 1fr)",
+              lg: "repeat(6, 1fr)",
             },
             gap: { xs: 3, md: 4 },
             justifyItems: "center",
@@ -106,7 +106,7 @@ export default function Footer() {
                 fontWeight: 500,
                 fontFamily: "'Poppins', sans-serif",
                 padding: { xs: "0.75rem", md: "1rem" },
-                borderRadius: "12px",
+                borderRadius: "3px",
                 transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                 position: "relative",
                 "&:hover": {
@@ -197,12 +197,12 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
-                  color: "#25d366",
+                  color: "#ffffff",
                   textDecoration: "none",
                   fontWeight: 500,
                   "&:hover": {
                     textDecoration: "underline",
-                    color: "#128c7e",
+                    color: "#a0a0a0",
                   },
                 }}
               >
@@ -217,12 +217,12 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
-                  color: "#25d366",
+                  color: "#ffffff",
                   textDecoration: "none",
                   fontWeight: 500,
                   "&:hover": {
                     textDecoration: "underline",
-                    color: "#128c7e",
+                    color: "#a0a0a0",
                   },
                 }}
               >
@@ -243,12 +243,12 @@ export default function Footer() {
               <MuiLink
                 href="mailto:ventas@doblevia.org?subject=Consulta sobre servicios de transporte&body=Hola, me gustaría obtener más información sobre sus servicios de transporte."
                 sx={{
-                  color: "#4285f4",
+                  color: "#ffffff",
                   textDecoration: "none",
                   fontWeight: 500,
                   "&:hover": {
                     textDecoration: "underline",
-                    color: "#1a73e8",
+                    color: "#a0a0a0",
                   },
                 }}
               >
@@ -264,12 +264,12 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 sx={{
-                  color: "#34a853",
+                  color: "#ffffff",
                   textDecoration: "none",
                   fontWeight: 500,
                   "&:hover": {
                     textDecoration: "underline",
-                    color: "#137333",
+                    color: "#a0a0a0",
                   },
                 }}
               >

@@ -39,7 +39,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
       fullWidth
       PaperProps={{
         sx: {
-          borderRadius: "16px",
+          borderRadius: "3px",
           maxHeight: "80vh",
         },
       }}
@@ -112,7 +112,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
               padding: "12px 24px",
               fontSize: "1rem",
               fontWeight: 600,
-              borderRadius: "25px",
+              borderRadius: "3px",
               textTransform: "none",
               letterSpacing: "0.5px",
               transition: "all 0.3s ease",

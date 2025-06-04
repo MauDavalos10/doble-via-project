@@ -91,7 +91,7 @@ export default function Clients() {
                 position: "relative",
                 aspectRatio: "1",
                 overflow: "hidden",
-                borderRadius: 2,
+                borderRadius: "3px",
                 transition: "transform 0.3s ease, box-shadow 0.3s ease",
                 "&:hover": {
                   transform: "translateY(-5px)",

@@ -176,7 +176,7 @@ export default function Home() {
                 fontWeight: 300,
                 letterSpacing: "0.5px",
                 padding: "8px 20px",
-                borderRadius: "25px",
+                borderRadius: "3px",
                 transition: "all 0.3s ease",
                 "&:hover": {
                   backgroundColor: "rgba(255,255,255,0.1)",
@@ -221,7 +221,7 @@ export default function Home() {
                     px: 3,
                     mx: 2,
                     mb: 1,
-                    borderRadius: "12px",
+                    borderRadius: "3px",
                     transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                     "&:hover": {
                       backgroundColor: "rgba(255,255,255,0.08)",
@@ -415,7 +415,7 @@ export default function Home() {
                       sx={{
                         borderColor: "#d32f2f",
                         color: "#d32f2f",
-                        borderRadius: "25px",
+                        borderRadius: "3px",
                         px: 3,
                         py: 1.5,
                         fontWeight: 500,
@@ -436,7 +436,7 @@ export default function Home() {
                       onClick={() => window.open(whatsappUrl, "_blank")}
                       sx={{
                         backgroundColor: "#25d366",
-                        borderRadius: "25px",
+                        borderRadius: "3px",
                         px: 3,
                         py: 1.5,
                         fontWeight: 500,
