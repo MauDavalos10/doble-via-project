@@ -49,7 +49,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
           { label: "Institucional", path: "/institutional" },
           { label: "Trolley", path: "/trolley" },
           { label: "Turismo", path: "/tourism" },
-          { label: "Acerca de", path: "/about" },
+          { label: t("about"), path: "/about" },
           { label: "Nuestros Clientes", path: "/clients" },
           { label: "Reseñas Escritas", path: "/reviews" },
         ]

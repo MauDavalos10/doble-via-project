@@ -14,10 +14,7 @@ export default function About() {
       <InfoPageLayout>
         <h1 style={{ marginBottom: "2rem", color: "#222" }}>{t("about")}</h1>
         <div style={{ color: "#444", lineHeight: 1.6 }}>
-          <p style={{ marginBottom: "1.5rem" }}>
-            Somos una empresa líder en servicios de transporte, comprometida con
-            la excelencia y la satisfacción de nuestros clientes.
-          </p>
+          <p style={{ marginBottom: "1.5rem" }}>{t("aboutDescription")}</p>
           <ul
             style={{
               listStyle: "none",
@@ -29,17 +26,13 @@ export default function About() {
             }}
           >
             <li style={{ marginBottom: 12 }}>
-              <b>Misión:</b> Proporcionar servicios de transporte seguros,
-              confiables y de alta calidad que superen las expectativas de
-              nuestros clientes.
+              <b>{t("mission")}:</b> {t("missionDescription")}
             </li>
             <li style={{ marginBottom: 12 }}>
-              <b>Visión:</b> Ser reconocidos como la empresa líder en servicios
-              de transporte en Ecuador, innovando y creciendo continuamente.
+              <b>{t("vision")}:</b> {t("visionDescription")}
             </li>
             <li>
-              <b>Valores:</b> Seguridad, puntualidad, profesionalismo y
-              compromiso con la excelencia en el servicio.
+              <b>{t("values")}:</b> {t("valuesDescription")}
             </li>
           </ul>
         </div>

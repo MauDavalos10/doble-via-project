@@ -1,6 +1,6 @@
 {
   "welcome": "Bienvenido a nuestra página",
-  "about": "Acerca de",
+  "about": "Quienes somos",
   "contact": "Contacto",
   "language": {
     "es": "Español",
@@ -9,6 +9,13 @@
   "switchToEnglish": "Cambiar a Inglés",
   "switchToSpanish": "Cambiar a Español",
   "description": "Esta es una landing page simple con Material UI y capacidades de cambio de idioma.",
+  "aboutDescription": "Somos una empresa líder en servicios de transporte, comprometida con la excelencia y la satisfacción de nuestros clientes.",
+  "mission": "Misión",
+  "missionDescription": "Proporcionar servicios de transporte seguros, confiables y de alta calidad que superen las expectativas de nuestros clientes.",
+  "vision": "Visión",
+  "visionDescription": "Ser reconocidos como la empresa líder en servicios de transporte en Ecuador, innovando y creciendo continuamente.",
+  "values": "Valores",
+  "valuesDescription": "Seguridad, puntualidad, profesionalismo y compromiso con la excelencia en el servicio.",
   "menu": {
     "inicio": "Inicio",
     "institucional": "Institucional",

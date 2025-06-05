@@ -9,6 +9,13 @@
   "switchToEnglish": "Switch to English",
   "switchToSpanish": "Switch to Spanish",
   "description": "This is a simple landing page with Material UI and language switching capabilities.",
+  "aboutDescription": "We are a leading company in transportation services, committed to excellence and customer satisfaction.",
+  "mission": "Mission",
+  "missionDescription": "To provide safe, reliable and high-quality transportation services that exceed our customers' expectations.",
+  "vision": "Vision",
+  "visionDescription": "To be recognized as the leading transportation services company in Ecuador, continuously innovating and growing.",
+  "values": "Values",
+  "valuesDescription": "Safety, punctuality, professionalism and commitment to service excellence.",
   "menu": {
     "inicio": "Home",
     "institucional": "Institutional",
