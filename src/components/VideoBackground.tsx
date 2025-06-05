@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Image from "next/image";
 
 interface VideoBackgroundProps {
   youtubeId: string;
@@ -64,14 +63,7 @@ export default function VideoBackground({
     <div style={containerStyle}>
       {!isLoaded && (
         <div style={fallbackStyle}>
-          <Image
-            src={fallbackImage}
-            alt="Loading"
-            width={400}
-            height={400}
-            style={imageStyle}
-            priority
-          />
+          <img src={fallbackImage} alt="Loading" style={imageStyle} />
         </div>
       )}
       <iframe

@@ -2,7 +2,6 @@ import type React from "react";
 import VideoBackground from "./VideoBackground";
 import {
   Box,
-  Container,
   Typography,
   Button,
   AppBar,
@@ -80,9 +79,11 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
       sx={{
         display: "flex",
         minHeight: "100vh",
+        maxHeight: "100vh",
         flexDirection: "column",
         fontFamily: "'Poppins', sans-serif",
         background: "linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%)",
+        overflow: "hidden",
       }}
     >
       <AppBar
@@ -92,6 +93,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
           background: "#0f0f0f",
           boxShadow: "none",
           borderBottom: "1px solid rgba(255,255,255,0.1)",
+          zIndex: (theme) => theme.zIndex.drawer + 1,
         }}
       >
         <Toolbar sx={{ minHeight: { xs: 48, md: 56 } }}>
@@ -113,7 +115,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
               fontSize: { xs: "1rem", md: "1.1rem" },
             }}
           >
-            {t("menu")}
+            Menú
           </Typography>
           <Button
             color="inherit"
@@ -197,134 +199,117 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
           flex: 1,
           flexDirection: { xs: "column", md: "row" },
           pt: { xs: 6, md: 7 },
+          height: "calc(100vh - 56px)",
+          overflow: "hidden",
         }}
       >
         {/* Left: Video - Solo en desktop */}
         {!isMobile && (
           <Box
             sx={{
-              flex: "0 0 45%",
+              flex: "0 0 33.33%",
               background: "#000",
               display: "flex",
               alignItems: "center",
               justifyContent: "center",
               position: "relative",
               overflow: "hidden",
-              minHeight: "100vh",
+              height: "calc(100vh - 56px)",
             }}
           >
             <VideoBackground
               youtubeId="rCH0d_KBoqM"
-              fallbackImage="/images/logo-rojo.png"
+              fallbackImage="/images/glitch-logo.gif"
               fullHeight
             />
           </Box>
         )}
 
-        {/* Right: Content - 100% en móvil, 55% en desktop */}
+        {/* Right: Content - 100% en móvil, 66.67% en desktop */}
         <Box
           sx={{
-            flex: isMobile ? "1" : "1",
-            padding: { xs: "3rem 1.5rem", md: "4rem 3rem" },
+            flex: isMobile ? "1" : "0 0 66.67%",
             display: "flex",
             flexDirection: "column",
             justifyContent: "center",
-            alignItems: "center",
-            backgroundColor: "transparent",
+            alignItems: "stretch",
+            backgroundColor: "#ffffff",
             position: "relative",
-            minHeight: { xs: "100vh", md: "auto" },
+            height: "calc(100vh - 56px)",
+            padding: { xs: "2rem", md: "3rem" },
+            overflow: "auto",
           }}
         >
-          <Container
-            maxWidth="md"
-            sx={{
-              background: "rgba(255, 255, 255, 0.95)",
-              backdropFilter: "blur(10px)",
-              borderRadius: "3px",
-              padding: { xs: "2.5rem 2rem", md: "3.5rem 3rem" },
-              boxShadow: "0 20px 60px rgba(0, 0, 0, 0.08)",
-              border: "1px solid rgba(255, 255, 255, 0.2)",
-            }}
-          >
-            {children}
+          {children}
 
-            {shouldShowWhatsApp && (
-              <>
-                <Box
+          {shouldShowWhatsApp && (
+            <>
+              <Box
+                sx={{
+                  margin: "3rem 0 2rem 0",
+                  height: "1px",
+                  background:
+                    "linear-gradient(90deg, transparent 0%, var(--medium-gray) 50%, transparent 100%)",
+                  opacity: 0.3,
+                }}
+              />
+
+              <Typography
+                variant="body1"
+                align="center"
+                sx={{
+                  marginBottom: "2rem",
+                  color: "var(--dark-gray)",
+                  fontFamily: "'Poppins', sans-serif",
+                  fontSize: { xs: "1rem", md: "1.1rem" },
+                  lineHeight: 1.6,
+                  fontWeight: 400,
+                  opacity: 0.85,
+                }}
+              >
+                Si necesita atención inmediata, contáctenos directamente a
+                través de WhatsApp.
+              </Typography>
+
+              <Box sx={{ display: "flex", justifyContent: "center" }}>
+                <Button
+                  href={whatsappUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  variant="contained"
+                  startIcon={<WhatsAppIcon sx={{ fontSize: "1.2rem" }} />}
                   sx={{
-                    margin: "3rem 0 2rem 0",
-                    height: "1px",
                     background:
-                      "linear-gradient(90deg, transparent 0%, var(--medium-gray) 50%, transparent 100%)",
-                    opacity: 0.3,
-                  }}
-                />
-
-                <Typography
-                  variant="body1"
-                  align="center"
-                  sx={{
-                    marginBottom: "2rem",
-                    color: "var(--dark-gray)",
-                    fontFamily: "'Poppins', sans-serif",
+                      "linear-gradient(135deg, #c00b19 0%, #a00915 100%)",
+                    padding: "0.75rem 2rem",
                     fontSize: { xs: "1rem", md: "1.1rem" },
-                    lineHeight: 1.6,
-                    fontWeight: 400,
-                    opacity: 0.85,
+                    fontWeight: 600,
+                    fontFamily: "'Poppins', sans-serif",
+                    borderRadius: "3px",
+                    textTransform: "none",
+                    letterSpacing: "0.5px",
+                    transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
+                    border: "none",
+                    minWidth: "200px",
+                    cursor: "pointer",
+                    "&:hover": {
+                      background:
+                        "linear-gradient(135deg, #a00915 0%, #800712 100%)",
+                      transform: "translateY(-2px)",
+                    },
+                    "&:active": {
+                      transform: "translateY(0px)",
+                    },
+                    "& .MuiButton-startIcon": {
+                      marginRight: "8px",
+                    },
                   }}
                 >
-                  Si necesita atención inmediata, contáctenos directamente a
-                  través de WhatsApp.
-                </Typography>
-
-                <Box sx={{ display: "flex", justifyContent: "center" }}>
-                  <Button
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    variant="contained"
-                    startIcon={<WhatsAppIcon sx={{ fontSize: "1.2rem" }} />}
-                    sx={{
-                      background:
-                        "linear-gradient(135deg, #c00b19 0%, #a00915 100%)",
-                      transform: "translateY(-2px)",
-                      boxShadow: "0 12px 32px rgba(228, 13, 31, 0.3)",
-                      "&:active": {
-                        transform: "translateY(0px)",
-                      },
-                      padding: "0.75rem 2rem",
-                      fontSize: { xs: "1rem", md: "1.1rem" },
-                      fontWeight: 600,
-                      fontFamily: "'Poppins', sans-serif",
-                      borderRadius: "3px",
-                      textTransform: "none",
-                      letterSpacing: "0.5px",
-                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                      border: "none",
-                      minWidth: "200px",
-                      "&:before": {
-                        content: '""',
-                        position: "absolute",
-                        top: 0,
-                        left: 0,
-                        right: 0,
-                        bottom: 0,
-                        borderRadius: "3px",
-                        background:
-                          "linear-gradient(135deg, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0.1) 100%)",
-                        zIndex: 1,
-                      },
-                      "& .MuiButton-startIcon": {
-                        marginRight: "8px",
-                      },
-                    }}
-                  >
-                    + 593 98 706 3904
-                  </Button>
-                </Box>
-              </>
-            )}
-          </Container>
+                  + 593 98 706 3904
+                </Button>
+              </Box>
+            </>
+          )}
         </Box>
       </Box>
     </Box>

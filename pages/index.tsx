@@ -265,7 +265,7 @@ export default function Home() {
         >
           <VideoBackground
             youtubeId="rCH0d_KBoqM"
-            fallbackImage="/images/logo-rojo.png"
+            fallbackImage="/images/glitch-logo.gif"
           />
           <Box
             sx={{
