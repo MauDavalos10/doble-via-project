@@ -11,6 +11,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
+import { useTranslation } from "next-i18next";
 
 interface ServiceModalProps {
   open: boolean;
@@ -20,10 +21,6 @@ interface ServiceModalProps {
 }
 
 const whatsappNumber = "593987063904";
-const whatsappMessage = encodeURIComponent(
-  "Hola, necesito información sobre sus servicios."
-);
-const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
 const ServiceModal: React.FC<ServiceModalProps> = ({
   open,
@@ -31,6 +28,66 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
   title,
   content,
 }) => {
+  const { t } = useTranslation("common");
+
+  const whatsappMessage = encodeURIComponent(t("whatsappContact"));
+  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
+
+  // Función para formatear el contenido
+  const formatContent = (text: string) => {
+    const lines = text.split("\n").filter((line) => line.trim() !== "");
+    const elements: React.JSX.Element[] = [];
+
+    lines.forEach((line, index) => {
+      const trimmedLine = line.trim();
+
+      // Si la línea contiene ":" y no es la primera línea, es una característica
+      if (trimmedLine.includes(":") && index > 0) {
+        const [boldPart, ...restParts] = trimmedLine.split(":");
+        const description = restParts.join(":").trim();
+
+        elements.push(
+          <Typography
+            key={index}
+            variant="body1"
+            sx={{
+              fontSize: "15px",
+              margin: "0px 20px 15px 20px",
+              fontFamily: "'Poppins', Arial, sans-serif",
+              fontWeight: 300,
+              color: "#4D4D4D",
+              textAlign: "justify",
+              lineHeight: 1.5,
+            }}
+          >
+            <strong>{boldPart.trim()}:</strong> {description}
+          </Typography>
+        );
+      } else {
+        // Es un párrafo normal
+        elements.push(
+          <Typography
+            key={index}
+            variant="body1"
+            sx={{
+              fontSize: "15px",
+              margin: "0px 20px 15px 20px",
+              fontFamily: "'Poppins', Arial, sans-serif",
+              fontWeight: 300,
+              color: "#4D4D4D",
+              textAlign: "justify",
+              lineHeight: 1.5,
+            }}
+          >
+            {trimmedLine}
+          </Typography>
+        );
+      }
+    });
+
+    return elements;
+  };
+
   return (
     <Dialog
       open={open}
@@ -51,6 +108,9 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
           fontWeight: 600,
           color: "#1a1a1a",
           position: "relative",
+          textAlign: "center",
+          textTransform: "uppercase",
+          letterSpacing: "1px",
         }}
       >
         {title}
@@ -68,19 +128,7 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
       </DialogTitle>
 
       <DialogContent sx={{ padding: "0 24px 24px 24px" }}>
-        <Typography
-          variant="body1"
-          sx={{
-            fontSize: "1rem",
-            lineHeight: 1.7,
-            color: "#4a4a4a",
-            fontWeight: 400,
-            marginBottom: "24px",
-            whiteSpace: "pre-line",
-          }}
-        >
-          {content}
-        </Typography>
+        <Box sx={{ marginBottom: "24px" }}>{formatContent(content)}</Box>
 
         <Divider sx={{ marginY: "24px" }} />
 
@@ -91,12 +139,11 @@ const ServiceModal: React.FC<ServiceModalProps> = ({
             marginBottom: "24px",
             color: "#4a4a4a",
             fontSize: "1rem",
-            lineHeight: 1.6,
+            lineHeight: 1.5,
             fontWeight: 400,
           }}
         >
-          Si necesita atención inmediata, contáctenos directamente a través de
-          WhatsApp.
+          {t("whatsappModalText")}
         </Typography>
 
         <Box sx={{ display: "flex", justifyContent: "center" }}>

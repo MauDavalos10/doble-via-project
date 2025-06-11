@@ -56,22 +56,22 @@
     "schoolTransport": {
       "title": "School Transportation",
       "description": "We transport your child with the safety they deserve thanks to our GPS, trained personnel, preventive maintenance and customer service.",
-      "modal": "We guarantee the safety of your children during the journey to and from the educational institution. Our service includes:\n\n• Personnel trained in defensive driving and first aid\n• Vehicles with GPS system for real-time monitoring\n• Constant preventive maintenance of our entire fleet\n• Customer service available to resolve any concerns\n• Strict compliance with established schedules\n• Vehicles equipped with safety belts\n• Optimized routes for greater efficiency\n\nYour peace of mind is our priority."
+      "modal": "With over 22 years of experience, dobleVIA specializes in safe and punctual student transportation. Our school transportation service provides peace of mind to educational institutions and families by offering:\n\nReal-Time GPS Monitoring: Each vehicle is equipped with GPS tracking so families can verify location and route in real-time.\n\nTrained Personnel: Highly trained drivers and assistants in customer service, ensuring a safe and friendly environment for students.\n\nPreventive Maintenance: Rigorous maintenance plan to ensure optimal vehicle condition for each trip."
     },
     "institutionalTransport": {
       "title": "Institutional Transportation",
       "description": "We design personnel routes for public and private companies and institutions. We comply with the highest standards of trust and punctuality.",
-      "modal": "We offer corporate transportation solutions designed specifically for public and private companies and institutions. Our service includes:\n\n• Personalized route design according to your company's needs\n• Modern and comfortable fleet for personnel transportation\n• Professional drivers with extensive experience\n• Strict compliance with schedules and punctuality\n• Real-time GPS monitoring system\n• Preventive and corrective vehicle maintenance\n• Specialized customer service\n• Flexibility in schedules and routes according to requirements\n• Compliance with all transportation regulations\n\nWe optimize the mobility of your work team."
+      "modal": "dobleVIA is the ideal strategic partner for personnel transportation in companies with continuous shifts and personalized needs.\n\nOur service stands out for:\n\nContinuous Operation and Flexibility: Available 24/7 and 365 days a year, we adapt routes according to your company's frequency needs, whether door-to-door or via main routes.\n\nReal-Time Attention and Monitoring: All our vehicles are equipped with GPS systems and radio communication for constant monitoring, plus a 24-hour Customer Service Center.\n\nClients Who Trust dobleVIA: Companies requiring reliable and personalized institutional transportation solutions have placed their trust in us, backing our solidity and commitment in every journey."
     },
     "trolleyTransport": {
       "title": "Trolley Transportation",
       "description": "We provide trolley-type transportation service for special events, weddings and celebrations, creating unique and unforgettable experiences.",
-      "modal": "We create unique experiences with our trolley-type transportation service, ideal for special events and memorable celebrations. Our service includes:\n\n• Trolley-type vehicles with elegant and distinctive design\n• Perfect for weddings, quinceañeras and corporate events\n• Capacity for large groups with guaranteed comfort\n• Personalized decoration according to your event theme\n• Drivers specialized in social events\n• Personalized city tours\n• Integrated sound system for ambient music\n• Photography service during the tour (optional)\n• Coordination with wedding planners and event organizers\n\nTurn your celebration into an unforgettable experience."
+      "modal": "dobleVIA invites tourists and locals to a unique tour of Quito's Historic Center in our classic Trolley. This service focuses on providing an authentic and cultural experience:\n\nAuthenticity and Comfort: The dobleVIA Trolley recreates a classic atmosphere, perfect for enjoying a comfortable ride full of history.\n\nVisit to Iconic Sites: Discover the main historical and cultural points of Quito in a journey designed to highlight the city's richness.\n\nSafety and Professionalism: With experienced drivers and safe equipment, we guarantee an unforgettable experience at every stop."
     },
     "touristTransport": {
       "title": "Tourist Transportation",
       "description": "Discover Ecuador with our tourist transportation service. We offer personalized tours with expert guides for an unforgettable experience.",
-      "modal": "Discover the beauty of Ecuador with our specialized tourist transportation service. We offer you:\n\n• Personalized tours to national and international destinations\n• Expert tourist guides with extensive local knowledge\n• Comfortable and safe vehicles for long journeys\n• Flexible itineraries adapted to your preferences\n• Complete packages that include lodging and meals\n• Transportation to archaeological, natural and cultural sites\n• Door-to-door service from your location\n• Multilingual service for international tourists\n• Travel insurance included in all our tours\n• Coordination with local hotels and restaurants\n\nExperience Ecuador authentically and safely."
+      "modal": "dobleVIA offers tourist transportation services for those seeking to discover Ecuador's cultural richness. We stand out for:\n\nModern Fleet and Specialized Guides: Comfortable and safe vehicles, along with expert guides, guarantee an enriching experience.\n\nMemorable Tours: We personalize itineraries to Ecuador's iconic tourist sites, combining comfort and safety in every journey.\n\nCommitment to Safety and Comfort: We meet high quality standards to provide a complete and safe experience in every tour."
     },
     "airportTransport": {
       "title": "Airport Transportation",
@@ -80,8 +80,9 @@
     }
   },
   "readMore": "Read more",
-  "whatsappContact": "Contact via WhatsApp",
+  "whatsappContact": "WhatsApp",
   "whatsappText": "If you need immediate assistance, contact us directly through WhatsApp.",
+  "whatsappModalText": "If you need immediate assistance, contact us directly through WhatsApp.",
   "footer": {
     "description": "At Doble Vía, we are committed to providing safe, reliable and quality transportation services. Your safety and comfort are our priority."
   }

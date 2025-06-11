@@ -56,22 +56,22 @@
     "schoolTransport": {
       "title": "Transporte Escolar",
       "description": "Transportamos a tu hijo con la seguridad que merece gracias a nuestro GPS, personal capacitado, mantenimiento preventivo y servicio al cliente.",
-      "modal": "Garantizamos la seguridad de tus hijos durante el trayecto hacia y desde la institución educativa. Nuestro servicio incluye:\n\n• Personal capacitado en manejo defensivo y primeros auxilios\n• Vehículos con sistema GPS para monitoreo en tiempo real\n• Mantenimiento preventivo constante de toda nuestra flota\n• Atención al cliente disponible para resolver cualquier inquietud\n• Cumplimiento estricto de horarios establecidos\n• Vehículos equipados con cinturones de seguridad\n• Rutas optimizadas para mayor eficiencia\n\nTu tranquilidad es nuestra prioridad."
+      "modal": "Con más de 22 años de experiencia, dobleVIA se especializa en el traslado seguro y puntual de estudiantes. Nuestro servicio de transporte escolar ofrece tranquilidad a instituciones educativas y familias al contar con:\n\nMonitoreo GPS en Tiempo Real: Cada vehículo está equipado con rastreo GPS para que las familias puedan verificar la ubicación y ruta en tiempo real.\n\nPersonal Capacitado: Conductores y asistentes altamente capacitados en servicio al cliente, garantizando un entorno seguro y amigable para los estudiantes.\n\nMantenimiento Preventivo: Riguroso plan de mantenimiento para asegurar la óptima condición de los vehículos en cada traslado."
     },
     "institutionalTransport": {
       "title": "Transporte Institucional",
       "description": "Diseñamos rutas de personal para empresas e instituciones públicas y privadas. Cumplimos con los más altos estándares de confianza y puntualidad.",
-      "modal": "Ofrecemos soluciones de transporte corporativo diseñadas específicamente para empresas e instituciones públicas y privadas. Nuestro servicio incluye:\n\n• Diseño de rutas personalizadas según las necesidades de tu empresa\n• Flota moderna y cómoda para el transporte de personal\n• Conductores profesionales con amplia experiencia\n• Cumplimiento estricto de horarios y puntualidad\n• Sistema de monitoreo GPS en tiempo real\n• Mantenimiento preventivo y correctivo de vehículos\n• Atención al cliente especializada\n• Flexibilidad en horarios y rutas según requerimientos\n• Cumplimiento de todas las normativas de transporte\n\nOptimizamos la movilidad de tu equipo de trabajo."
+      "modal": "dobleVIA es el aliado estratégico ideal para el transporte de personal en empresas con jornadas continuas y necesidades personalizadas.\n\nNuestro servicio destaca por:\n\nOperación Continua y Flexibilidad: Disponibles 24/7 y 365 días al año, adaptamos las rutas según la frecuencia que necesite su empresa, ya sea puerta a puerta o por vías principales.\n\nAtención y Seguimiento en Tiempo Real: Todos nuestros vehículos están equipados con sistemas GPS y radiocomunicación para un monitoreo constante, además de un Centro de Atención al Cliente disponible las 24 horas.\n\nClientes que Confían en dobleVIA: Empresas que requieren soluciones confiables y personalizadas en transporte institucional han depositado su confianza en nosotros, respaldando nuestra solidez y compromiso en cada trayecto."
     },
     "trolleyTransport": {
       "title": "Transporte Trolley",
       "description": "Brindamos servicio de transporte tipo trolley para eventos especiales, matrimonios y celebraciones, creando experiencias únicas e inolvidables.",
-      "modal": "Creamos experiencias únicas con nuestro servicio de transporte tipo trolley, ideal para eventos especiales y celebraciones memorables. Nuestro servicio incluye:\n\n• Vehículos tipo trolley con diseño elegante y distintivo\n• Perfecto para matrimonios, quinceañeras y eventos corporativos\n• Capacidad para grupos grandes con comodidad garantizada\n• Decoración personalizada según el tema de tu evento\n• Conductores especializados en eventos sociales\n• Recorridos personalizados por la ciudad\n• Sistema de sonido integrado para música ambiental\n• Servicio de fotografía durante el recorrido (opcional)\n• Coordinación con wedding planners y organizadores de eventos\n\nConvierte tu celebración en una experiencia inolvidable."
+      "modal": "dobleVIA invita a turistas y locales a un recorrido único por el Centro Histórico de Quito en nuestro clásico Trolley. Este servicio se enfoca en brindar una experiencia auténtica y cultural:\n\nAutenticidad y Comodidad: El Trolley de dobleVIA recrea un ambiente clásico, ideal para disfrutar de un paseo cómodo y lleno de historia.\n\nVisita a Sitios Emblemáticos: Conozca los principales puntos históricos y culturales de Quito en un trayecto diseñado para resaltar la riqueza de la ciudad.\n\nSeguridad y Profesionalismo: Con conductores experimentados y equipos seguros, garantizamos una experiencia inolvidable en cada parada."
     },
     "touristTransport": {
       "title": "Transporte Turístico",
       "description": "Descubre Ecuador con nuestro servicio de transporte turístico. Ofrecemos tours personalizados con guías expertos para una experiencia inolvidable.",
-      "modal": "Descubre la belleza de Ecuador con nuestro servicio especializado de transporte turístico. Te ofrecemos:\n\n• Tours personalizados a destinos nacionales e internacionales\n• Guías turísticos expertos con amplio conocimiento local\n• Vehículos cómodos y seguros para trayectos largos\n• Itinerarios flexibles adaptados a tus preferencias\n• Paquetes completos que incluyen hospedaje y alimentación\n• Transporte a sitios arqueológicos, naturales y culturales\n• Servicio puerta a puerta desde tu ubicación\n• Atención multilingüe para turistas internacionales\n• Seguro de viaje incluido en todos nuestros tours\n• Coordinación con hoteles y restaurantes locales\n\nVive Ecuador de manera auténtica y segura."
+      "modal": "dobleVIA ofrece un servicio de transporte turístico para aquellos que buscan conocer la riqueza cultural del Ecuador. Nos destacamos por:\n\nFlota Moderna y Guías Especializados: Vehículos cómodos y seguros, junto a guías expertos, garantizan una experiencia enriquecedora.\n\nRecorridos Memorables: Personalizamos itinerarios hacia sitios turísticos emblemáticos de Ecuador, combinando comodidad y seguridad en cada trayecto.\n\nCompromiso con la Seguridad y el Confort: Cumplimos con altos estándares de calidad para brindar una experiencia completa y segura en cada recorrido."
     },
     "airportTransport": {
       "title": "Transporte Aeropuerto",
@@ -80,8 +80,9 @@
     }
   },
   "readMore": "Leer más",
-  "whatsappContact": "Contactar por WhatsApp",
+  "whatsappContact": "WhatsApp",
   "whatsappText": "Si necesita atención inmediata, contáctenos directamente a través de WhatsApp.",
+  "whatsappModalText": "Si necesita atención inmediata, contáctenos directamente a través de WhatsApp.",
   "footer": {
     "description": "En Doble Vía, nos comprometemos a brindar servicios de transporte seguros, confiables y de calidad. Tu seguridad y comodidad son nuestra prioridad."
   }

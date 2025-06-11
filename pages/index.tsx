@@ -93,7 +93,13 @@ export default function Home() {
     setDrawerOpen(false);
   }, [locale]);
 
-  const handleServiceClick = (serviceKey: string) => {
+  const handleServiceClick = (serviceKey: string, index: number) => {
+    // Si es el servicio de aeropuerto (índice 2), redirigir a la URL externa
+    if (index === 2) {
+      window.open("https://593transfer.com/", "_blank");
+      return;
+    }
+
     setSelectedService(serviceKey);
     setModalOpen(true);
   };
@@ -411,7 +417,7 @@ export default function Home() {
                   >
                     <Button
                       variant="outlined"
-                      onClick={() => handleServiceClick(serviceKeys[idx])}
+                      onClick={() => handleServiceClick(serviceKeys[idx], idx)}
                       sx={{
                         borderColor: "#d32f2f",
                         color: "#d32f2f",
@@ -427,7 +433,7 @@ export default function Home() {
                         },
                       }}
                     >
-                      Leer más
+                      {t("readMore")}
                     </Button>
 
                     <Button
@@ -447,7 +453,7 @@ export default function Home() {
                         },
                       }}
                     >
-                      WhatsApp
+                      {t("whatsappContact")}
                     </Button>
                   </Box>
                 </Box>
