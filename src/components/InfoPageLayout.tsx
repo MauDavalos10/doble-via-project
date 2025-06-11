@@ -259,12 +259,13 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
                 align="center"
                 sx={{
                   marginBottom: "2rem",
-                  color: "var(--dark-gray)",
-                  fontFamily: "'Poppins', sans-serif",
-                  fontSize: { xs: "1rem", md: "1.1rem" },
-                  lineHeight: 1.6,
-                  fontWeight: 400,
-                  opacity: 0.85,
+                  fontSize: "15px",
+                  fontFamily: "'Poppins', Arial, sans-serif",
+                  fontWeight: 300,
+                  color: "#4D4D4D",
+                  textAlign: "justify",
+                  lineHeight: 1.5,
+                  margin: "0px 20px 15px 20px",
                 }}
               >
                 Si necesita atención inmediata, contáctenos directamente a

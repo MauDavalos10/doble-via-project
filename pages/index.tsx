@@ -397,10 +397,12 @@ export default function Home() {
                   <Typography
                     variant="body1"
                     sx={{
-                      fontSize: { xs: "1.1rem", md: "1.2rem" },
-                      lineHeight: 1.7,
-                      color: "#4a4a4a",
+                      fontSize: "18px",
+                      lineHeight: 1.5,
+                      color: "#4D4D4D",
                       fontWeight: 300,
+                      fontFamily: "'Poppins', Arial, sans-serif",
+                      textAlign: "justify",
                       letterSpacing: "0.3px",
                     }}
                   >

@@ -3,6 +3,7 @@ import Head from "next/head";
 import InfoPageLayout from "../src/components/InfoPageLayout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
+import { Typography } from "@mui/material";
 
 export default function Trolley() {
   const { t } = useTranslation("common");
@@ -12,35 +13,61 @@ export default function Trolley() {
         <title>{t("trolleyTitle")}</title>
       </Head>
       <InfoPageLayout>
-        <h1 style={{ marginBottom: "2rem", color: "#222" }}>
+        <Typography
+          variant="h1"
+          sx={{
+            fontSize: "2rem",
+            marginBottom: "2rem",
+            fontFamily: "'Poppins', Arial, sans-serif",
+            fontWeight: 600,
+            color: "#1a1a1a",
+            textAlign: "left",
+          }}
+        >
           {t("trolleyTitle")}
-        </h1>
-        <div style={{ color: "#444", lineHeight: 1.6 }}>
-          <p style={{ marginBottom: "1.5rem" }}>{t("trolleyDescription")}</p>
-          <ul
-            style={{
-              listStyle: "none",
-              padding: 0,
-              margin: 0,
-              color: "#222",
-              marginBottom: 24,
-              paddingLeft: 24,
-            }}
-          >
-            <li style={{ marginBottom: 12 }}>
-              <b>{t("trolleyFeature1").split(":")[0]}:</b>{" "}
-              {t("trolleyFeature1").split(":")[1]}
-            </li>
-            <li style={{ marginBottom: 12 }}>
-              <b>{t("trolleyFeature2").split(":")[0]}:</b>{" "}
-              {t("trolleyFeature2").split(":")[1]}
-            </li>
-            <li>
-              <b>{t("trolleyFeature3").split(":")[0]}:</b>{" "}
-              {t("trolleyFeature3").split(":")[1]}
-            </li>
-          </ul>
-        </div>
+        </Typography>
+        <Typography
+          variant="body1"
+          sx={{
+            fontSize: "15px",
+            margin: "0px 20px 15px 20px",
+            fontFamily: "'Poppins', Arial, sans-serif",
+            fontWeight: 300,
+            color: "#4D4D4D",
+            textAlign: "justify",
+            lineHeight: 1.5,
+          }}
+        >
+          {t("trolleyDescription")}
+        </Typography>
+        <Typography
+          component="div"
+          sx={{
+            fontSize: "15px",
+            margin: "0px 20px 15px 20px",
+            fontFamily: "'Poppins', Arial, sans-serif",
+            fontWeight: 300,
+            color: "#4D4D4D",
+            textAlign: "justify",
+            lineHeight: 1.5,
+            "& > div": {
+              marginBottom: "12px",
+            },
+          }}
+        >
+          <div>
+            <strong>{t("trolleyFeature1").split(":")[0]}:</strong>{" "}
+            {t("trolleyFeature1").split(":")[1] || t("trolleyFeature1")}
+          </div>
+          <div>
+            <strong>{t("trolleyFeature2").split(":")[0]}:</strong>{" "}
+            {t("trolleyFeature2").split(":")[1] || t("trolleyFeature2")}
+          </div>
+          <div>
+            <strong>{t("trolleyFeature3").split(":")[0]}:</strong>{" "}
+            {t("trolleyFeature3").split(":")[1] || t("trolleyFeature3")}
+          </div>
+        </Typography>
       </InfoPageLayout>
     </>
   );
