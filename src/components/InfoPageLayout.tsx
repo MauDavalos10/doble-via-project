@@ -18,6 +18,7 @@ import {
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import MenuIcon from "@mui/icons-material/Menu";
 import LanguageIcon from "@mui/icons-material/Language";
+import CloseIcon from "@mui/icons-material/Close";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
@@ -41,6 +42,21 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
   const shouldShowWhatsApp = pathname !== "/clients";
+
+  // Function to get section name based on current path and locale
+  const getSectionName = () => {
+    const pathToSectionMap = {
+      "/school": locale === "es" ? "Escolar" : t("school"),
+      "/institutional": locale === "es" ? "Institucional" : t("institutional"),
+      "/trolley": locale === "es" ? "Trolley" : t("trolley"),
+      "/tourism": locale === "es" ? "Turismo" : t("tourism"),
+      "/about": locale === "es" ? "Quienes somos" : t("about"),
+      "/clients": locale === "es" ? "Nuestros Clientes" : t("clients"),
+      "/reviews": locale === "es" ? "Reseñas Escritas" : t("reviews"),
+    };
+
+    return pathToSectionMap[pathname as keyof typeof pathToSectionMap] || "";
+  };
 
   const menuOptions =
     locale === "es"
@@ -222,6 +238,131 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
               fallbackImage="/images/glitch-logo.gif"
               fullHeight
             />
+
+            {/* Section Name Overlay with X button */}
+            {getSectionName() && (
+              <Box
+                sx={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  background: "rgba(0, 0, 0, 0.4)",
+                  zIndex: 2,
+                }}
+              >
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "20px",
+                  }}
+                >
+                  {/* Circular X Button */}
+                  <Box
+                    onClick={() => router.push("/")}
+                    sx={{
+                      width: "50px",
+                      height: "50px",
+                      borderRadius: "50%",
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      position: "relative",
+                      cursor: "pointer",
+                      transition: "transform 0.3s ease",
+                      "&::before": {
+                        content: '""',
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        borderRadius: "50%",
+                        border: "2px solid #888",
+                        transition: "opacity 0.3s ease",
+                      },
+                      "&::after": {
+                        content: '""',
+                        position: "absolute",
+                        top: 0,
+                        left: 0,
+                        right: 0,
+                        bottom: 0,
+                        borderRadius: "50%",
+                        background:
+                          "conic-gradient(from 0deg, #c00b19 0%, #888 0%)",
+                        mask: "radial-gradient(circle at center, transparent 21px, black 23px)",
+                        WebkitMask:
+                          "radial-gradient(circle at center, transparent 21px, black 23px)",
+                        opacity: 0,
+                        transition: "opacity 0.2s ease",
+                      },
+                      "&:hover::before": {
+                        opacity: 0,
+                      },
+                      "&:hover::after": {
+                        opacity: 1,
+                        animation: "progressiveBorderFill 1s ease-out forwards",
+                      },
+                      "&:hover": {
+                        transform: "scale(1.1)",
+                      },
+                      "@keyframes progressiveBorderFill": {
+                        "0%": {
+                          background:
+                            "conic-gradient(from 0deg, #c00b19 0%, #888 0%)",
+                        },
+                        "25%": {
+                          background:
+                            "conic-gradient(from 0deg, #c00b19 90deg, #888 90deg)",
+                        },
+                        "50%": {
+                          background:
+                            "conic-gradient(from 0deg, #c00b19 180deg, #888 180deg)",
+                        },
+                        "75%": {
+                          background:
+                            "conic-gradient(from 0deg, #c00b19 270deg, #888 270deg)",
+                        },
+                        "100%": {
+                          background:
+                            "conic-gradient(from 0deg, #c00b19 360deg, #888 360deg)",
+                        },
+                      },
+                    }}
+                  >
+                    <CloseIcon
+                      sx={{
+                        color: "white",
+                        fontSize: "24px",
+                        zIndex: 1,
+                      }}
+                    />
+                  </Box>
+
+                  {/* Section Name */}
+                  <Typography
+                    variant="h2"
+                    sx={{
+                      color: "white",
+                      fontFamily: "'Poppins', sans-serif",
+                      fontWeight: 600,
+                      fontSize: { xs: "2rem", md: "2.5rem" },
+                      letterSpacing: "1px",
+                      textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
+                      textAlign: "center",
+                    }}
+                  >
+                    {getSectionName()}
+                  </Typography>
+                </Box>
+              </Box>
+            )}
           </Box>
         )}
 
