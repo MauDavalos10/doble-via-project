@@ -421,17 +421,21 @@ export default function Home() {
                       variant="outlined"
                       onClick={() => handleServiceClick(serviceKeys[idx], idx)}
                       sx={{
-                        borderColor: "#d32f2f",
-                        color: "#d32f2f",
-                        borderRadius: "3px",
-                        px: 3,
-                        py: 1.5,
-                        fontWeight: 500,
+                        borderColor: "rgb(77, 77, 77)",
+                        color: "rgb(77, 77, 77)",
+                        borderRadius: "0px",
+                        px: 4,
+                        py: 2,
+                        fontWeight: 600,
                         textTransform: "none",
                         fontSize: "1rem",
+                        borderWidth: "2px",
+                        minHeight: "50px",
+                        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                         "&:hover": {
-                          borderColor: "#b71c1c",
-                          backgroundColor: "rgba(211, 47, 47, 0.04)",
+                          borderColor: "rgb(77, 77, 77)",
+                          backgroundColor: "rgba(77, 77, 77, 0.1)",
+                          color: "rgb(77, 77, 77)",
                         },
                       }}
                     >
@@ -439,23 +443,32 @@ export default function Home() {
                     </Button>
 
                     <Button
-                      variant="contained"
+                      variant="outlined"
                       startIcon={<WhatsAppIcon />}
                       onClick={() => window.open(whatsappUrl, "_blank")}
                       sx={{
-                        backgroundColor: "#25d366",
-                        borderRadius: "3px",
-                        px: 3,
-                        py: 1.5,
-                        fontWeight: 500,
+                        borderColor: "rgb(77, 77, 77)",
+                        color: "rgb(77, 77, 77)",
+                        borderRadius: "0px",
+                        px: 4,
+                        py: 2,
+                        fontWeight: 600,
                         textTransform: "none",
                         fontSize: "1rem",
+                        borderWidth: "2px",
+                        minHeight: "50px",
+                        transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                         "&:hover": {
-                          backgroundColor: "#128c7e",
+                          borderColor: "rgb(77, 77, 77)",
+                          backgroundColor: "rgba(77, 77, 77, 0.1)",
+                          color: "rgb(77, 77, 77)",
+                        },
+                        "& .MuiButton-startIcon": {
+                          marginRight: "8px",
                         },
                       }}
                     >
-                      {t("whatsappContact")}
+                      +593 98 706 3904
                     </Button>
                   </Box>
                 </Box>
