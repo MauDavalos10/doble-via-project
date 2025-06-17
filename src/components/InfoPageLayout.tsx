@@ -25,6 +25,7 @@ import { useState, useEffect } from "react";
 
 interface InfoPageLayoutProps {
   children: React.ReactNode;
+  hideFooter?: boolean;
 }
 
 const whatsappNumber = "593987063904";
@@ -33,7 +34,10 @@ const whatsappMessage = encodeURIComponent(
 );
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
 
-const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
+const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({
+  children,
+  hideFooter = false,
+}) => {
   const { t } = useTranslation("common");
   const router = useRouter();
   const { locale, pathname } = router;
@@ -41,7 +45,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  const shouldShowWhatsApp = pathname !== "/clients";
+  const shouldShowWhatsApp = pathname !== "/clients" && !hideFooter;
 
   // Function to get section name based on current path and locale
   const getSectionName = () => {
