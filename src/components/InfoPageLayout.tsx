@@ -41,7 +41,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  const shouldShowWhatsApp = pathname !== "/clients" && pathname !== "/sales";
+  const shouldShowWhatsApp = pathname !== "/clients";
 
   // Function to get section name based on current path and locale
   const getSectionName = () => {

@@ -95,13 +95,13 @@ Gracias.`;
           <Typography
             variant="body1"
             sx={{
-              fontSize: "15px",
-              marginBottom: "2.5rem",
+              fontSize: "14px",
+              marginBottom: "1.5rem",
               fontFamily: "'Inter', 'Segoe UI', sans-serif",
               fontWeight: 400,
               color: "#4a5568",
               textAlign: "justify",
-              lineHeight: 1.7,
+              lineHeight: 1.5,
               letterSpacing: "0.2px",
             }}
           >
@@ -111,8 +111,8 @@ Gracias.`;
           <Typography
             variant="h3"
             sx={{
-              fontSize: "18px",
-              marginBottom: "2rem",
+              fontSize: "16px",
+              marginBottom: "1.5rem",
               fontFamily: "'Inter', 'Segoe UI', sans-serif",
               fontWeight: 600,
               color: "#2d3748",
@@ -123,7 +123,7 @@ Gracias.`;
           </Typography>
 
           <form onSubmit={handleSubmit} style={{ width: "100%" }}>
-            <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
               <TextField
                 fullWidth
                 label={`${t("salesForm.fullName")} *`}
@@ -335,13 +335,13 @@ Gracias.`;
                 </Select>
               </FormControl>
 
-              <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
+              <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
                 <Button
                   type="submit"
                   variant="contained"
                   sx={{
                     background: "#2d3748",
-                    padding: "12px 32px",
+                    padding: "10px 28px",
                     fontSize: "14px",
                     fontWeight: 500,
                     fontFamily: "'Inter', sans-serif",
@@ -371,13 +371,13 @@ Gracias.`;
               <Typography
                 variant="body2"
                 sx={{
-                  fontSize: "12px",
-                  marginTop: "2rem",
+                  fontSize: "11px",
+                  marginTop: "1rem",
                   fontFamily: "'Inter', sans-serif",
                   fontWeight: 400,
                   color: "#a0aec0",
                   textAlign: "center",
-                  lineHeight: 1.6,
+                  lineHeight: 1.4,
                   letterSpacing: "0.1px",
                 }}
               >
