@@ -41,7 +41,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("md"));
 
-  const shouldShowWhatsApp = pathname !== "/clients";
+  const shouldShowWhatsApp = pathname !== "/clients" && pathname !== "/sales";
 
   // Function to get section name based on current path and locale
   const getSectionName = () => {
@@ -53,6 +53,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
       "/about": locale === "es" ? "Quienes somos" : t("about"),
       "/clients": locale === "es" ? "Nuestros Clientes" : t("clients"),
       "/reviews": locale === "es" ? "Reseñas Escritas" : t("reviews"),
+      "/sales": t("sales"),
     };
 
     return pathToSectionMap[pathname as keyof typeof pathToSectionMap] || "";
@@ -133,6 +134,26 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
           >
             Menú
           </Typography>
+          <Button
+            color="inherit"
+            onClick={() => router.push("/sales")}
+            sx={{
+              fontWeight: 600,
+              letterSpacing: "0.5px",
+              padding: "4px 12px",
+              borderRadius: "3px",
+              transition: "all 0.3s ease",
+              marginRight: 1,
+              backgroundColor: "rgba(192, 11, 25, 0.9)",
+              "&:hover": {
+                backgroundColor: "rgba(192, 11, 25, 1)",
+                transform: "translateY(-1px)",
+              },
+              fontSize: "0.8rem",
+            }}
+          >
+            {t("contactSales")}
+          </Button>
           <Button
             color="inherit"
             startIcon={<LanguageIcon sx={{ fontSize: "1.2rem" }} />}

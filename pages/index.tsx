@@ -176,6 +176,25 @@ export default function Home() {
             </Typography>
             <Button
               color="inherit"
+              onClick={() => router.push("/sales")}
+              sx={{
+                fontWeight: 600,
+                letterSpacing: "0.5px",
+                padding: "8px 20px",
+                borderRadius: "3px",
+                transition: "all 0.3s ease",
+                marginRight: 2,
+                backgroundColor: "rgba(192, 11, 25, 0.9)",
+                "&:hover": {
+                  backgroundColor: "rgba(192, 11, 25, 1)",
+                  transform: "translateY(-1px)",
+                },
+              }}
+            >
+              {t("contactSales")}
+            </Button>
+            <Button
+              color="inherit"
               startIcon={<LanguageIcon />}
               onClick={toggleLanguage}
               sx={{

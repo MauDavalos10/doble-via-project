@@ -85,5 +85,32 @@
   "whatsappModalText": "Si necesita atención inmediata, contáctenos directamente a través de WhatsApp.",
   "footer": {
     "description": "En Doble Vía, nos comprometemos a brindar servicios de transporte seguros, confiables y de calidad. Tu seguridad y comodidad son nuestra prioridad."
+  },
+  "contactSales": "CONTACTAR CON VENTAS",
+  "sales": "VENTAS",
+  "salesForm": {
+    "title": "En dobleVIA priorizamos su comodidad y seguridad; llene el formulario y eliga la opción de transporte perfecta para usted.",
+    "yourData": "Sus datos",
+    "fullName": "Nombre y Apellido",
+    "phone": "Teléfono Celular",
+    "email": "Correo electrónico",
+    "serviceType": "Tipo de servicio",
+    "contactPreference": "Preferencia de contacto",
+    "selectService": "--escoja el servicio--",
+    "selectContact": "--escoja el medio--",
+    "serviceOptions": {
+      "school": "Escolar",
+      "institutional": "Institucional",
+      "tourism": "Turismo",
+      "trolley": "Trolley",
+      "transfer": "Transfer"
+    },
+    "contactOptions": {
+      "whatsapp": "Mensaje de WhatsApp",
+      "phone": "Llamada telefónica",
+      "email": "Correo electrónico"
+    },
+    "submit": "Enviar",
+    "disclaimer": "Al enviar este formulario, un ejecutivo de atención al cliente se contactará con usted en un tiempo máximo de 12 horas."
   }
 }

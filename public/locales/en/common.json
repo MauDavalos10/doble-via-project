@@ -85,5 +85,32 @@
   "whatsappModalText": "If you need immediate assistance, contact us directly through WhatsApp.",
   "footer": {
     "description": "At Doble Vía, we are committed to providing safe, reliable and quality transportation services. Your safety and comfort are our priority."
+  },
+  "contactSales": "CONTACT SALES",
+  "sales": "SALES",
+  "salesForm": {
+    "title": "At dobleVIA we prioritize your comfort and safety; fill out the form and choose the perfect transportation option for you.",
+    "yourData": "Your information",
+    "fullName": "Full Name",
+    "phone": "Cell Phone",
+    "email": "Email",
+    "serviceType": "Service Type",
+    "contactPreference": "Contact Preference",
+    "selectService": "--choose service--",
+    "selectContact": "--choose method--",
+    "serviceOptions": {
+      "school": "School",
+      "institutional": "Institutional",
+      "tourism": "Tourism",
+      "trolley": "Trolley",
+      "transfer": "Transfer"
+    },
+    "contactOptions": {
+      "whatsapp": "WhatsApp Message",
+      "phone": "Phone Call",
+      "email": "Email"
+    },
+    "submit": "Submit",
+    "disclaimer": "By submitting this form, a customer service executive will contact you within a maximum of 12 hours."
   }
 }
