@@ -3,7 +3,7 @@ import Head from "next/head";
 import InfoPageLayout from "../src/components/InfoPageLayout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
-import { Typography } from "@mui/material";
+import { Typography, Box } from "@mui/material";
 
 export default function Reviews() {
   const { t } = useTranslation("common");
@@ -12,7 +12,7 @@ export default function Reviews() {
       <Head>
         <title>{t("reviews")}</title>
       </Head>
-      <InfoPageLayout>
+      <InfoPageLayout hideFooter={true}>
         <Typography
           variant="h1"
           sx={{
@@ -24,52 +24,67 @@ export default function Reviews() {
             textAlign: "left",
           }}
         >
-          {t("reviews")}
+          {t("reviewsTitle")}
         </Typography>
-        <Typography
-          variant="body1"
+
+        <Box
           sx={{
-            fontSize: "15px",
-            margin: "0px 20px 15px 20px",
-            fontFamily: "'Poppins', Arial, sans-serif",
-            fontWeight: 300,
-            color: "#4D4D4D",
-            textAlign: "justify",
-            lineHeight: 1.5,
+            backgroundColor: "#f8f9fa",
+            borderLeft: "4px solid #c00b19",
+            padding: "2rem",
+            margin: "2rem 0",
+            borderRadius: "0 8px 8px 0",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.1)",
           }}
         >
-          La satisfacción de nuestros clientes es nuestra mejor carta de
-          presentación. Aquí algunas de sus experiencias.
-        </Typography>
-        <Typography
-          component="div"
-          sx={{
-            fontSize: "15px",
-            margin: "0px 20px 15px 20px",
-            fontFamily: "'Poppins', Arial, sans-serif",
-            fontWeight: 300,
-            color: "#4D4D4D",
-            textAlign: "justify",
-            lineHeight: 1.5,
-            "& > div": {
-              marginBottom: "12px",
-            },
-          }}
-        >
-          <div>
-            <strong>Colegio San José:</strong> &ldquo;Excelente servicio de
-            transporte escolar. Puntualidad y seguridad garantizadas.&rdquo;
-          </div>
-          <div>
-            <strong>Empresa XYZ:</strong> &ldquo;El mejor servicio corporativo
-            que hemos tenido. Profesionalismo y eficiencia.&rdquo;
-          </div>
-          <div>
-            <strong>Hotel Grand:</strong> &ldquo;Transporte confiable para
-            nuestros huéspedes. Siempre a tiempo y con excelente
-            atención.&rdquo;
-          </div>
-        </Typography>
+          <Typography
+            variant="body1"
+            sx={{
+              fontSize: "16px",
+              fontFamily: "'Poppins', Arial, sans-serif",
+              fontWeight: 300,
+              color: "#4D4D4D",
+              textAlign: "justify",
+              lineHeight: 1.6,
+              marginBottom: "1.5rem",
+              fontStyle: "italic",
+            }}
+          >
+            &ldquo;{t("reviewText")}&rdquo;
+          </Typography>
+
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "center",
+              gap: 1,
+            }}
+          >
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: "14px",
+                fontFamily: "'Poppins', Arial, sans-serif",
+                fontWeight: 600,
+                color: "#1a1a1a",
+              }}
+            >
+              {t("reviewAuthor")}
+            </Typography>
+            <Typography
+              variant="body2"
+              sx={{
+                fontSize: "14px",
+                fontFamily: "'Poppins', Arial, sans-serif",
+                fontWeight: 300,
+                color: "#888",
+              }}
+            >
+              {t("reviewDate")}
+            </Typography>
+          </Box>
+        </Box>
       </InfoPageLayout>
     </>
   );

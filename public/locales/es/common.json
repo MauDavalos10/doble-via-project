@@ -112,5 +112,9 @@
     },
     "submit": "Enviar",
     "disclaimer": "Al enviar este formulario, un ejecutivo de atención al cliente se contactará con usted en un tiempo máximo de 12 horas."
-  }
+  },
+  "reviewsTitle": "Lo que dicen nuestros clientes sobre nosotros:",
+  "reviewText": "Hay que reportar también lo bueno, cada vez que nos brinda el servicio el Sr. Jonathan Rodriguez lo hace con la mejor predisposición, educación y seguridad. El Señor es amable y empático que es lo mejor que puede tener el ser humano. Gracias 593 por este servicio.",
+  "reviewAuthor": "María Fernanda",
+  "reviewDate": "29/03/2021"
 }
