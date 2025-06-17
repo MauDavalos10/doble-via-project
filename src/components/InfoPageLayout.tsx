@@ -113,12 +113,12 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
           zIndex: (theme) => theme.zIndex.drawer + 1,
         }}
       >
-        <Toolbar sx={{ minHeight: { xs: 48, md: 56 } }}>
+        <Toolbar sx={{ minHeight: { xs: 48, md: 56 }, px: { xs: 1, md: 2 } }}>
           <IconButton
             color="inherit"
             edge="start"
             onClick={() => setDrawerOpen(true)}
-            sx={{ padding: "8px" }}
+            sx={{ padding: "8px", mr: { xs: 1, md: 2 } }}
           >
             <MenuIcon sx={{ fontSize: "1.5rem" }} />
           </IconButton>
@@ -129,7 +129,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
               flexGrow: 1,
               fontWeight: 300,
               letterSpacing: "0.5px",
-              fontSize: { xs: "1rem", md: "1.1rem" },
+              fontSize: { xs: "0.9rem", md: "1.1rem" },
             }}
           >
             Menú
@@ -140,38 +140,48 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
             sx={{
               fontWeight: 600,
               letterSpacing: "0.5px",
-              padding: "4px 12px",
+              padding: { xs: "2px 6px", md: "4px 12px" },
               borderRadius: "3px",
               transition: "all 0.3s ease",
-              marginRight: 1,
+              marginRight: { xs: 0.5, md: 1 },
               backgroundColor: "rgba(192, 11, 25, 0.9)",
               "&:hover": {
                 backgroundColor: "rgba(192, 11, 25, 1)",
                 transform: "translateY(-1px)",
               },
-              fontSize: "0.8rem",
+              fontSize: { xs: "0.7rem", md: "0.8rem" },
+              minWidth: { xs: "auto", md: "auto" },
             }}
           >
-            {t("contactSales")}
+            {isMobile ? "VENTAS" : t("contactSales")}
           </Button>
           <Button
             color="inherit"
-            startIcon={<LanguageIcon sx={{ fontSize: "1.2rem" }} />}
+            startIcon={
+              !isMobile ? <LanguageIcon sx={{ fontSize: "1.2rem" }} /> : null
+            }
             onClick={toggleLanguage}
             sx={{
               fontWeight: 300,
               letterSpacing: "0.5px",
-              padding: "4px 12px",
+              padding: { xs: "2px 6px", md: "4px 12px" },
               borderRadius: "3px",
               transition: "all 0.3s ease",
               "&:hover": {
                 backgroundColor: "rgba(255,255,255,0.1)",
                 transform: "translateY(-1px)",
               },
-              fontSize: "0.9rem",
+              fontSize: { xs: "0.7rem", md: "0.9rem" },
+              minWidth: { xs: "auto", md: "auto" },
             }}
           >
-            {locale === "es" ? t("switchToEnglish") : t("switchToSpanish")}
+            {isMobile
+              ? locale === "es"
+                ? "EN"
+                : "ES"
+              : locale === "es"
+              ? t("switchToEnglish")
+              : t("switchToSpanish")}
           </Button>
         </Toolbar>
       </AppBar>
@@ -408,30 +418,29 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
             <>
               <Box
                 sx={{
-                  margin: "3rem 0 2rem 0",
+                  margin: "1.5rem 0 1rem 0",
                   height: "1px",
                   background:
-                    "linear-gradient(90deg, transparent 0%, var(--medium-gray) 50%, transparent 100%)",
-                  opacity: 0.3,
+                    "linear-gradient(90deg, transparent 0%, rgba(77, 77, 77, 0.3) 50%, transparent 100%)",
+                  opacity: 0.6,
                 }}
               />
 
               <Typography
                 variant="body1"
-                align="center"
                 sx={{
-                  marginBottom: "2rem",
+                  marginBottom: "1rem",
                   fontSize: "15px",
                   fontFamily: "'Poppins', Arial, sans-serif",
                   fontWeight: 300,
                   color: "#4D4D4D",
-                  textAlign: "justify",
-                  lineHeight: 1.5,
-                  margin: "0px 20px 15px 20px",
+                  textAlign: "center",
+                  lineHeight: 1.4,
+                  letterSpacing: "0.3px",
+                  px: { xs: 2, md: 4 },
                 }}
               >
-                Si necesita atención inmediata, contáctenos directamente a
-                través de WhatsApp.
+                {t("whatsappText")}
               </Typography>
 
               <Box sx={{ display: "flex", justifyContent: "center" }}>
@@ -439,32 +448,27 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({ children }) => {
                   href={whatsappUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  variant="contained"
-                  startIcon={<WhatsAppIcon sx={{ fontSize: "1.2rem" }} />}
+                  variant="outlined"
+                  startIcon={<WhatsAppIcon />}
                   sx={{
-                    background:
-                      "linear-gradient(135deg, #c00b19 0%, #a00915 100%)",
-                    padding: "0.75rem 2rem",
-                    fontSize: { xs: "1rem", md: "1.1rem" },
+                    borderColor: "rgb(77, 77, 77)",
+                    color: "rgb(77, 77, 77)",
+                    borderRadius: "0px",
+                    px: 3,
+                    py: 1.5,
                     fontWeight: 600,
-                    fontFamily: "'Poppins', sans-serif",
-                    borderRadius: "3px",
                     textTransform: "none",
-                    letterSpacing: "0.5px",
+                    fontSize: "0.9rem",
+                    borderWidth: "2px",
+                    minHeight: "42px",
                     transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                    border: "none",
-                    minWidth: "200px",
-                    cursor: "pointer",
                     "&:hover": {
-                      background:
-                        "linear-gradient(135deg, #a00915 0%, #800712 100%)",
-                      transform: "translateY(-2px)",
-                    },
-                    "&:active": {
-                      transform: "translateY(0px)",
+                      borderColor: "rgb(77, 77, 77)",
+                      backgroundColor: "rgba(77, 77, 77, 0.1)",
+                      color: "rgb(77, 77, 77)",
                     },
                     "& .MuiButton-startIcon": {
-                      marginRight: "8px",
+                      marginRight: "6px",
                     },
                   }}
                 >
