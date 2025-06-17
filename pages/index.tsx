@@ -57,18 +57,28 @@ export default function Home() {
       ? [
           { label: "Escolar", path: "/school" },
           { label: "Institucional", path: "/institutional" },
+          {
+            label: "Transfer",
+            path: "https://593transfer.com/",
+            external: true,
+          },
           { label: "Trolley", path: "/trolley" },
           { label: "Turismo", path: "/tourism" },
-          { label: "Acerca de", path: "/about" },
+          { label: "Quienes Somos", path: "/about" },
           { label: "Nuestros Clientes", path: "/clients" },
           { label: "Reseñas Escritas", path: "/reviews" },
         ]
       : [
           { label: t("school"), path: "/school" },
           { label: t("institutional"), path: "/institutional" },
+          {
+            label: "Transfer",
+            path: "https://593transfer.com/",
+            external: true,
+          },
           { label: t("trolley"), path: "/trolley" },
           { label: t("tourism"), path: "/tourism" },
-          { label: t("about"), path: "/about" },
+          { label: "Who We Are", path: "/about" },
           { label: t("clients"), path: "/clients" },
           { label: t("reviews"), path: "/reviews" },
         ];
@@ -239,7 +249,11 @@ export default function Home() {
                 <ListItemButton
                   onClick={() => {
                     setDrawerOpen(false);
-                    router.push(option.path);
+                    if (option.external) {
+                      window.open(option.path, "_blank");
+                    } else {
+                      router.push(option.path);
+                    }
                   }}
                   sx={{
                     py: 2,
@@ -323,27 +337,27 @@ export default function Home() {
             {/* Servicios en dos columnas alternadas */}
             {[
               {
-                img: "/images/img1.jpeg",
+                img: "/images/index/2_escolas.jpg",
                 titleKey: "schoolTitle",
                 descKey: "schoolDescription",
               },
               {
-                img: "/images/img2.jpg",
+                img: "/images/index/3_institucional.jpg",
                 titleKey: "institutionalTitle",
                 descKey: "institutionalDescription",
               },
               {
-                img: "/images/img3.jpeg",
+                img: "/images/index/1_aeropuerto.jpg",
                 titleKey: "airportTitle",
                 descKey: "airportDescription",
               },
               {
-                img: "/images/img4.jpeg",
+                img: "/images/index/4_trolley.jpg",
                 titleKey: "trolleyTitle",
                 descKey: "trolleyDescription",
               },
               {
-                img: "/images/img5.jpeg",
+                img: "/images/index/5_turistico.jpg",
                 titleKey: "tourismTitle",
                 descKey: "tourismDescription",
               },

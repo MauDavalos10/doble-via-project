@@ -203,7 +203,7 @@ export default function About() {
             <IconButton
               onClick={prevSlide}
               sx={{
-                color: "#FFD700",
+                color: "#b5191c",
                 fontSize: "2rem",
                 position: "absolute",
                 left: { xs: "10px", md: "20px" },
@@ -211,7 +211,7 @@ export default function About() {
                 transform: "translateY(-50%)",
                 zIndex: 10,
                 "&:hover": {
-                  backgroundColor: "rgba(255, 215, 0, 0.1)",
+                  backgroundColor: "rgba(181, 25, 28, 0.1)",
                   transform: "translateY(-50%) scale(1.1)",
                 },
                 transition: "all 0.3s ease",
@@ -273,7 +273,7 @@ export default function About() {
                   sx={{
                     fontSize: { xs: "2.5rem", md: "3.5rem" },
                     fontWeight: 700,
-                    color: "#FFD700",
+                    color: "#b5191c",
                     textAlign: "center",
                     marginBottom: "1rem",
                     fontFamily: "'Poppins', sans-serif",
@@ -303,7 +303,7 @@ export default function About() {
                       borderRadius: "2px",
                     },
                     "&::-webkit-scrollbar-thumb": {
-                      background: "#FFD700",
+                      background: "#b5191c",
                       borderRadius: "2px",
                     },
                   }}
@@ -318,7 +318,7 @@ export default function About() {
                   width: "4px",
                   height: { xs: "300px", md: "400px" },
                   background:
-                    "linear-gradient(to bottom, #FFD700 0%, rgba(255, 215, 0, 0.3) 50%, rgba(255, 255, 255, 0.1) 100%)",
+                    "linear-gradient(to bottom, #b5191c 0%, rgba(181, 25, 28, 0.3) 50%, rgba(255, 255, 255, 0.1) 100%)",
                   borderRadius: "2px",
                   position: "relative",
                   mx: { xs: 1, md: 2 },
@@ -332,9 +332,9 @@ export default function About() {
                     transform: "translateX(-50%)",
                     width: "12px",
                     height: "12px",
-                    backgroundColor: "#FFD700",
+                    backgroundColor: "#b5191c",
                     borderRadius: "50%",
-                    boxShadow: "0 0 10px rgba(255, 215, 0, 0.6)",
+                    boxShadow: "0 0 10px rgba(181, 25, 28, 0.6)",
                     transition: "top 0.5s ease-in-out",
                   },
                 }}
@@ -402,7 +402,7 @@ export default function About() {
                         sx={{
                           fontSize: "1.2rem",
                           fontWeight: 600,
-                          color: "rgba(255, 215, 0, 0.8)",
+                          color: "rgba(181, 25, 28, 0.8)",
                           textAlign: "center",
                           fontFamily: "'Poppins', sans-serif",
                         }}
@@ -419,7 +419,7 @@ export default function About() {
             <IconButton
               onClick={nextSlide}
               sx={{
-                color: "#FFD700",
+                color: "#b5191c",
                 fontSize: "2rem",
                 position: "absolute",
                 right: { xs: "10px", md: "20px" },
@@ -427,7 +427,7 @@ export default function About() {
                 transform: "translateY(-50%)",
                 zIndex: 10,
                 "&:hover": {
-                  backgroundColor: "rgba(255, 215, 0, 0.1)",
+                  backgroundColor: "rgba(181, 25, 28, 0.1)",
                   transform: "translateY(-50%) scale(1.1)",
                 },
                 transition: "all 0.3s ease",
@@ -458,14 +458,14 @@ export default function About() {
                   borderRadius: "50%",
                   backgroundColor:
                     index === currentSlide
-                      ? "#FFD700"
+                      ? "#b5191c"
                       : "rgba(255, 255, 255, 0.3)",
                   cursor: "pointer",
                   transition: "all 0.3s ease",
                   "&:hover": {
                     backgroundColor:
                       index === currentSlide
-                        ? "#FFD700"
+                        ? "#b5191c"
                         : "rgba(255, 255, 255, 0.6)",
                     transform: "scale(1.2)",
                   },
