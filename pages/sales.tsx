@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import type React from "react";
+import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import InfoPageLayout from "../src/components/InfoPageLayout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
-import { GetStaticProps } from "next";
+import type { GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
 import {
   Typography,
@@ -14,7 +15,6 @@ import {
   Select,
   MenuItem,
   Box,
-  Paper,
 } from "@mui/material";
 
 const Sales = () => {
@@ -85,220 +85,306 @@ Gracias.`;
           sx={{
             display: "flex",
             flexDirection: "column",
-            alignItems: "center",
             justifyContent: "center",
-            minHeight: "calc(100vh - 200px)",
-            padding: { xs: "1rem", md: "2rem" },
+            alignItems: "center",
+            height: "100%",
+            maxWidth: "500px",
+            margin: "0 auto",
           }}
         >
-          <Paper
-            elevation={0}
+          <Typography
+            variant="body1"
             sx={{
-              width: "100%",
-              maxWidth: "600px",
-              padding: { xs: "2rem", md: "3rem" },
-              borderRadius: "8px",
-              backgroundColor: "#fafafa",
-              border: "1px solid #e0e0e0",
+              fontSize: "15px",
+              marginBottom: "2.5rem",
+              fontFamily: "'Inter', 'Segoe UI', sans-serif",
+              fontWeight: 400,
+              color: "#4a5568",
+              textAlign: "justify",
+              lineHeight: 1.7,
+              letterSpacing: "0.2px",
             }}
           >
-            <Typography
-              variant="body1"
-              sx={{
-                fontSize: "16px",
-                marginBottom: "2rem",
-                fontFamily: "'Poppins', Arial, sans-serif",
-                fontWeight: 400,
-                color: "#4D4D4D",
-                textAlign: "justify",
-                lineHeight: 1.6,
-              }}
-            >
-              {t("salesForm.title")}
-            </Typography>
+            {t("salesForm.title")}
+          </Typography>
 
-            <Typography
-              variant="h3"
-              sx={{
-                fontSize: "1.2rem",
-                marginBottom: "1.5rem",
-                fontFamily: "'Poppins', Arial, sans-serif",
-                fontWeight: 600,
-                color: "#1a1a1a",
-              }}
-            >
-              {t("salesForm.yourData")}
-            </Typography>
+          <Typography
+            variant="h3"
+            sx={{
+              fontSize: "18px",
+              marginBottom: "2rem",
+              fontFamily: "'Inter', 'Segoe UI', sans-serif",
+              fontWeight: 600,
+              color: "#2d3748",
+              letterSpacing: "0.3px",
+            }}
+          >
+            {t("salesForm.yourData")}
+          </Typography>
 
-            <form onSubmit={handleSubmit}>
-              <Box sx={{ display: "flex", flexDirection: "column", gap: 2.5 }}>
-                <TextField
-                  fullWidth
-                  label={`${t("salesForm.fullName")} *`}
-                  value={formData.fullName}
-                  onChange={handleChange("fullName")}
-                  required
-                  variant="outlined"
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      borderRadius: "0px",
-                      backgroundColor: "white",
-                    },
-                  }}
-                />
-
-                <TextField
-                  fullWidth
-                  label={`${t("salesForm.phone")} *`}
-                  value={formData.phone}
-                  onChange={handleChange("phone")}
-                  required
-                  variant="outlined"
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      borderRadius: "0px",
-                      backgroundColor: "white",
-                    },
-                  }}
-                />
-
-                <TextField
-                  fullWidth
-                  label={`${t("salesForm.email")} *`}
-                  type="email"
-                  value={formData.email}
-                  onChange={handleChange("email")}
-                  required
-                  variant="outlined"
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      borderRadius: "0px",
-                      backgroundColor: "white",
-                    },
-                  }}
-                />
-
-                <FormControl
-                  fullWidth
-                  required
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      borderRadius: "0px",
-                      backgroundColor: "white",
-                    },
-                  }}
-                >
-                  <InputLabel>{t("salesForm.serviceType")} *</InputLabel>
-                  <Select
-                    value={formData.serviceType}
-                    onChange={handleChange("serviceType")}
-                    label={`${t("salesForm.serviceType")} *`}
-                    displayEmpty
-                  >
-                    <MenuItem value="" disabled>
-                      {t("salesForm.selectService")}
-                    </MenuItem>
-                    <MenuItem value={t("salesForm.serviceOptions.school")}>
-                      {t("salesForm.serviceOptions.school")}
-                    </MenuItem>
-                    <MenuItem
-                      value={t("salesForm.serviceOptions.institutional")}
-                    >
-                      {t("salesForm.serviceOptions.institutional")}
-                    </MenuItem>
-                    <MenuItem value={t("salesForm.serviceOptions.tourism")}>
-                      {t("salesForm.serviceOptions.tourism")}
-                    </MenuItem>
-                    <MenuItem value={t("salesForm.serviceOptions.trolley")}>
-                      {t("salesForm.serviceOptions.trolley")}
-                    </MenuItem>
-                    <MenuItem value={t("salesForm.serviceOptions.transfer")}>
-                      {t("salesForm.serviceOptions.transfer")}
-                    </MenuItem>
-                  </Select>
-                </FormControl>
-
-                <FormControl
-                  fullWidth
-                  required
-                  sx={{
-                    "& .MuiOutlinedInput-root": {
-                      borderRadius: "0px",
-                      backgroundColor: "white",
-                    },
-                  }}
-                >
-                  <InputLabel>{t("salesForm.contactPreference")} *</InputLabel>
-                  <Select
-                    value={formData.contactPreference}
-                    onChange={handleChange("contactPreference")}
-                    label={`${t("salesForm.contactPreference")} *`}
-                    displayEmpty
-                  >
-                    <MenuItem value="" disabled>
-                      {t("salesForm.selectContact")}
-                    </MenuItem>
-                    <MenuItem value={t("salesForm.contactOptions.whatsapp")}>
-                      {t("salesForm.contactOptions.whatsapp")}
-                    </MenuItem>
-                    <MenuItem value={t("salesForm.contactOptions.phone")}>
-                      {t("salesForm.contactOptions.phone")}
-                    </MenuItem>
-                    <MenuItem value={t("salesForm.contactOptions.email")}>
-                      {t("salesForm.contactOptions.email")}
-                    </MenuItem>
-                  </Select>
-                </FormControl>
-
-                <Box sx={{ display: "flex", justifyContent: "center", mt: 2 }}>
-                  <Button
-                    type="submit"
-                    variant="contained"
-                    sx={{
-                      background:
-                        "linear-gradient(135deg, #c00b19 0%, #a00915 100%)",
-                      padding: "1rem 3rem",
-                      fontSize: "1rem",
-                      fontWeight: 600,
-                      fontFamily: "'Poppins', sans-serif",
-                      borderRadius: "0px",
-                      textTransform: "none",
-                      letterSpacing: "0.5px",
-                      transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
-                      border: "none",
-                      minWidth: "150px",
-                      cursor: "pointer",
-                      "&:hover": {
-                        background:
-                          "linear-gradient(135deg, #a00915 0%, #800712 100%)",
-                        transform: "translateY(-2px)",
-                      },
-                      "&:active": {
-                        transform: "translateY(0px)",
-                      },
-                    }}
-                  >
-                    {t("salesForm.submit")}
-                  </Button>
-                </Box>
-
-                <Typography
-                  variant="body2"
-                  sx={{
+          <form onSubmit={handleSubmit} style={{ width: "100%" }}>
+            <Box sx={{ display: "flex", flexDirection: "column", gap: 3 }}>
+              <TextField
+                fullWidth
+                label={`${t("salesForm.fullName")} *`}
+                value={formData.fullName}
+                onChange={handleChange("fullName")}
+                required
+                variant="standard"
+                sx={{
+                  "& .MuiInputLabel-root": {
+                    color: "#718096",
                     fontSize: "14px",
-                    marginTop: "1.5rem",
-                    fontFamily: "'Poppins', Arial, sans-serif",
-                    fontWeight: 300,
-                    color: "#666",
-                    textAlign: "center",
-                    lineHeight: 1.5,
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                  },
+                  "& .MuiInput-root": {
+                    fontSize: "15px",
+                    fontFamily: "'Inter', sans-serif",
+                    color: "#2d3748",
+                    "&:before": {
+                      borderBottomColor: "#e2e8f0",
+                    },
+                    "&:hover:not(.Mui-disabled):before": {
+                      borderBottomColor: "#cbd5e0",
+                    },
+                    "&:after": {
+                      borderBottomColor: "#c00b19",
+                    },
+                  },
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "#c00b19",
+                  },
+                }}
+              />
+
+              <TextField
+                fullWidth
+                label={`${t("salesForm.phone")} *`}
+                value={formData.phone}
+                onChange={handleChange("phone")}
+                required
+                variant="standard"
+                sx={{
+                  "& .MuiInputLabel-root": {
+                    color: "#718096",
+                    fontSize: "14px",
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                  },
+                  "& .MuiInput-root": {
+                    fontSize: "15px",
+                    fontFamily: "'Inter', sans-serif",
+                    color: "#2d3748",
+                    "&:before": {
+                      borderBottomColor: "#e2e8f0",
+                    },
+                    "&:hover:not(.Mui-disabled):before": {
+                      borderBottomColor: "#cbd5e0",
+                    },
+                    "&:after": {
+                      borderBottomColor: "#c00b19",
+                    },
+                  },
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "#c00b19",
+                  },
+                }}
+              />
+
+              <TextField
+                fullWidth
+                label={`${t("salesForm.email")} *`}
+                type="email"
+                value={formData.email}
+                onChange={handleChange("email")}
+                required
+                variant="standard"
+                sx={{
+                  "& .MuiInputLabel-root": {
+                    color: "#718096",
+                    fontSize: "14px",
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                  },
+                  "& .MuiInput-root": {
+                    fontSize: "15px",
+                    fontFamily: "'Inter', sans-serif",
+                    color: "#2d3748",
+                    "&:before": {
+                      borderBottomColor: "#e2e8f0",
+                    },
+                    "&:hover:not(.Mui-disabled):before": {
+                      borderBottomColor: "#cbd5e0",
+                    },
+                    "&:after": {
+                      borderBottomColor: "#c00b19",
+                    },
+                  },
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "#c00b19",
+                  },
+                }}
+              />
+
+              <FormControl
+                fullWidth
+                required
+                variant="standard"
+                sx={{
+                  "& .MuiInputLabel-root": {
+                    color: "#718096",
+                    fontSize: "14px",
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                  },
+                  "& .MuiSelect-root": {
+                    fontSize: "15px",
+                    fontFamily: "'Inter', sans-serif",
+                    color: "#2d3748",
+                    "&:before": {
+                      borderBottomColor: "#e2e8f0",
+                    },
+                    "&:hover:not(.Mui-disabled):before": {
+                      borderBottomColor: "#cbd5e0",
+                    },
+                    "&:after": {
+                      borderBottomColor: "#c00b19",
+                    },
+                  },
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "#c00b19",
+                  },
+                }}
+              >
+                <InputLabel>{t("salesForm.serviceType")} *</InputLabel>
+                <Select
+                  value={formData.serviceType}
+                  onChange={handleChange("serviceType")}
+                  label={`${t("salesForm.serviceType")} *`}
+                >
+                  <MenuItem value="" disabled>
+                    {t("salesForm.selectService")}
+                  </MenuItem>
+                  <MenuItem value={t("salesForm.serviceOptions.school")}>
+                    {t("salesForm.serviceOptions.school")}
+                  </MenuItem>
+                  <MenuItem value={t("salesForm.serviceOptions.institutional")}>
+                    {t("salesForm.serviceOptions.institutional")}
+                  </MenuItem>
+                  <MenuItem value={t("salesForm.serviceOptions.tourism")}>
+                    {t("salesForm.serviceOptions.tourism")}
+                  </MenuItem>
+                  <MenuItem value={t("salesForm.serviceOptions.trolley")}>
+                    {t("salesForm.serviceOptions.trolley")}
+                  </MenuItem>
+                  <MenuItem value={t("salesForm.serviceOptions.transfer")}>
+                    {t("salesForm.serviceOptions.transfer")}
+                  </MenuItem>
+                </Select>
+              </FormControl>
+
+              <FormControl
+                fullWidth
+                required
+                variant="standard"
+                sx={{
+                  "& .MuiInputLabel-root": {
+                    color: "#718096",
+                    fontSize: "14px",
+                    fontFamily: "'Inter', sans-serif",
+                    fontWeight: 400,
+                  },
+                  "& .MuiSelect-root": {
+                    fontSize: "15px",
+                    fontFamily: "'Inter', sans-serif",
+                    color: "#2d3748",
+                    "&:before": {
+                      borderBottomColor: "#e2e8f0",
+                    },
+                    "&:hover:not(.Mui-disabled):before": {
+                      borderBottomColor: "#cbd5e0",
+                    },
+                    "&:after": {
+                      borderBottomColor: "#c00b19",
+                    },
+                  },
+                  "& .MuiInputLabel-root.Mui-focused": {
+                    color: "#c00b19",
+                  },
+                }}
+              >
+                <InputLabel>{t("salesForm.contactPreference")} *</InputLabel>
+                <Select
+                  value={formData.contactPreference}
+                  onChange={handleChange("contactPreference")}
+                  label={`${t("salesForm.contactPreference")} *`}
+                >
+                  <MenuItem value="" disabled>
+                    {t("salesForm.selectContact")}
+                  </MenuItem>
+                  <MenuItem value={t("salesForm.contactOptions.whatsapp")}>
+                    {t("salesForm.contactOptions.whatsapp")}
+                  </MenuItem>
+                  <MenuItem value={t("salesForm.contactOptions.phone")}>
+                    {t("salesForm.contactOptions.phone")}
+                  </MenuItem>
+                  <MenuItem value={t("salesForm.contactOptions.email")}>
+                    {t("salesForm.contactOptions.email")}
+                  </MenuItem>
+                </Select>
+              </FormControl>
+
+              <Box sx={{ display: "flex", justifyContent: "center", mt: 3 }}>
+                <Button
+                  type="submit"
+                  variant="contained"
+                  sx={{
+                    background: "#2d3748",
+                    padding: "12px 32px",
+                    fontSize: "14px",
+                    fontWeight: 500,
+                    fontFamily: "'Inter', sans-serif",
+                    borderRadius: "6px",
+                    textTransform: "none",
+                    letterSpacing: "0.3px",
+                    transition: "all 0.2s ease-in-out",
+                    border: "1px solid #2d3748",
+                    minWidth: "120px",
+                    cursor: "pointer",
+                    boxShadow: "0 2px 8px rgba(45, 55, 72, 0.15)",
+                    "&:hover": {
+                      background: "#1a202c",
+                      borderColor: "#1a202c",
+                      transform: "translateY(-1px)",
+                      boxShadow: "0 4px 12px rgba(45, 55, 72, 0.2)",
+                    },
+                    "&:active": {
+                      transform: "translateY(0px)",
+                    },
                   }}
                 >
-                  {t("salesForm.disclaimer")}
-                </Typography>
+                  {t("salesForm.submit")}
+                </Button>
               </Box>
-            </form>
-          </Paper>
+
+              <Typography
+                variant="body2"
+                sx={{
+                  fontSize: "12px",
+                  marginTop: "2rem",
+                  fontFamily: "'Inter', sans-serif",
+                  fontWeight: 400,
+                  color: "#a0aec0",
+                  textAlign: "center",
+                  lineHeight: 1.6,
+                  letterSpacing: "0.1px",
+                }}
+              >
+                {t("salesForm.disclaimer")}
+              </Typography>
+            </Box>
+          </form>
         </Box>
       </InfoPageLayout>
     </>
