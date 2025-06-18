@@ -57,6 +57,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({
       "/about": locale === "es" ? "Quienes somos" : t("about"),
       "/clients": locale === "es" ? "Nuestros Clientes" : t("clients"),
       "/reviews": locale === "es" ? "Reseñas Escritas" : t("reviews"),
+      "/photos": locale === "es" ? "Fotografías" : t("photos"),
       "/sales": t("sales"),
     };
 
@@ -73,6 +74,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({
           { label: t("about"), path: "/about" },
           { label: "Nuestros Clientes", path: "/clients" },
           { label: "Reseñas Escritas", path: "/reviews" },
+          { label: "Fotografías", path: "/photos" },
         ]
       : [
           { label: t("school"), path: "/school" },
@@ -82,6 +84,7 @@ const InfoPageLayout: React.FC<InfoPageLayoutProps> = ({
           { label: t("about"), path: "/about" },
           { label: t("clients"), path: "/clients" },
           { label: t("reviews"), path: "/reviews" },
+          { label: t("photos"), path: "/photos" },
         ];
 
   const toggleLanguage = () => {

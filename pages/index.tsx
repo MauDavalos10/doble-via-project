@@ -67,6 +67,7 @@ export default function Home() {
           { label: "Quienes Somos", path: "/about" },
           { label: "Nuestros Clientes", path: "/clients" },
           { label: "Reseñas Escritas", path: "/reviews" },
+          { label: "Fotografías", path: "/photos" },
         ]
       : [
           { label: t("school"), path: "/school" },
@@ -81,6 +82,7 @@ export default function Home() {
           { label: "Who We Are", path: "/about" },
           { label: t("clients"), path: "/clients" },
           { label: t("reviews"), path: "/reviews" },
+          { label: t("photos"), path: "/photos" },
         ];
 
   const toggleLanguage = () => {
