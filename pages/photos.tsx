@@ -1,5 +1,4 @@
 import { useTranslation } from "next-i18next";
-import Head from "next/head";
 import InfoPageLayout from "../src/components/InfoPageLayout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { GetStaticProps } from "next";
@@ -44,8 +43,9 @@ export default function Photos() {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
-            gap: 2,
-            marginBottom: "1rem",
+            gap: { xs: 1.5, sm: 2 },
+            marginBottom: { xs: "1.5rem", sm: "2rem" },
+            width: "100%",
           }}
         >
           {photos.slice(0, 3).map((photo, index) => (
@@ -55,7 +55,7 @@ export default function Photos() {
                 flex: 1,
                 position: "relative",
                 width: "100%",
-                height: "250px",
+                height: { xs: "200px", sm: "220px", md: "250px" },
                 overflow: "hidden",
                 borderRadius: "8px",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
@@ -82,17 +82,21 @@ export default function Photos() {
                   left: 0,
                   right: 0,
                   background: "linear-gradient(transparent, rgba(0,0,0,0.8))",
-                  padding: "2rem 1rem 1rem 1rem",
+                  padding: {
+                    xs: "1.5rem 0.75rem 0.75rem 0.75rem",
+                    sm: "2rem 1rem 1rem 1rem",
+                  },
                   color: "white",
                 }}
               >
                 <Typography
                   variant="body2"
                   sx={{
-                    fontSize: "14px",
+                    fontSize: { xs: "12px", sm: "14px" },
                     fontFamily: "'Poppins', Arial, sans-serif",
                     fontWeight: 500,
                     textAlign: "center",
+                    lineHeight: 1.2,
                   }}
                 >
                   {photo.title}
@@ -107,10 +111,11 @@ export default function Photos() {
           sx={{
             display: "flex",
             flexDirection: { xs: "column", sm: "row" },
-            gap: 2,
+            gap: { xs: 1.5, sm: 2 },
             justifyContent: "center",
-            maxWidth: "66.67%",
+            maxWidth: { xs: "100%", sm: "75%", md: "66.67%" },
             margin: "0 auto",
+            width: "100%",
           }}
         >
           {photos.slice(3, 5).map((photo, index) => (
@@ -120,7 +125,7 @@ export default function Photos() {
                 flex: 1,
                 position: "relative",
                 width: "100%",
-                height: "250px",
+                height: { xs: "200px", sm: "220px", md: "250px" },
                 overflow: "hidden",
                 borderRadius: "8px",
                 boxShadow: "0 4px 12px rgba(0,0,0,0.15)",
@@ -147,17 +152,21 @@ export default function Photos() {
                   left: 0,
                   right: 0,
                   background: "linear-gradient(transparent, rgba(0,0,0,0.8))",
-                  padding: "2rem 1rem 1rem 1rem",
+                  padding: {
+                    xs: "1.5rem 0.75rem 0.75rem 0.75rem",
+                    sm: "2rem 1rem 1rem 1rem",
+                  },
                   color: "white",
                 }}
               >
                 <Typography
                   variant="body2"
                   sx={{
-                    fontSize: "14px",
+                    fontSize: { xs: "12px", sm: "14px" },
                     fontFamily: "'Poppins', Arial, sans-serif",
                     fontWeight: 500,
                     textAlign: "center",
+                    lineHeight: 1.2,
                   }}
                 >
                   {photo.title}

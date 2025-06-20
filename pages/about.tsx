@@ -184,9 +184,12 @@ export default function About() {
             overflow: "hidden",
             display: "flex",
             alignItems: "center",
-            padding: { xs: "1rem", md: "2rem" },
+            justifyContent: "center",
             fontFamily: "'Poppins', sans-serif",
-            margin: { xs: "-2rem", md: "-3rem" },
+            width: "100%",
+            height: "100%",
+            margin: 0,
+            padding: 0,
           }}
         >
           {/* Timeline Container */}
@@ -197,27 +200,48 @@ export default function About() {
               width: "100%",
               height: "100%",
               position: "relative",
+              overflow: "hidden",
+              maxWidth: "100%",
+              maxHeight: "100%",
             }}
           >
             {/* Navigation Arrow Left */}
             <IconButton
               onClick={prevSlide}
               sx={{
-                color: "#b5191c",
-                fontSize: "2rem",
+                color: { xs: "#fff", md: "#b5191c" },
+                backgroundColor: {
+                  xs: "rgba(181, 25, 28, 0.8)",
+                  md: "transparent",
+                },
+                fontSize: { xs: "1.2rem", md: "2rem" },
                 position: "absolute",
-                left: { xs: "10px", md: "20px" },
+                left: { xs: "8px", md: "20px" },
                 top: "50%",
                 transform: "translateY(-50%)",
                 zIndex: 10,
+                width: { xs: "40px", md: "auto" },
+                height: { xs: "40px", md: "auto" },
+                border: {
+                  xs: "2px solid rgba(255, 255, 255, 0.2)",
+                  md: "none",
+                },
                 "&:hover": {
-                  backgroundColor: "rgba(181, 25, 28, 0.1)",
-                  transform: "translateY(-50%) scale(1.1)",
+                  backgroundColor: {
+                    xs: "rgba(181, 25, 28, 1)",
+                    md: "rgba(181, 25, 28, 0.1)",
+                  },
+                  transform: {
+                    xs: "translateY(-50%) scale(1.05)",
+                    md: "translateY(-50%) scale(1.1)",
+                  },
                 },
                 transition: "all 0.3s ease",
               }}
             >
-              <ArrowBackIosIcon sx={{ fontSize: "inherit" }} />
+              <ArrowBackIosIcon
+                sx={{ fontSize: "inherit", ml: { xs: "2px", md: 0 } }}
+              />
             </IconButton>
 
             {/* Timeline Items */}
@@ -228,8 +252,9 @@ export default function About() {
                 width: "100%",
                 height: "100%",
                 justifyContent: "center",
-                gap: { xs: 2, md: 4 },
-                px: { xs: 6, md: 8 },
+                gap: { xs: 1, md: 4 },
+                px: { xs: "60px", md: "80px" },
+                overflow: "hidden",
               }}
             >
               {/* Current Item (Focused) */}
@@ -238,22 +263,31 @@ export default function About() {
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
-                  maxWidth: { xs: "280px", md: "400px" },
-                  width: "100%",
+                  maxWidth: { xs: "100%", md: "400px" },
+                  width: { xs: "100%", md: "auto" },
+                  height: { xs: "100%", md: "100%" },
                   opacity: 1,
                   transform: "scale(1)",
                   transition: "all 0.5s ease-in-out",
+                  px: { xs: 0, md: 0 },
+                  justifyContent: { xs: "center", md: "center" },
+                  overflow: "hidden",
+                  flex: { xs: "none", md: "0 0 auto" },
+                  py: { xs: "20px", md: 0 },
                 }}
               >
                 {/* Image */}
                 <Box
                   sx={{
-                    width: { xs: "250px", md: "350px" },
-                    height: { xs: "180px", md: "250px" },
+                    width: { xs: "100%", sm: "280px", md: "350px" },
+                    height: { xs: "140px", sm: "200px", md: "250px" },
                     borderRadius: "12px",
                     overflow: "hidden",
                     boxShadow: "0 12px 40px rgba(0, 0, 0, 0.6)",
-                    marginBottom: "1.5rem",
+                    marginBottom: { xs: "0.8rem", md: "1.5rem" },
+                    maxWidth: { xs: "280px", sm: "none" },
+                    flexShrink: 0,
+                    mx: "auto",
                   }}
                 >
                   <img
@@ -271,57 +305,75 @@ export default function About() {
                 <Typography
                   variant="h2"
                   sx={{
-                    fontSize: { xs: "2.5rem", md: "3.5rem" },
+                    fontSize: { xs: "1.6rem", sm: "2.2rem", md: "3.5rem" },
                     fontWeight: 700,
                     color: "#b5191c",
                     textAlign: "center",
-                    marginBottom: "1rem",
+                    marginBottom: { xs: "0.8rem", md: "1rem" },
                     fontFamily: "'Poppins', sans-serif",
                     textShadow: "2px 2px 4px rgba(0, 0, 0, 0.8)",
+                    flexShrink: 0,
+                    width: "100%",
                   }}
                 >
                   {timelineData[currentSlide].title}
                 </Typography>
 
                 {/* Text */}
-                <Typography
-                  variant="body1"
+                <Box
                   sx={{
-                    fontSize: { xs: "0.95rem", md: "1.1rem" },
-                    lineHeight: 1.6,
-                    color: "white",
-                    fontFamily: "'Poppins', sans-serif",
-                    fontWeight: 300,
-                    textAlign: "justify",
-                    maxHeight: { xs: "150px", md: "200px" },
-                    overflow: "auto",
-                    "&::-webkit-scrollbar": {
-                      width: "4px",
-                    },
-                    "&::-webkit-scrollbar-track": {
-                      background: "rgba(255, 255, 255, 0.1)",
-                      borderRadius: "2px",
-                    },
-                    "&::-webkit-scrollbar-thumb": {
-                      background: "#b5191c",
-                      borderRadius: "2px",
-                    },
+                    flex: { xs: "0 0 auto", md: 1 },
+                    width: "100%",
+                    overflow: "hidden",
+                    display: "flex",
+                    alignItems: "flex-start",
+                    justifyContent: "center",
+                    maxHeight: { xs: "140px", sm: "160px", md: "200px" },
                   }}
                 >
-                  {timelineData[currentSlide].description}
-                </Typography>
+                  <Typography
+                    variant="body1"
+                    sx={{
+                      fontSize: { xs: "0.75rem", sm: "0.9rem", md: "1.1rem" },
+                      lineHeight: { xs: 1.3, md: 1.6 },
+                      color: "white",
+                      fontFamily: "'Poppins', sans-serif",
+                      fontWeight: 300,
+                      textAlign: "justify",
+                      maxHeight: { xs: "140px", sm: "160px", md: "200px" },
+                      overflow: "auto",
+                      px: { xs: 1, md: 0 },
+                      width: "100%",
+                      "&::-webkit-scrollbar": {
+                        width: "4px",
+                      },
+                      "&::-webkit-scrollbar-track": {
+                        background: "rgba(255, 255, 255, 0.1)",
+                        borderRadius: "2px",
+                      },
+                      "&::-webkit-scrollbar-thumb": {
+                        background: "#b5191c",
+                        borderRadius: "2px",
+                      },
+                    }}
+                  >
+                    {timelineData[currentSlide].description}
+                  </Typography>
+                </Box>
               </Box>
 
-              {/* Timeline Line */}
+              {/* Timeline Line - Solo visible en desktop */}
               <Box
                 sx={{
+                  display: { xs: "none", md: "block" },
                   width: "4px",
-                  height: { xs: "300px", md: "400px" },
+                  height: "400px",
                   background:
                     "linear-gradient(to bottom, #b5191c 0%, rgba(181, 25, 28, 0.3) 50%, rgba(255, 255, 255, 0.1) 100%)",
                   borderRadius: "2px",
                   position: "relative",
-                  mx: { xs: 1, md: 2 },
+                  mx: 2,
+                  flexShrink: 0,
                   "&::before": {
                     content: '""',
                     position: "absolute",
@@ -340,13 +392,17 @@ export default function About() {
                 }}
               />
 
-              {/* Next Items (Preview) */}
+              {/* Next Items (Preview) - Solo visible en desktop */}
               <Box
                 sx={{
-                  display: "flex",
+                  display: { xs: "none", md: "flex" },
                   flexDirection: "column",
                   gap: 2,
                   alignItems: "flex-start",
+                  flexShrink: 0,
+                  maxHeight: "100%",
+                  overflow: "hidden",
+                  flex: "0 0 auto",
                 }}
               >
                 {[1, 2].map((offset) => {
@@ -419,16 +475,32 @@ export default function About() {
             <IconButton
               onClick={nextSlide}
               sx={{
-                color: "#b5191c",
-                fontSize: "2rem",
+                color: { xs: "#fff", md: "#b5191c" },
+                backgroundColor: {
+                  xs: "rgba(181, 25, 28, 0.8)",
+                  md: "transparent",
+                },
+                fontSize: { xs: "1.2rem", md: "2rem" },
                 position: "absolute",
-                right: { xs: "10px", md: "20px" },
+                right: { xs: "8px", md: "20px" },
                 top: "50%",
                 transform: "translateY(-50%)",
                 zIndex: 10,
+                width: { xs: "40px", md: "auto" },
+                height: { xs: "40px", md: "auto" },
+                border: {
+                  xs: "2px solid rgba(255, 255, 255, 0.2)",
+                  md: "none",
+                },
                 "&:hover": {
-                  backgroundColor: "rgba(181, 25, 28, 0.1)",
-                  transform: "translateY(-50%) scale(1.1)",
+                  backgroundColor: {
+                    xs: "rgba(181, 25, 28, 1)",
+                    md: "rgba(181, 25, 28, 0.1)",
+                  },
+                  transform: {
+                    xs: "translateY(-50%) scale(1.05)",
+                    md: "translateY(-50%) scale(1.1)",
+                  },
                 },
                 transition: "all 0.3s ease",
               }}
@@ -441,11 +513,15 @@ export default function About() {
           <Box
             sx={{
               position: "absolute",
-              bottom: "20px",
+              bottom: { xs: "15px", md: "20px" },
               left: "50%",
               transform: "translateX(-50%)",
               display: "flex",
-              gap: 1,
+              gap: { xs: 0.5, md: 1 },
+              flexWrap: "wrap",
+              justifyContent: "center",
+              maxWidth: "90%",
+              zIndex: 10,
             }}
           >
             {timelineData.map((_, index) => (
@@ -453,8 +529,8 @@ export default function About() {
                 key={index}
                 onClick={() => setCurrentSlide(index)}
                 sx={{
-                  width: "10px",
-                  height: "10px",
+                  width: { xs: "8px", md: "10px" },
+                  height: { xs: "8px", md: "10px" },
                   borderRadius: "50%",
                   backgroundColor:
                     index === currentSlide
