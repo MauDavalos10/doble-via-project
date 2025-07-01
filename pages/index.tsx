@@ -11,7 +11,6 @@ import {
   Container,
   Box,
 } from "@mui/material";
-import LanguageIcon from "@mui/icons-material/Language";
 import MenuIcon from "@mui/icons-material/Menu";
 import WhatsAppIcon from "@mui/icons-material/WhatsApp";
 import Drawer from "@mui/material/Drawer";
@@ -85,13 +84,6 @@ export default function Home() {
           { label: t("photos"), path: "/photos" },
         ];
 
-  const toggleLanguage = () => {
-    const newLocale = locale === "es" ? "en" : "es";
-    router.push({ pathname: router.pathname, query: router.query }, undefined, {
-      locale: newLocale,
-    });
-  };
-
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -162,66 +154,303 @@ export default function Home() {
             transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
             backdropFilter:
               scrollPosition > 10 ? "blur(20px) saturate(180%)" : "none",
-            borderBottom:
-              scrollPosition > 50 ? "1px solid rgba(255,255,255,0.1)" : "none",
+            borderBottom: "1px solid rgba(255,255,255,1)",
           }}
         >
-          <Toolbar sx={{ minHeight: { xs: 64, md: 80 } }}>
-            <IconButton
-              color="inherit"
-              edge="start"
-              onClick={() => setDrawerOpen(true)}
-            >
-              <MenuIcon />
-            </IconButton>
-            <Typography
-              variant="h6"
-              component="div"
+          <Toolbar
+            sx={{
+              minHeight: { xs: 80, md: 100 },
+              display: "flex",
+              flexDirection: { xs: "row", md: "column" },
+              alignItems: "center",
+              justifyContent: { xs: "space-between", md: "center" },
+              py: { xs: 1, md: 2 },
+              px: { xs: 2, md: 3 },
+            }}
+          >
+            {/* Layout para Desktop */}
+            <Box
               sx={{
-                flexGrow: 1,
-                fontWeight: 300,
-                letterSpacing: "0.5px",
-                fontSize: { xs: "1.1rem", md: "1.3rem" },
+                display: { xs: "none", md: "flex" },
+                flexDirection: "column",
+                alignItems: "center",
+                width: "100%",
               }}
             >
-              Doble Vía
-            </Typography>
+              {/* Primera fila: Menu, Logo/Isotipo y ContactSales */}
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "space-between",
+                  width: "100%",
+                  mb: 1,
+                }}
+              >
+                <IconButton
+                  color="inherit"
+                  edge="start"
+                  onClick={() => setDrawerOpen(true)}
+                  sx={{ alignSelf: "center" }}
+                >
+                  <MenuIcon />
+                </IconButton>
+
+                <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
+                  <img
+                    src="/images/isotipo-blanco.png"
+                    alt="Doble Vía"
+                    style={{
+                      height: "40px",
+                      width: "auto",
+                    }}
+                  />
+                </Box>
+
+                <Box
+                  sx={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "flex-end",
+                    gap: 1,
+                  }}
+                >
+                  <Button
+                    color="inherit"
+                    onClick={() => router.push("/sales")}
+                    sx={{
+                      fontWeight: 600,
+                      letterSpacing: "0.5px",
+                      padding: "8px 20px",
+                      borderRadius: "3px",
+                      transition: "all 0.3s ease",
+                      backgroundColor: "rgba(192, 11, 25, 0.9)",
+                      "&:hover": {
+                        backgroundColor: "rgba(192, 11, 25, 1)",
+                        transform: "translateY(-1px)",
+                      },
+                    }}
+                  >
+                    {t("contactSales")}
+                  </Button>
+
+                  {/* Botones de idioma debajo del botón de sales */}
+                  <Box sx={{ display: "flex", gap: 1 }}>
+                    <Button
+                      onClick={() => {
+                        if (locale !== "es") {
+                          router.push(
+                            { pathname: router.pathname, query: router.query },
+                            undefined,
+                            {
+                              locale: "es",
+                            }
+                          );
+                        }
+                      }}
+                      sx={{
+                        fontWeight: 300,
+                        letterSpacing: "0.5px",
+                        padding: "6px 16px",
+                        borderRadius: "3px",
+                        transition: "all 0.3s ease",
+                        color: locale === "es" ? "#000000" : "#ffffff",
+                        backgroundColor:
+                          locale === "es"
+                            ? "rgba(255,255,255,0.9)"
+                            : "transparent",
+                        "&:hover": {
+                          backgroundColor:
+                            locale === "es"
+                              ? "rgba(255,255,255,1)"
+                              : "rgba(255,255,255,0.1)",
+                          transform: "translateY(-1px)",
+                        },
+                      }}
+                    >
+                      ESPAÑOL
+                    </Button>
+                    <Button
+                      onClick={() => {
+                        if (locale !== "en") {
+                          router.push(
+                            { pathname: router.pathname, query: router.query },
+                            undefined,
+                            {
+                              locale: "en",
+                            }
+                          );
+                        }
+                      }}
+                      sx={{
+                        fontWeight: 300,
+                        letterSpacing: "0.5px",
+                        padding: "6px 16px",
+                        borderRadius: "3px",
+                        transition: "all 0.3s ease",
+                        color: locale === "en" ? "#000000" : "#ffffff",
+                        backgroundColor:
+                          locale === "en"
+                            ? "rgba(255,255,255,0.9)"
+                            : "transparent",
+                        "&:hover": {
+                          backgroundColor:
+                            locale === "en"
+                              ? "rgba(255,255,255,1)"
+                              : "rgba(255,255,255,0.1)",
+                          transform: "translateY(-1px)",
+                        },
+                      }}
+                    >
+                      ENGLISH
+                    </Button>
+                  </Box>
+                </Box>
+              </Box>
+            </Box>
+
+            {/* Layout para Mobile */}
+            <Box
+              sx={{
+                display: { xs: "flex", md: "none" },
+                alignItems: "center",
+                width: "100%",
+              }}
+            >
+              <IconButton
+                color="inherit"
+                edge="start"
+                onClick={() => setDrawerOpen(true)}
+                sx={{ mr: 2 }}
+              >
+                <MenuIcon />
+              </IconButton>
+
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  flexGrow: 1,
+                  justifyContent: "center",
+                }}
+              >
+                <img
+                  src="/images/isotipo-blanco.png"
+                  alt="Doble Vía"
+                  style={{
+                    height: "32px",
+                    width: "auto",
+                  }}
+                />
+                <Typography
+                  variant="h6"
+                  component="div"
+                  sx={{
+                    fontWeight: 300,
+                    letterSpacing: "0.5px",
+                    fontSize: "1.1rem",
+                  }}
+                >
+                  Doble Vía
+                </Typography>
+              </Box>
+
+              <Box sx={{ display: "flex", gap: 0.5 }}>
+                <Button
+                  onClick={() => {
+                    if (locale !== "es") {
+                      router.push(
+                        { pathname: router.pathname, query: router.query },
+                        undefined,
+                        {
+                          locale: "es",
+                        }
+                      );
+                    }
+                  }}
+                  sx={{
+                    fontWeight: 300,
+                    letterSpacing: "0.5px",
+                    padding: "4px 8px",
+                    borderRadius: "3px",
+                    transition: "all 0.3s ease",
+                    color: locale === "es" ? "#000000" : "#ffffff",
+                    backgroundColor:
+                      locale === "es" ? "rgba(255,255,255,0.9)" : "transparent",
+                    minWidth: "auto",
+                    fontSize: "0.85rem",
+                    "&:hover": {
+                      backgroundColor:
+                        locale === "es"
+                          ? "rgba(255,255,255,1)"
+                          : "rgba(255,255,255,0.1)",
+                    },
+                  }}
+                >
+                  ES
+                </Button>
+                <Button
+                  onClick={() => {
+                    if (locale !== "en") {
+                      router.push(
+                        { pathname: router.pathname, query: router.query },
+                        undefined,
+                        {
+                          locale: "en",
+                        }
+                      );
+                    }
+                  }}
+                  sx={{
+                    fontWeight: 300,
+                    letterSpacing: "0.5px",
+                    padding: "4px 8px",
+                    borderRadius: "3px",
+                    transition: "all 0.3s ease",
+                    color: locale === "en" ? "#000000" : "#ffffff",
+                    backgroundColor:
+                      locale === "en" ? "rgba(255,255,255,0.9)" : "transparent",
+                    minWidth: "auto",
+                    fontSize: "0.85rem",
+                    "&:hover": {
+                      backgroundColor:
+                        locale === "en"
+                          ? "rgba(255,255,255,1)"
+                          : "rgba(255,255,255,0.1)",
+                    },
+                  }}
+                >
+                  EN
+                </Button>
+              </Box>
+            </Box>
+
+            {/* Botón ContactSales para mobile - posicionado absolutamente */}
             <Button
               color="inherit"
               onClick={() => router.push("/sales")}
               sx={{
+                display: { xs: "block", md: "none" },
+                position: "absolute",
+                top: "100%",
+                left: "50%",
+                transform: "translateX(-50%)",
                 fontWeight: 600,
                 letterSpacing: "0.5px",
-                padding: "8px 20px",
+                padding: "6px 16px",
                 borderRadius: "3px",
                 transition: "all 0.3s ease",
-                marginRight: 2,
                 backgroundColor: "rgba(192, 11, 25, 0.9)",
+                mt: 1,
+                fontSize: "0.9rem",
                 "&:hover": {
                   backgroundColor: "rgba(192, 11, 25, 1)",
-                  transform: "translateY(-1px)",
+                  transform: "translateX(-50%) translateY(-1px)",
                 },
               }}
             >
               {t("contactSales")}
-            </Button>
-            <Button
-              color="inherit"
-              startIcon={<LanguageIcon />}
-              onClick={toggleLanguage}
-              sx={{
-                fontWeight: 300,
-                letterSpacing: "0.5px",
-                padding: "8px 20px",
-                borderRadius: "3px",
-                transition: "all 0.3s ease",
-                "&:hover": {
-                  backgroundColor: "rgba(255,255,255,0.1)",
-                  transform: "translateY(-1px)",
-                },
-              }}
-            >
-              {locale === "es" ? t("switchToEnglish") : t("switchToSpanish")}
             </Button>
           </Toolbar>
         </AppBar>
