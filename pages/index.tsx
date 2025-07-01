@@ -113,12 +113,6 @@ export default function Home() {
     setSelectedService(null);
   };
 
-  const whatsappNumber = "593987063904";
-  const whatsappMessage = encodeURIComponent(
-    "Hola, necesito información sobre sus servicios."
-  );
-  const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappMessage}`;
-
   const serviceKeys = [
     "schoolTransport",
     "institutionalTransport",
@@ -154,7 +148,19 @@ export default function Home() {
             transition: "all 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
             backdropFilter:
               scrollPosition > 10 ? "blur(20px) saturate(180%)" : "none",
-            borderBottom: "1px solid rgba(255,255,255,1)",
+            "&::after": {
+              content: '""',
+              position: "absolute",
+              bottom: 0,
+              left: "5%",
+              width: "90%",
+              height: "1px",
+              background: `rgba(255, 255, 255, ${Math.max(
+                1 - scrollPosition / 300,
+                0
+              )})`,
+              transition: "opacity 0.3s ease",
+            },
           }}
         >
           <Toolbar
@@ -187,22 +193,46 @@ export default function Home() {
                   mb: 1,
                 }}
               >
-                <IconButton
-                  color="inherit"
-                  edge="start"
-                  onClick={() => setDrawerOpen(true)}
-                  sx={{ alignSelf: "center" }}
+                <Box
+                  sx={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: 1,
+                  }}
                 >
-                  <MenuIcon />
-                </IconButton>
+                  <IconButton
+                    color="inherit"
+                    edge="start"
+                    onClick={() => setDrawerOpen(true)}
+                    sx={{ alignSelf: "center" }}
+                  >
+                    <MenuIcon />
+                  </IconButton>
+                  <Typography
+                    variant="body2"
+                    sx={{
+                      fontWeight: 300,
+                      letterSpacing: "0.5px",
+                      fontSize: "0.9rem",
+                      color: "white",
+                    }}
+                  >
+                    MENU
+                  </Typography>
+                </Box>
 
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
                   <img
-                    src="/images/isotipo-blanco.png"
+                    src={
+                      scrollPosition > 50
+                        ? "/images/isotipo-texto.png"
+                        : "/images/isotipo-blanco.png"
+                    }
                     alt="Doble Vía"
                     style={{
-                      height: "40px",
+                      height: scrollPosition > 50 ? "90px" : "60px",
                       width: "auto",
+                      transition: "all 0.3s ease",
                     }}
                   />
                 </Box>
@@ -317,14 +347,33 @@ export default function Home() {
                 width: "100%",
               }}
             >
-              <IconButton
-                color="inherit"
-                edge="start"
-                onClick={() => setDrawerOpen(true)}
-                sx={{ mr: 2 }}
+              <Box
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: 1,
+                  mr: 2,
+                }}
               >
-                <MenuIcon />
-              </IconButton>
+                <IconButton
+                  color="inherit"
+                  edge="start"
+                  onClick={() => setDrawerOpen(true)}
+                >
+                  <MenuIcon />
+                </IconButton>
+                <Typography
+                  variant="body2"
+                  sx={{
+                    fontWeight: 300,
+                    letterSpacing: "0.5px",
+                    fontSize: "0.8rem",
+                    color: "white",
+                  }}
+                >
+                  MENU
+                </Typography>
+              </Box>
 
               <Box
                 sx={{
@@ -336,24 +385,18 @@ export default function Home() {
                 }}
               >
                 <img
-                  src="/images/isotipo-blanco.png"
+                  src={
+                    scrollPosition > 50
+                      ? "/images/isotipo-texto.png"
+                      : "/images/isotipo-blanco.png"
+                  }
                   alt="Doble Vía"
                   style={{
-                    height: "32px",
+                    height: scrollPosition > 50 ? "72px" : "48px",
                     width: "auto",
+                    transition: "all 0.3s ease",
                   }}
                 />
-                <Typography
-                  variant="h6"
-                  component="div"
-                  sx={{
-                    fontWeight: 300,
-                    letterSpacing: "0.5px",
-                    fontSize: "1.1rem",
-                  }}
-                >
-                  Doble Vía
-                </Typography>
               </Box>
 
               <Box sx={{ display: "flex", gap: 0.5 }}>
@@ -693,8 +736,9 @@ export default function Home() {
                         fontWeight: 600,
                         textTransform: "none",
                         fontSize: "1rem",
-                        borderWidth: "2px",
+                        borderWidth: "1px",
                         minHeight: "50px",
+                        flex: 1,
                         transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                         "&:hover": {
                           borderColor: "rgb(77, 77, 77)",
@@ -709,7 +753,15 @@ export default function Home() {
                     <Button
                       variant="outlined"
                       startIcon={<WhatsAppIcon />}
-                      onClick={() => window.open(whatsappUrl, "_blank")}
+                      onClick={() => {
+                        const phoneNumber =
+                          idx === 2 ? "593981804561" : "593987063904";
+                        const message = encodeURIComponent(
+                          "Hola, necesito información sobre sus servicios."
+                        );
+                        const url = `https://wa.me/${phoneNumber}?text=${message}`;
+                        window.open(url, "_blank");
+                      }}
                       sx={{
                         borderColor: "rgb(77, 77, 77)",
                         color: "rgb(77, 77, 77)",
@@ -719,8 +771,9 @@ export default function Home() {
                         fontWeight: 600,
                         textTransform: "none",
                         fontSize: "1rem",
-                        borderWidth: "2px",
+                        borderWidth: "1px",
                         minHeight: "50px",
+                        flex: 1,
                         transition: "all 0.3s cubic-bezier(0.4, 0, 0.2, 1)",
                         "&:hover": {
                           borderColor: "rgb(77, 77, 77)",
@@ -732,7 +785,7 @@ export default function Home() {
                         },
                       }}
                     >
-                      +593 98 706 3904
+                      {idx === 2 ? "+593 98 180 4561" : "+593 98 706 3904"}
                     </Button>
                   </Box>
                 </Box>

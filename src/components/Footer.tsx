@@ -232,9 +232,20 @@ export default function Footer() {
               <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
                 Teléfono convencional:
               </Box>{" "}
-              <Box component="span" sx={{ color: "#a0a0a0" }}>
+              <MuiLink
+                href="tel:+59322380008"
+                sx={{
+                  color: "#ffffff",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                  "&:hover": {
+                    textDecoration: "underline",
+                    color: "#a0a0a0",
+                  },
+                }}
+              >
                 +593 2 238 0008
-              </Box>
+              </MuiLink>
             </Typography>
             <Typography variant="body2">
               <Box component="span" sx={{ fontWeight: 600, color: "#ffffff" }}>
