@@ -41,49 +41,6 @@ export default function Home() {
   const [selectedService, setSelectedService] = useState<string | null>(null);
   const [modalOpen, setModalOpen] = useState(false);
 
-  console.log("locale:", locale);
-  console.log("school:", t("school"));
-  console.log("institutional:", t("institutional"));
-  console.log("transfer:", t("transfer"));
-  console.log("trolley:", t("trolley"));
-  console.log("tourism:", t("tourism"));
-  console.log("about:", t("about"));
-  console.log("clients:", t("clients"));
-  console.log("reviews:", t("reviews"));
-
-  const menuOptions =
-    locale === "es"
-      ? [
-          { label: "Escolar", path: "/school" },
-          { label: "Institucional", path: "/institutional" },
-          {
-            label: "Transfer",
-            path: "https://593transfer.com/",
-            external: true,
-          },
-          { label: "Trolley", path: "/trolley" },
-          { label: "Turismo", path: "/tourism" },
-          { label: "Quienes Somos", path: "/about" },
-          { label: "Nuestros Clientes", path: "/clients" },
-          { label: "Reseñas Escritas", path: "/reviews" },
-          { label: "Fotografías", path: "/photos" },
-        ]
-      : [
-          { label: t("school"), path: "/school" },
-          { label: t("institutional"), path: "/institutional" },
-          {
-            label: "Transfer",
-            path: "https://593transfer.com/",
-            external: true,
-          },
-          { label: t("trolley"), path: "/trolley" },
-          { label: t("tourism"), path: "/tourism" },
-          { label: "Who We Are", path: "/about" },
-          { label: t("clients"), path: "/clients" },
-          { label: t("reviews"), path: "/reviews" },
-          { label: t("photos"), path: "/photos" },
-        ];
-
   useEffect(() => {
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
@@ -518,22 +475,66 @@ export default function Home() {
               pt: 4,
             }}
           >
-            {menuOptions.map((option) => (
-              <ListItem key={option.path} disablePadding>
+            {/* SERVICIOS Section */}
+            <ListItem sx={{ pb: 0 }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 600,
+                  letterSpacing: "1px",
+                  fontSize: "1rem",
+                  color: "#ffffff",
+                  pl: 2,
+                }}
+              >
+                {locale === "es" ? "SERVICIOS" : "SERVICES"}
+              </Typography>
+            </ListItem>
+
+            {/* Service Items */}
+            {[
+              {
+                labelEs: "Escolar",
+                labelEn: locale === "es" ? "Escolar" : t("school"),
+                path: "/school",
+              },
+              {
+                labelEs: "Institucional",
+                labelEn: locale === "es" ? "Institucional" : t("institutional"),
+                path: "/institutional",
+              },
+              {
+                labelEs: "Transfer",
+                labelEn: "Transfer",
+                path: "https://593transfer.com/",
+                external: true,
+              },
+              {
+                labelEs: "Trolley",
+                labelEn: locale === "es" ? "Trolley" : t("trolley"),
+                path: "/trolley",
+              },
+              {
+                labelEs: "Turismo",
+                labelEn: locale === "es" ? "Turismo" : t("tourism"),
+                path: "/tourism",
+              },
+            ].map((item) => (
+              <ListItem key={item.path} disablePadding sx={{ pl: 2 }}>
                 <ListItemButton
                   onClick={() => {
                     setDrawerOpen(false);
-                    if (option.external) {
-                      window.open(option.path, "_blank");
+                    if (item.external) {
+                      window.open(item.path, "_blank");
                     } else {
-                      router.push(option.path);
+                      router.push(item.path);
                     }
                   }}
                   sx={{
-                    py: 2,
+                    py: 1.5,
                     px: 3,
-                    mx: 2,
-                    mb: 1,
+                    mx: 1,
+                    mb: 0.5,
                     borderRadius: "3px",
                     transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                     "&:hover": {
@@ -543,11 +544,121 @@ export default function Home() {
                   }}
                 >
                   <ListItemText
-                    primary={option.label}
+                    primary={locale === "es" ? item.labelEs : item.labelEn}
                     primaryTypographyProps={{
                       fontWeight: 300,
                       letterSpacing: "0.5px",
-                      fontSize: "1.1rem",
+                      fontSize: "1rem",
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+
+            {/* Spacing */}
+            <Box sx={{ height: 16 }} />
+
+            {/* About and Clients Section */}
+            {[
+              {
+                labelEs: "Quienes Somos",
+                labelEn: "Who We Are",
+                path: "/about",
+              },
+              {
+                labelEs: "Nuestros Clientes",
+                labelEn: locale === "es" ? "Nuestros Clientes" : t("clients"),
+                path: "/clients",
+              },
+            ].map((item) => (
+              <ListItem key={item.path} disablePadding>
+                <ListItemButton
+                  onClick={() => {
+                    setDrawerOpen(false);
+                    router.push(item.path);
+                  }}
+                  sx={{
+                    py: 1.5,
+                    px: 3,
+                    mx: 2,
+                    mb: 0.5,
+                    borderRadius: "3px",
+                    transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                    "&:hover": {
+                      backgroundColor: "rgba(255,255,255,0.08)",
+                      transform: "translateX(8px)",
+                    },
+                  }}
+                >
+                  <ListItemText
+                    primary={locale === "es" ? item.labelEs : item.labelEn}
+                    primaryTypographyProps={{
+                      fontWeight: 300,
+                      letterSpacing: "0.5px",
+                      fontSize: "1rem",
+                    }}
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+
+            {/* Spacing */}
+            <Box sx={{ height: 16 }} />
+
+            {/* RESEÑAS Section */}
+            <ListItem sx={{ pb: 0 }}>
+              <Typography
+                variant="h6"
+                sx={{
+                  fontWeight: 600,
+                  letterSpacing: "1px",
+                  fontSize: "1rem",
+                  color: "#ffffff",
+                  pl: 2,
+                }}
+              >
+                {locale === "es" ? "RESEÑAS" : "REVIEWS"}
+              </Typography>
+            </ListItem>
+
+            {/* Review Items */}
+            {[
+              {
+                labelEs: "Escritas",
+                labelEn: locale === "es" ? "Escritas" : t("reviews"),
+                path: "/reviews",
+              },
+              {
+                labelEs: "Fotográficas",
+                labelEn: locale === "es" ? "Fotográficas" : t("photos"),
+                path: "/photos",
+              },
+            ].map((item) => (
+              <ListItem key={item.path} disablePadding sx={{ pl: 2 }}>
+                <ListItemButton
+                  onClick={() => {
+                    setDrawerOpen(false);
+                    router.push(item.path);
+                  }}
+                  sx={{
+                    py: 1.5,
+                    px: 3,
+                    mx: 1,
+                    mb: 0.5,
+                    borderRadius: "3px",
+                    transition: "all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+                    "&:hover": {
+                      backgroundColor: "rgba(255,255,255,0.08)",
+                      transform: "translateX(8px)",
+                    },
+                  }}
+                >
+                  <ListItemText
+                    primary={locale === "es" ? item.labelEs : item.labelEn}
+                    primaryTypographyProps={{
+                      fontWeight: 300,
+                      letterSpacing: "0.5px",
+                      fontSize: "1rem",
                     }}
                   />
                 </ListItemButton>
