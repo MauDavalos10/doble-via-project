@@ -95,37 +95,90 @@ export default async function handler(
           from: "DobleVia <noreply@fsdalfajsdlkfsajdlkafsdjlkfsadkljfasjfadslfjaskldfkasd.lat>",
           to: [email],
           subject: "Gracias por contactarnos - DobleVia",
+          headers: {
+            "X-Priority": "3",
+            "X-MSMail-Priority": "Normal",
+            Importance: "Normal",
+            "X-Mailer": "DobleVia Transport System",
+            "List-Unsubscribe":
+              "<mailto:unsubscribe@fsdalfajsdlkfsajdlkafsdjlkfsadkljfasjfadslfjaskldfkasd.lat>",
+            "List-Unsubscribe-Post": "List-Unsubscribe=One-Click",
+          },
           html: `
-            <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-              <div style="text-align: center; margin-bottom: 30px;">
-                <img src="https://via.placeholder.com/200x80/c00b19/ffffff?text=DobleVia+Logo" 
-                     alt="DobleVia Logo" 
-                     style="max-width: 200px; height: auto;">
-                <h1 style="color: #c00b19; margin: 10px 0; font-weight: bold;">Transportamos vidas</h1>
-              </div>
-              
-              <div style="background-color: #f8f9fa; padding: 30px; border-radius: 8px;">
-                <h2 style="color: #333; margin-bottom: 20px;">Estimado/a ${fullName},</h2>
+            <!DOCTYPE html>
+            <html>
+            <head>
+              <meta charset="utf-8">
+              <meta name="viewport" content="width=device-width, initial-scale=1.0">
+              <title>Gracias por contactarnos - DobleVia</title>
+            </head>
+            <body style="margin: 0; padding: 0; background-color: #f4f4f4; font-family: Arial, sans-serif;">
+              <div style="max-width: 600px; margin: 0 auto; background-color: #ffffff;">
+                <!-- Header -->
+                <div style="background-color: #c00b19; padding: 20px; text-align: center;">
+                  <h1 style="color: #ffffff; margin: 0; font-size: 24px; font-weight: bold;">DobleVia Transport</h1>
+                  <p style="color: #ffffff; margin: 5px 0 0 0; font-size: 14px;">Transportamos vidas</p>
+                </div>
                 
-                <p style="color: #555; line-height: 1.6; margin-bottom: 20px;">
-                  Gracias por contactarnos. Hemos recibido su solicitud de información sobre nuestros servicios de transporte.
-                </p>
+                <!-- Content -->
+                <div style="padding: 30px;">
+                  <h2 style="color: #333; margin-bottom: 20px; font-size: 20px;">Estimado/a ${fullName},</h2>
+                  
+                  <p style="color: #555; line-height: 1.6; margin-bottom: 20px; font-size: 16px;">
+                    Gracias por contactarnos. Hemos recibido su solicitud de información sobre nuestros servicios de transporte.
+                  </p>
+                  
+                  <div style="background-color: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <h3 style="color: #c00b19; margin: 0 0 10px 0; font-size: 18px;">Detalles de su solicitud:</h3>
+                    <p style="margin: 5px 0; color: #555;"><strong>Servicio:</strong> ${serviceType}</p>
+                    <p style="margin: 5px 0; color: #555;"><strong>Preferencia de contacto:</strong> ${contactPreference}</p>
+                  </div>
+                  
+                  <p style="color: #555; line-height: 1.6; margin-bottom: 20px; font-size: 16px;">
+                    Nuestro equipo de atención al cliente se pondrá en contacto con usted en un tiempo máximo de 12 horas para brindarle toda la información que necesita.
+                  </p>
+                  
+                  <p style="color: #555; line-height: 1.6; margin-bottom: 20px; font-size: 16px;">
+                    Si tiene alguna pregunta urgente, no dude en contactarnos directamente:
+                  </p>
+                  
+                  <div style="background-color: #c00b19; color: white; padding: 15px; border-radius: 8px; text-align: center; margin: 20px 0;">
+                    <p style="margin: 0; font-weight: bold; font-size: 18px;">+593 98 706 3904</p>
+                  </div>
+                </div>
                 
-                <p style="color: #555; line-height: 1.6; margin-bottom: 20px;">
-                  Nuestro equipo de atención al cliente se pondrá en contacto con usted en un tiempo máximo de 12 horas para brindarle toda la información que necesita sobre el servicio de <strong>${serviceType}</strong>.
-                </p>
-                
-                <p style="color: #555; line-height: 1.6;">
-                  Si tiene alguna pregunta urgente, no dude en contactarnos directamente al +593 98 706 3904.
-                </p>
+                <!-- Footer -->
+                <div style="background-color: #f8f9fa; padding: 20px; text-align: center; border-top: 1px solid #e0e0e0;">
+                  <p style="margin: 0; color: #666; font-size: 12px;">
+                    DobleVia Transport - Su seguridad y comodidad son nuestra prioridad
+                  </p>
+                  <p style="margin: 5px 0 0 0; color: #999; font-size: 11px;">
+                    Este email fue enviado porque usted solicitó información en nuestro sitio web.
+                  </p>
+                </div>
               </div>
-              
-              <div style="text-align: center; margin-top: 30px; padding: 20px; background-color: #c00b19; color: white; border-radius: 8px;">
-                <p style="margin: 0; font-weight: bold;">DobleVia Transport</p>
-                <p style="margin: 5px 0 0 0; font-size: 14px;">Su seguridad y comodidad son nuestra prioridad</p>
-              </div>
-            </div>
+            </body>
+            </html>
           `,
+          text: `DobleVia Transport - Gracias por contactarnos
+
+Estimado/a ${fullName},
+
+Gracias por contactarnos. Hemos recibido su solicitud de información sobre nuestros servicios de transporte.
+
+Detalles de su solicitud:
+- Servicio: ${serviceType}
+- Preferencia de contacto: ${contactPreference}
+
+Nuestro equipo de atención al cliente se pondrá en contacto con usted en un tiempo máximo de 12 horas para brindarle toda la información que necesita.
+
+Si tiene alguna pregunta urgente, no dude en contactarnos directamente:
++593 98 706 3904
+
+DobleVia Transport
+Su seguridad y comodidad son nuestra prioridad
+
+Este email fue enviado porque usted solicitó información en nuestro sitio web.`,
         });
 
         // Verificar si hay error en la respuesta de Resend
