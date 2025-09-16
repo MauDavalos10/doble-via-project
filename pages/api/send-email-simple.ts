@@ -116,11 +116,8 @@ export default async function handler(
         });
 
         // Verificar si hay error en la respuesta de Resend
-        if ((clientEmail as any).error) {
-          console.log(
-            "⚠️ Resend error (modo prueba):",
-            (clientEmail as any).error.error
-          );
+        if ("error" in clientEmail && clientEmail.error) {
+          console.log("⚠️ Resend error (modo prueba):", clientEmail.error);
           console.log(
             "ℹ️ Solo se envió email al owner. El cliente será contactado por el owner."
           );
