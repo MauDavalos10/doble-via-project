@@ -18,6 +18,9 @@ export default async function handler(
   }
 
   try {
+    console.log("📨 Iniciando send-email-simple...");
+    console.log("📨 Request body:", JSON.stringify(req.body, null, 2));
+
     const {
       fullName,
       phone,
@@ -28,6 +31,13 @@ export default async function handler(
 
     // Validar campos requeridos
     if (!fullName || !phone || !email || !serviceType || !contactPreference) {
+      console.log("❌ Campos requeridos faltantes:", {
+        fullName: !!fullName,
+        phone: !!phone,
+        email: !!email,
+        serviceType: !!serviceType,
+        contactPreference: !!contactPreference,
+      });
       return res
         .status(400)
         .json({ message: "Todos los campos son requeridos" });
@@ -38,10 +48,13 @@ export default async function handler(
     // Owner email address - for debugging it's hardcoded, but should be from env
     const ownerEmail = process.env.OWNER_EMAIL || "andresjacomeliga@gmail.com";
 
-    console.log("Enviando emails individuales...");
-    console.log("Email del cliente:", email);
-    console.log("Email del owner:", ownerEmail);
-    console.log("¿Son diferentes los emails?", email !== ownerEmail);
+    console.log("🔧 Configuración:");
+    console.log("🔧 RESEND_API_KEY existe:", !!process.env.RESEND_API_KEY);
+    console.log("🔧 OWNER_EMAIL:", process.env.OWNER_EMAIL || "usando default");
+    console.log("📧 Enviando emails individuales...");
+    console.log("📧 Email del cliente:", email);
+    console.log("📧 Email del owner:", ownerEmail);
+    console.log("📧 ¿Son diferentes los emails?", email !== ownerEmail);
 
     let ownerEmailId = null;
     let clientEmailId = null;
@@ -159,7 +172,15 @@ export default async function handler(
       clientEmailId: clientEmailId || undefined,
     });
   } catch (error) {
-    console.error("Error sending emails:", error);
-    res.status(500).json({ message: "Error al enviar los emails" });
+    console.error("❌ Error general en send-email-simple:", error);
+    console.error(
+      "❌ Error stack:",
+      error instanceof Error ? error.stack : "No stack"
+    );
+    console.error("❌ Error details:", JSON.stringify(error, null, 2));
+    res.status(500).json({
+      message: "Error al enviar los emails",
+      error: error instanceof Error ? error.message : "Error desconocido",
+    });
   }
 }
