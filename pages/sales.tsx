@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useTranslation } from "next-i18next";
 import Head from "next/head";
 import InfoPageLayout from "../src/components/InfoPageLayout";
+import LoadingOverlay from "../src/components/LoadingOverlay";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import type { GetStaticProps } from "next";
 import { NextSeo } from "next-seo";
@@ -15,6 +16,7 @@ import {
   Select,
   MenuItem,
   Box,
+  Alert,
 } from "@mui/material";
 
 const Sales = () => {
@@ -26,6 +28,11 @@ const Sales = () => {
     serviceType: "",
     contactPreference: "",
   });
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: "success" | "error" | null;
+    message: string;
+  }>({ type: null, message: "" });
 
   const handleChange =
     (field: string) =>
@@ -40,31 +47,66 @@ const Sales = () => {
       });
     };
 
-  const handleSubmit = (event: React.FormEvent) => {
+  const handleSubmit = async (event: React.FormEvent) => {
     event.preventDefault();
+    setIsLoading(true);
+    setSubmitStatus({ type: null, message: "" });
 
-    // Create WhatsApp message
-    const message = `Hola, solicito información sobre sus servicios.
+    try {
+      const response = await fetch("/api/send-email-simple", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-Mis datos:
-• Nombre: ${formData.fullName}
-• Teléfono: ${formData.phone}
-• Email: ${formData.email}
-• Servicio de interés: ${formData.serviceType}
-• Preferencia de contacto: ${formData.contactPreference}
+      if (response.ok) {
+        const data = await response.json();
 
-Gracias.`;
+        setSubmitStatus({
+          type: "success",
+          message: data.message,
+        });
 
-    const whatsappNumber = "593987063904";
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
-      message
-    )}`;
+        console.log("✅ Resultado del envío:");
+        console.log("📨 Email al owner ID:", data.ownerEmailId);
+        console.log("📧 Email al cliente ID:", data.clientEmailId);
+        console.log("🔍 Debug info:", data.debug);
+        if (data.clientEmailError) {
+          console.error("❌ Error cliente email:", data.clientEmailError);
+        }
 
-    window.open(whatsappUrl, "_blank");
+        // Limpiar el formulario
+        setFormData({
+          fullName: "",
+          phone: "",
+          email: "",
+          serviceType: "",
+          contactPreference: "",
+        });
+      } else {
+        const errorData = await response.json();
+        setSubmitStatus({
+          type: "error",
+          message:
+            errorData.message ||
+            "Error al enviar la solicitud. Por favor intente nuevamente.",
+        });
+      }
+    } catch {
+      setSubmitStatus({
+        type: "error",
+        message: "Error de conexión. Por favor intente nuevamente.",
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   return (
     <>
+      <LoadingOverlay isVisible={isLoading} />
       <NextSeo
         title="Ventas - Contactar con Ventas"
         description="Contáctanos para solicitar información personalizada sobre nuestros servicios de transporte. Formulario de contacto directo con nuestro equipo de ventas."
@@ -92,6 +134,19 @@ Gracias.`;
             margin: "0 auto",
           }}
         >
+          {submitStatus.type && (
+            <Alert
+              severity={submitStatus.type}
+              sx={{
+                width: "100%",
+                marginBottom: "20px",
+              }}
+              onClose={() => setSubmitStatus({ type: null, message: "" })}
+            >
+              {submitStatus.message}
+            </Alert>
+          )}
+
           <Typography
             variant="body1"
             sx={{

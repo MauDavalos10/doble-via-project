@@ -13,13 +13,17 @@
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^7.1.0",
     "@mui/material": "^7.1.0",
+    "@sendgrid/mail": "^8.1.5",
+    "@types/nodemailer": "^6.4.17",
     "i18next": "^25.2.1",
     "next": "15.3.2",
     "next-i18next": "^15.4.2",
     "next-seo": "^6.8.0",
+    "nodemailer": "^7.0.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "react-i18next": "^15.5.2"
+    "react-i18next": "^15.5.2",
+    "resend": "^4.8.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",

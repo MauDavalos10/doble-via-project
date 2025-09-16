@@ -204,7 +204,7 @@ export default function Home() {
                 >
                   <Button
                     color="inherit"
-                    onClick={() => router.push("/sales")}
+                    onClick={() => window.open("/sales", "_blank")}
                     sx={{
                       fontWeight: 600,
                       letterSpacing: "0.5px",
@@ -429,7 +429,7 @@ export default function Home() {
             {/* Botón ContactSales para mobile - posicionado absolutamente */}
             <Button
               color="inherit"
-              onClick={() => router.push("/sales")}
+              onClick={() => window.open("/sales", "_blank")}
               sx={{
                 display: { xs: "block", md: "none" },
                 position: "absolute",
