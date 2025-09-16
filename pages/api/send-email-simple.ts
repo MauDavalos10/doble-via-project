@@ -49,7 +49,7 @@ export default async function handler(
     // Email al owner
     try {
       const ownerEmailResult = await resend.emails.send({
-        from: "onboarding@resend.dev",
+        from: "DobleVia <noreply@fsdalfajsdlkfsajdlkafsdjlkfsadkljfasjfadslfjaskldfkasd.lat>",
         to: [ownerEmail],
         subject: "Nueva solicitud de servicio - DobleVia",
         html: `
@@ -79,7 +79,7 @@ export default async function handler(
       console.log("🔍 Intentando enviar email al cliente:", email);
       try {
         const clientEmail = await resend.emails.send({
-          from: "DobleVia <onboarding@resend.dev>",
+          from: "DobleVia <noreply@fsdalfajsdlkfsajdlkafsdjlkfsadkljfasjfadslfjaskldfkasd.lat>",
           to: [email],
           subject: "Gracias por contactarnos - DobleVia",
           html: `

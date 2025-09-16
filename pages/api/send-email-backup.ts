@@ -63,7 +63,7 @@ export default async function handler(
       const resend = new Resend(process.env.RESEND_API_KEY);
 
       const ownerEmailResult = await resend.emails.send({
-        from: "DobleVia <onboarding@resend.dev>",
+        from: "DobleVia <noreply@fsdalfajsdlkfsajdlkafsdjlkfsadkljfasjfadslfjaskldfkasd.lat>",
         to: [ownerEmail],
         subject: "Nueva solicitud de servicio - DobleVia",
         html: `
