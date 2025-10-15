@@ -3,6 +3,7 @@ import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useRouter } from "next/router";
 import { NextSeo } from "next-seo";
+import Image from "next/image";
 import {
   AppBar,
   Toolbar,
@@ -179,18 +180,22 @@ export default function Home() {
                 </Box>
 
                 <Box sx={{ display: "flex", alignItems: "center", gap: 2 }}>
-                  <img
+                  <Image
                     src={
                       scrollPosition > 50
                         ? "/images/isotipo-texto.png"
                         : "/images/isotipo-blanco.png"
                     }
                     alt="Doble Vía"
+                    width={scrollPosition > 50 ? 90 : 60}
+                    height={scrollPosition > 50 ? 90 : 60}
                     style={{
                       height: scrollPosition > 50 ? "90px" : "60px",
                       width: "auto",
                       transition: "all 0.3s ease",
+                      cursor: "pointer",
                     }}
+                    onClick={() => router.push("/")}
                   />
                 </Box>
 
@@ -341,18 +346,22 @@ export default function Home() {
                   justifyContent: "center",
                 }}
               >
-                <img
+                <Image
                   src={
                     scrollPosition > 50
                       ? "/images/isotipo-texto.png"
                       : "/images/isotipo-blanco.png"
                   }
                   alt="Doble Vía"
+                  width={scrollPosition > 50 ? 72 : 48}
+                  height={scrollPosition > 50 ? 72 : 48}
                   style={{
                     height: scrollPosition > 50 ? "72px" : "48px",
                     width: "auto",
                     transition: "all 0.3s ease",
+                    cursor: "pointer",
                   }}
+                  onClick={() => router.push("/")}
                 />
               </Box>
 
@@ -782,12 +791,11 @@ export default function Home() {
                     justifyContent: "center",
                   }}
                 >
-                  <img
+                  <Image
                     src={item.img || "/placeholder.svg"}
                     alt={t(item.titleKey)}
+                    fill
                     style={{
-                      width: "100%",
-                      height: "100%",
                       objectFit: "cover",
                     }}
                   />
